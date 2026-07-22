@@ -35,6 +35,12 @@ REQUIRED_DIRECTORIES = [
     "styles",
 ]
 
+SOCIAL_IMAGE_HOSTS = {
+    "social-wish",
+    "campaign-wish",
+    "donation-wish",
+}
+
 
 def fail(message: str) -> None:
     print(f"validation failed: {message}", file=sys.stderr)
@@ -120,6 +126,47 @@ def validate_products(products, fallback_products, json_ld) -> None:
         actual_position = json_ld_items[index - 1].get("position")
         if actual_position != expected_position:
             fail(f"JSON-LD item position mismatch at product #{index}")
+
+        if product.get("host") in SOCIAL_IMAGE_HOSTS:
+            validate_social_image_metadata(product, index, json_ld_items[index - 1].get("item", {}))
+
+
+def validate_social_image_metadata(product, index: int, json_ld_item) -> None:
+    image = product.get("image", "")
+    image_path = ROOT / image
+
+    if not image.startswith("assets/images/social-wishes/"):
+        fail(f"social product #{index} image must live in assets/images/social-wishes")
+
+    if image.endswith(".svg"):
+        fail(f"social product #{index} still references an SVG image")
+
+    if not image.endswith(".webp"):
+        fail(f"social product #{index} image must use WebP")
+
+    if not image_path.is_file():
+        fail(f"social product #{index} image file does not exist: {image}")
+
+    image_alt = product.get("imageAlt", "")
+    if not isinstance(image_alt, str) or not (50 <= len(image_alt) <= 140):
+        fail(f"social product #{index} imageAlt must be 50-140 characters")
+
+    image_title = product.get("imageTitle", "")
+    if not isinstance(image_title, str) or not (25 <= len(image_title) <= 80):
+        fail(f"social product #{index} imageTitle must be 25-80 characters")
+
+    image_keywords = product.get("imageKeywords")
+    if not isinstance(image_keywords, list) or not (3 <= len(image_keywords) <= 8):
+        fail(f"social product #{index} imageKeywords must contain 3-8 strings")
+
+    if not all(isinstance(keyword, str) and keyword.strip() for keyword in image_keywords):
+        fail(f"social product #{index} imageKeywords must only contain non-empty strings")
+
+    if not product.get("seoIntent"):
+        fail(f"social product #{index} is missing seoIntent")
+
+    if not json_ld_item.get("keywords") or not json_ld_item.get("about"):
+        fail(f"social product #{index} JSON-LD is missing keywords/about metadata")
 
 
 def validate_content(content, fallback_content) -> None:

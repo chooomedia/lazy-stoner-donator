@@ -50,5 +50,20 @@
     "action is understandable without text",
     "friendly and empowering tone",
     "works as a normal wishlist card image"
-  ]
+  ],
+  "seo_metadata": {
+    "image_alt": "Cannachris stärkt eine lokale Cannabis-Social-Club-Kampagne für faire Genehmigungen in Bayern.",
+    "image_title": "Augsburg und CSC-Kampagne stärken",
+    "image_caption": "Die CSC-Aktion verbindet lokale Praxis mit demokratischem Druck für faire Umsetzung.",
+    "image_keywords": [
+      "Cannachris",
+      "Augsburg",
+      "Cannabis Social Club",
+      "CSC",
+      "CanG",
+      "Bayern",
+      "Genehmigung"
+    ],
+    "seo_intent": "Augsburg CSC Kampagne und Cannabis Social Club Genehmigung unterstützen"
+  }
 }

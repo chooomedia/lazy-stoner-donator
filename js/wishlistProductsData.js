@@ -96,7 +96,19 @@ window.birthdayWishlistProducts = [
         "availabilityEvidence": "Random Acts of Kindness lists practical kindness ideas such as active listening, kind notes and community cleanups.",
         "audienceLabel": "Für mehr Wärme im Alltag",
         "description": "Ein herzliches Lächeln, aktives Zuhören oder eine kleine Hilfeleistung bewusst verschenken und jemandem den Tag leichter machen.",
-        "ctaLabel": "Idee öffnen"
+        "ctaLabel": "Idee öffnen",
+        "imageAlt": "Cannachris schenkt einer fremden Person eine kleine freundliche Geste für mehr Wärme im Alltag.",
+        "imageTitle": "Gute Tat im Alltag schenken",
+        "imageCaption": "Eine kleine Handlung kann Nähe, Vertrauen und Alltagssolidarität auslösen.",
+        "imageKeywords": [
+            "Cannachris",
+            "gute Tat",
+            "Freundlichkeit",
+            "Alltagssolidarität",
+            "Community",
+            "Random Acts of Kindness"
+        ],
+        "seoIntent": "eine gute Tat am Tag als nicht-materiellen Wunsch schenken"
     },
     {
         "host": "amazon",
@@ -184,7 +196,19 @@ window.birthdayWishlistProducts = [
         "availabilityEvidence": "Cannachris provides a public ÄKN email action that lets citizens ask scientific transparency questions.",
         "audienceLabel": "Für Wissenschaft & Transparenz",
         "ctaLabel": "ÄKN fragen",
-        "description": "Eine vorausgefüllte Anfrage an die Ärztekammer Niedersachsen senden und wissenschaftliche Redlichkeit in der Cannabispolitik einfordern."
+        "description": "Eine vorausgefüllte Anfrage an die Ärztekammer Niedersachsen senden und wissenschaftliche Redlichkeit in der Cannabispolitik einfordern.",
+        "imageAlt": "Cannachris fordert mit sechs Fragen wissenschaftliche Transparenz zur ÄKN-Cannabis-Resolution ein.",
+        "imageTitle": "ÄKN-Transparenzaktion von Cannachris",
+        "imageCaption": "Die ÄKN-Kampagne fragt sachlich nach Quellen, Jugenddaten und wissenschaftlicher Redlichkeit.",
+        "imageKeywords": [
+            "Cannachris",
+            "ÄKN",
+            "Cannabispolitik",
+            "Transparenz",
+            "Wissenschaft",
+            "Petitionsrecht"
+        ],
+        "seoIntent": "ÄKN Cannabis Transparenzkampagne unterstützen"
     },
     {
         "host": "amazon",
@@ -281,7 +305,19 @@ window.birthdayWishlistProducts = [
         "availabilityEvidence": "FragDenStaat provides a public flow for starting information freedom requests.",
         "audienceLabel": "Für politische Transparenz",
         "description": "Eine konkrete Informationsfreiheitsanfrage stellen oder jemanden dabei unterstützen, Akten, Daten und Entscheidungen nachvollziehbar zu machen.",
-        "ctaLabel": "Anfrage stellen"
+        "ctaLabel": "Anfrage stellen",
+        "imageAlt": "Cannachris prüft Unterlagen und stellt eine Informationsfreiheitsanfrage für politische Transparenz.",
+        "imageTitle": "Transparenzfrage mit FragDenStaat",
+        "imageCaption": "Öffentliche Informationen werden greifbar, wenn Bürger:innen konkrete Fragen stellen.",
+        "imageKeywords": [
+            "Cannachris",
+            "FragDenStaat",
+            "Informationsfreiheit",
+            "Transparenz",
+            "Demokratie",
+            "IFG"
+        ],
+        "seoIntent": "Informationsfreiheitsanfrage stellen und Transparenz fördern"
     },
     {
         "host": "amazon",
@@ -434,7 +470,19 @@ window.birthdayWishlistProducts = [
         "availabilityEvidence": "ichbinhier offers learning resources for digital civil courage against hate online.",
         "audienceLabel": "Für bessere Kommentarspalten",
         "description": "Nicht wegscrollen, sondern freundlich, sachlich und solidarisch reagieren, wenn Menschen online abgewertet oder angegriffen werden.",
-        "ctaLabel": "Courage lernen"
+        "ctaLabel": "Courage lernen",
+        "imageAlt": "Cannachris schützt eine Kommentarspalte mit digitaler Zivilcourage gegen Hass im Netz.",
+        "imageTitle": "Digitale Zivilcourage gegen Hass",
+        "imageCaption": "Respektvolle Gegenrede macht Kommentarspalten sicherer und stärkt Betroffene.",
+        "imageKeywords": [
+            "Cannachris",
+            "digitale Zivilcourage",
+            "Hass im Netz",
+            "ichbinhier",
+            "Gegenrede",
+            "Demokratie"
+        ],
+        "seoIntent": "digitale Zivilcourage lernen und Hass im Netz begegnen"
     },
     {
         "host": "amazon",
@@ -587,7 +635,19 @@ window.birthdayWishlistProducts = [
         "availabilityEvidence": "foodsharing describes itself as a free, community-based movement against food waste.",
         "audienceLabel": "Für weniger Verschwendung",
         "description": "Überschüssige Lebensmittel weitergeben, Fairteiler nutzen oder lokal mithelfen, damit gute Dinge nicht in der Tonne landen.",
-        "ctaLabel": "Rette mit"
+        "ctaLabel": "Rette mit",
+        "imageAlt": "Cannachris teilt gerettete Lebensmittel aus einer Papiertüte mit der lokalen Community.",
+        "imageTitle": "Lebensmittel retten mit foodsharing",
+        "imageCaption": "Ressourcen schonen beginnt lokal: Essen teilen statt wegwerfen.",
+        "imageKeywords": [
+            "Cannachris",
+            "foodsharing",
+            "Lebensmittelrettung",
+            "Nachhaltigkeit",
+            "Community",
+            "Ressourcenschutz"
+        ],
+        "seoIntent": "Lebensmittel retten und mit foodsharing teilen"
     },
     {
         "host": "amazon",
@@ -691,7 +751,20 @@ window.birthdayWishlistProducts = [
         "availabilityEvidence": "Cannachris documents an email action for faster Cannabis Social Club approval and implementation.",
         "audienceLabel": "Für Clubs & lokale Praxis",
         "ctaLabel": "Aktion öffnen",
-        "description": "Die CSC-Genehmigungsaktion teilen oder nutzen, damit lokale Anbauvereinigungen nicht unnötig ausgebremst werden."
+        "description": "Die CSC-Genehmigungsaktion teilen oder nutzen, damit lokale Anbauvereinigungen nicht unnötig ausgebremst werden.",
+        "imageAlt": "Cannachris stärkt eine lokale Cannabis-Social-Club-Kampagne für faire Genehmigungen in Bayern.",
+        "imageTitle": "Augsburg und CSC-Kampagne stärken",
+        "imageCaption": "Die CSC-Aktion verbindet lokale Praxis mit demokratischem Druck für faire Umsetzung.",
+        "imageKeywords": [
+            "Cannachris",
+            "Augsburg",
+            "Cannabis Social Club",
+            "CSC",
+            "CanG",
+            "Bayern",
+            "Genehmigung"
+        ],
+        "seoIntent": "Augsburg CSC Kampagne und Cannabis Social Club Genehmigung unterstützen"
     },
     {
         "host": "amazon",
@@ -772,7 +845,19 @@ window.birthdayWishlistProducts = [
         "availabilityEvidence": "DKMS explains online registration, cheek swab kit and donor file inclusion for Germany.",
         "audienceLabel": "Für eine zweite Lebenschance",
         "description": "Ein Registrierungsset bestellen, Wangenabstrich machen und vielleicht eines Tages einem Menschen mit Blutkrebs helfen.",
-        "ctaLabel": "Kit bestellen"
+        "ctaLabel": "Kit bestellen",
+        "imageAlt": "Cannachris hält ein DKMS-Registrierungsset als Einladung zur möglichen Stammzellspende.",
+        "imageTitle": "DKMS-Registrierung als Hilfe",
+        "imageCaption": "Ein Wangenabstrich kann später zur zweiten Lebenschance für Blutkrebspatient:innen werden.",
+        "imageKeywords": [
+            "Cannachris",
+            "DKMS",
+            "Stammzellspende",
+            "Registrierung",
+            "Blutkrebs",
+            "Hilfe"
+        ],
+        "seoIntent": "DKMS Stammzellspender werden und Registrierungskit bestellen"
     },
     {
         "host": "amazon",
@@ -928,7 +1013,19 @@ window.birthdayWishlistProducts = [
         "availabilityEvidence": "DRK provides a blood donation appointment search for local donation dates.",
         "audienceLabel": "Für konkrete medizinische Hilfe",
         "description": "Einen Termin in der Nähe suchen, Eignung prüfen und mit einer Blutspende die Versorgung von Patient:innen unterstützen.",
-        "ctaLabel": "Termin finden"
+        "ctaLabel": "Termin finden",
+        "imageAlt": "Cannachris zeigt ein rotes Herzsymbol für Blutspende und konkrete medizinische Hilfe.",
+        "imageTitle": "DRK-Blutspendetermin in der Nähe finden",
+        "imageCaption": "Blutspenden sind eine direkte Form von Hilfe für Patient:innen in der Nähe.",
+        "imageKeywords": [
+            "Cannachris",
+            "Blutspende",
+            "DRK",
+            "Blutspendetermin",
+            "medizinische Hilfe",
+            "Solidarität"
+        ],
+        "seoIntent": "DRK Blutspendetermin finden und Blut spenden"
     },
     {
         "host": "amazon",
@@ -1084,7 +1181,19 @@ window.birthdayWishlistProducts = [
         "availabilityEvidence": "DSEE is a federal contact point for strengthening volunteering and civic engagement.",
         "audienceLabel": "Für lokalen Zusammenhalt",
         "description": "Eine Aufgabe finden, die zur eigenen Zeit und Energie passt, und Engagement als realistische, kleine Gewohnheit starten.",
-        "ctaLabel": "Ehrenamt finden"
+        "ctaLabel": "Ehrenamt finden",
+        "imageAlt": "Cannachris trägt Werkzeug und Pflanze als Symbol für ehrenamtliches Engagement vor Ort.",
+        "imageTitle": "Ehrenamt vor Ort entdecken",
+        "imageCaption": "Ehrenamt funktioniert am besten, wenn Aufgabe, Zeit und Energie realistisch zusammenpassen.",
+        "imageKeywords": [
+            "Cannachris",
+            "Ehrenamt",
+            "DSEE",
+            "Engagement",
+            "Zivilgesellschaft",
+            "lokaler Zusammenhalt"
+        ],
+        "seoIntent": "Ehrenamt entdecken und lokales Engagement starten"
     },
     {
         "host": "amazon",
@@ -1251,7 +1360,19 @@ window.birthdayWishlistProducts = [
         "availabilityEvidence": "Demokratie leben! funds civic engagement for democracy, diversity and prevention of extremism.",
         "audienceLabel": "Für Vielfalt & gegen Polarisierung",
         "description": "Ein Projekt, eine lokale Initiative oder Bildungsarbeit unterstützen, die demokratisches Miteinander praktisch erfahrbar macht.",
-        "ctaLabel": "Projekt finden"
+        "ctaLabel": "Projekt finden",
+        "imageAlt": "Cannachris gießt einen kleinen Demokratiebaum als Zeichen für Vielfalt und Zusammenhalt.",
+        "imageTitle": "Demokratie vor Ort stärken",
+        "imageCaption": "Demokratie wächst durch konkrete Projekte, Beteiligung und respektvolle Begegnung.",
+        "imageKeywords": [
+            "Cannachris",
+            "Demokratie leben",
+            "Demokratie",
+            "Vielfalt",
+            "Zivilgesellschaft",
+            "Zusammenhalt"
+        ],
+        "seoIntent": "Demokratie vor Ort stärken und Projekte unterstützen"
     },
     {
         "host": "amazon",
@@ -1400,7 +1521,19 @@ window.birthdayWishlistProducts = [
         "availabilityEvidence": "nebenan.de connects local neighbors for help, sharing, groups and activities.",
         "audienceLabel": "Für Nähe im eigenen Viertel",
         "description": "Etwas verleihen, kurz einkaufen, zuhören oder eine kleine praktische Hilfe in der direkten Umgebung anbieten.",
-        "ctaLabel": "Hilfe anbieten"
+        "ctaLabel": "Hilfe anbieten",
+        "imageAlt": "Cannachris reicht über einen Zaun ein Werkzeug weiter und bietet praktische Nachbarschaftshilfe an.",
+        "imageTitle": "Nachbarschaftshilfe anbieten",
+        "imageCaption": "Nachbarschaft wird stärker, wenn Menschen Dinge teilen, zuhören und kleine Hilfen anbieten.",
+        "imageKeywords": [
+            "Cannachris",
+            "Nachbarschaftshilfe",
+            "nebenan.de",
+            "lokale Community",
+            "Einsamkeit",
+            "Miteinander"
+        ],
+        "seoIntent": "Nachbarschaftshilfe anbieten und lokale Gemeinschaft stärken"
     },
     {
         "host": "amazon",
@@ -1466,7 +1599,19 @@ window.birthdayWishlistProducts = [
         "availabilityEvidence": "The official DHV donation page explains one-time support and payment options.",
         "audienceLabel": "Für starke Cannabis-Lobbyarbeit",
         "ctaLabel": "DHV spenden",
-        "description": "Den Deutschen Hanfverband direkt unterstützen, damit Aufklärung, Lobbyarbeit und rechtspolitische Arbeit weiterlaufen."
+        "description": "Den Deutschen Hanfverband direkt unterstützen, damit Aufklärung, Lobbyarbeit und rechtspolitische Arbeit weiterlaufen.",
+        "imageAlt": "Cannachris legt eine grüne Münze in ein Glas zur Unterstützung der DHV-Cannabisarbeit.",
+        "imageTitle": "DHV-Spende für Cannabisaufklärung",
+        "imageCaption": "Direkter Support hilft dem DHV bei Aufklärung, Lobbyarbeit und rechtspolitischer Arbeit.",
+        "imageKeywords": [
+            "Cannachris",
+            "DHV",
+            "Deutscher Hanfverband",
+            "Spende",
+            "Cannabisaufklärung",
+            "Lobbyarbeit"
+        ],
+        "seoIntent": "Deutscher Hanfverband Spende und Cannabisaufklärung unterstützen"
     },
     {
         "host": "amazon",
@@ -1579,7 +1724,19 @@ window.birthdayWishlistProducts = [
         "availabilityEvidence": "The German Hemp Association provides topic pages on cannabis policy, law, medicine, use and social clubs.",
         "audienceLabel": "Für Aufklärung statt Stigma",
         "description": "Ein Gespräch führen, einen Fakt prüfen oder eine sachliche Quelle teilen, damit Cannabispolitik weniger von Vorurteilen lebt.",
-        "ctaLabel": "Fakten lesen"
+        "ctaLabel": "Fakten lesen",
+        "imageAlt": "Cannachris zeigt eine Faktenkarte mit Hanfblatt für sachliche Cannabisaufklärung ohne Stigma.",
+        "imageTitle": "Sachliche Cannabisaufklärung teilen",
+        "imageCaption": "Faktenbasierte Gespräche ersetzen Vorurteile durch nachvollziehbare Informationen.",
+        "imageKeywords": [
+            "Cannachris",
+            "Cannabisaufklärung",
+            "Deutscher Hanfverband",
+            "Cannabispolitik",
+            "Fakten",
+            "Entstigmatisierung"
+        ],
+        "seoIntent": "sachlich über Cannabis sprechen und Fakten teilen"
     },
     {
         "host": "amazon",

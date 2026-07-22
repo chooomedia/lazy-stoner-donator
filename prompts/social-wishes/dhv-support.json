@@ -50,5 +50,19 @@
     "action is understandable without text",
     "friendly and empowering tone",
     "works as a normal wishlist card image"
-  ]
+  ],
+  "seo_metadata": {
+    "image_alt": "Cannachris legt eine grüne Münze in ein Glas zur Unterstützung der DHV-Cannabisarbeit.",
+    "image_title": "DHV-Spende für Cannabisaufklärung",
+    "image_caption": "Direkter Support hilft dem DHV bei Aufklärung, Lobbyarbeit und rechtspolitischer Arbeit.",
+    "image_keywords": [
+      "Cannachris",
+      "DHV",
+      "Deutscher Hanfverband",
+      "Spende",
+      "Cannabisaufklärung",
+      "Lobbyarbeit"
+    ],
+    "seo_intent": "Deutscher Hanfverband Spende und Cannabisaufklärung unterstützen"
+  }
 }

@@ -51,5 +51,19 @@
     "social action is understandable without text",
     "friendly and empowering tone",
     "works as a normal wishlist card image"
-  ]
+  ],
+  "seo_metadata": {
+    "image_alt": "Cannachris gießt einen kleinen Demokratiebaum als Zeichen für Vielfalt und Zusammenhalt.",
+    "image_title": "Demokratie vor Ort stärken",
+    "image_caption": "Demokratie wächst durch konkrete Projekte, Beteiligung und respektvolle Begegnung.",
+    "image_keywords": [
+      "Cannachris",
+      "Demokratie leben",
+      "Demokratie",
+      "Vielfalt",
+      "Zivilgesellschaft",
+      "Zusammenhalt"
+    ],
+    "seo_intent": "Demokratie vor Ort stärken und Projekte unterstützen"
+  }
 }

@@ -50,5 +50,19 @@
     "action is understandable without text",
     "friendly and empowering tone",
     "works as a normal wishlist card image"
-  ]
+  ],
+  "seo_metadata": {
+    "image_alt": "Cannachris fordert mit sechs Fragen wissenschaftliche Transparenz zur ÄKN-Cannabis-Resolution ein.",
+    "image_title": "ÄKN-Transparenzaktion von Cannachris",
+    "image_caption": "Die ÄKN-Kampagne fragt sachlich nach Quellen, Jugenddaten und wissenschaftlicher Redlichkeit.",
+    "image_keywords": [
+      "Cannachris",
+      "ÄKN",
+      "Cannabispolitik",
+      "Transparenz",
+      "Wissenschaft",
+      "Petitionsrecht"
+    ],
+    "seo_intent": "ÄKN Cannabis Transparenzkampagne unterstützen"
+  }
 }

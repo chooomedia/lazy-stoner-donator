@@ -11,6 +11,8 @@ class AdCard extends Card {
         this.statusMeta = cardOptions.statusMeta || 'Danke fürs Möglichmachen';
         this.image = cardOptions.image;
         this.imageFallback = cardOptions.imageFallback;
+        this.imageAlt = cardOptions.imageAlt;
+        this.imageTitle = cardOptions.imageTitle;
         this.price = cardOptions.price;
         this.byline = cardOptions.byline;
         this.audienceLabel = cardOptions.audienceLabel;
@@ -201,11 +203,14 @@ class AdCard extends Card {
         mediaLink.href = this.productUrl;
         mediaLink.target = '_blank';
         mediaLink.rel = 'noopener sponsored';
-        mediaLink.setAttribute('aria-label', this.title + ' ansehen');
+        mediaLink.setAttribute('aria-label', (this.ctaLabel ? this.ctaLabel + ': ' : '') + this.title);
 
         const image = document.createElement('img');
         image.src = this.image || './assets/images/gridAdCardLoader.gif';
-        image.alt = this.title;
+        image.alt = this.imageAlt || this.title;
+        if (this.imageTitle) {
+            image.title = this.imageTitle;
+        }
         image.loading = 'lazy';
         image.decoding = 'async';
         image.onerror = () => {

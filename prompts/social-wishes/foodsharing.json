@@ -51,5 +51,19 @@
     "social action is understandable without text",
     "friendly and empowering tone",
     "works as a normal wishlist card image"
-  ]
+  ],
+  "seo_metadata": {
+    "image_alt": "Cannachris teilt gerettete Lebensmittel aus einer Papiertüte mit der lokalen Community.",
+    "image_title": "Lebensmittel retten mit foodsharing",
+    "image_caption": "Ressourcen schonen beginnt lokal: Essen teilen statt wegwerfen.",
+    "image_keywords": [
+      "Cannachris",
+      "foodsharing",
+      "Lebensmittelrettung",
+      "Nachhaltigkeit",
+      "Community",
+      "Ressourcenschutz"
+    ],
+    "seo_intent": "Lebensmittel retten und mit foodsharing teilen"
+  }
 }

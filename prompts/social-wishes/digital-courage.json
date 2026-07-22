@@ -51,5 +51,19 @@
     "social action is understandable without text",
     "friendly and empowering tone",
     "works as a normal wishlist card image"
-  ]
+  ],
+  "seo_metadata": {
+    "image_alt": "Cannachris schützt eine Kommentarspalte mit digitaler Zivilcourage gegen Hass im Netz.",
+    "image_title": "Digitale Zivilcourage gegen Hass",
+    "image_caption": "Respektvolle Gegenrede macht Kommentarspalten sicherer und stärkt Betroffene.",
+    "image_keywords": [
+      "Cannachris",
+      "digitale Zivilcourage",
+      "Hass im Netz",
+      "ichbinhier",
+      "Gegenrede",
+      "Demokratie"
+    ],
+    "seo_intent": "digitale Zivilcourage lernen und Hass im Netz begegnen"
+  }
 }

@@ -51,5 +51,19 @@
     "social action is understandable without text",
     "friendly and empowering tone",
     "works as a normal wishlist card image"
-  ]
+  ],
+  "seo_metadata": {
+    "image_alt": "Cannachris zeigt ein rotes Herzsymbol für Blutspende und konkrete medizinische Hilfe.",
+    "image_title": "DRK-Blutspendetermin in der Nähe finden",
+    "image_caption": "Blutspenden sind eine direkte Form von Hilfe für Patient:innen in der Nähe.",
+    "image_keywords": [
+      "Cannachris",
+      "Blutspende",
+      "DRK",
+      "Blutspendetermin",
+      "medizinische Hilfe",
+      "Solidarität"
+    ],
+    "seo_intent": "DRK Blutspendetermin finden und Blut spenden"
+  }
 }

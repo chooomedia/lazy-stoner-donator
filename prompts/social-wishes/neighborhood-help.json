@@ -51,5 +51,19 @@
     "social action is understandable without text",
     "friendly and empowering tone",
     "works as a normal wishlist card image"
-  ]
+  ],
+  "seo_metadata": {
+    "image_alt": "Cannachris reicht über einen Zaun ein Werkzeug weiter und bietet praktische Nachbarschaftshilfe an.",
+    "image_title": "Nachbarschaftshilfe anbieten",
+    "image_caption": "Nachbarschaft wird stärker, wenn Menschen Dinge teilen, zuhören und kleine Hilfen anbieten.",
+    "image_keywords": [
+      "Cannachris",
+      "Nachbarschaftshilfe",
+      "nebenan.de",
+      "lokale Community",
+      "Einsamkeit",
+      "Miteinander"
+    ],
+    "seo_intent": "Nachbarschaftshilfe anbieten und lokale Gemeinschaft stärken"
+  }
 }

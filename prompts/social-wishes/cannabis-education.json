@@ -51,5 +51,19 @@
     "social action is understandable without text",
     "friendly and empowering tone",
     "works as a normal wishlist card image"
-  ]
+  ],
+  "seo_metadata": {
+    "image_alt": "Cannachris zeigt eine Faktenkarte mit Hanfblatt für sachliche Cannabisaufklärung ohne Stigma.",
+    "image_title": "Sachliche Cannabisaufklärung teilen",
+    "image_caption": "Faktenbasierte Gespräche ersetzen Vorurteile durch nachvollziehbare Informationen.",
+    "image_keywords": [
+      "Cannachris",
+      "Cannabisaufklärung",
+      "Deutscher Hanfverband",
+      "Cannabispolitik",
+      "Fakten",
+      "Entstigmatisierung"
+    ],
+    "seo_intent": "sachlich über Cannabis sprechen und Fakten teilen"
+  }
 }

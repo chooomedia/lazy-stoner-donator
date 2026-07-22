@@ -51,5 +51,19 @@
     "social action is understandable without text",
     "friendly and empowering tone",
     "works as a normal wishlist card image"
-  ]
+  ],
+  "seo_metadata": {
+    "image_alt": "Cannachris trägt Werkzeug und Pflanze als Symbol für ehrenamtliches Engagement vor Ort.",
+    "image_title": "Ehrenamt vor Ort entdecken",
+    "image_caption": "Ehrenamt funktioniert am besten, wenn Aufgabe, Zeit und Energie realistisch zusammenpassen.",
+    "image_keywords": [
+      "Cannachris",
+      "Ehrenamt",
+      "DSEE",
+      "Engagement",
+      "Zivilgesellschaft",
+      "lokaler Zusammenhalt"
+    ],
+    "seo_intent": "Ehrenamt entdecken und lokales Engagement starten"
+  }
 }

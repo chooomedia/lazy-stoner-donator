@@ -51,5 +51,19 @@
     "social action is understandable without text",
     "friendly and empowering tone",
     "works as a normal wishlist card image"
-  ]
+  ],
+  "seo_metadata": {
+    "image_alt": "Cannachris prüft Unterlagen und stellt eine Informationsfreiheitsanfrage für politische Transparenz.",
+    "image_title": "Transparenzfrage mit FragDenStaat",
+    "image_caption": "Öffentliche Informationen werden greifbar, wenn Bürger:innen konkrete Fragen stellen.",
+    "image_keywords": [
+      "Cannachris",
+      "FragDenStaat",
+      "Informationsfreiheit",
+      "Transparenz",
+      "Demokratie",
+      "IFG"
+    ],
+    "seo_intent": "Informationsfreiheitsanfrage stellen und Transparenz fördern"
+  }
 }
