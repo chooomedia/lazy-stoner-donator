@@ -5,9 +5,236 @@
 @font-face {
     font-family: 'Comfortaa';
     font-style: normal;
-    font-weight: 300 800;
+    font-weight: 300;
     font-display: swap;
-    src: url('https://cannachris.de/wp-content/uploads/et-fonts/Comfortaa-VariableFont_wght.ttf') format('truetype');
+    src: url('../assets/fonts/comfortaa/comfortaa-latin-300.woff2') format('woff2');
+    unicode-range:
+        U+0000-00FF,
+        U+0131,
+        U+0152-0153,
+        U+02BB-02BC,
+        U+02C6,
+        U+02DA,
+        U+02DC,
+        U+0304,
+        U+0308,
+        U+0329,
+        U+2000-206F,
+        U+2074,
+        U+20AC,
+        U+2122,
+        U+2191,
+        U+2193,
+        U+2212,
+        U+2215,
+        U+FEFF,
+        U+FFFD;
+}
+
+@font-face {
+    font-family: 'Comfortaa';
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: url('../assets/fonts/comfortaa/comfortaa-latin-ext-300.woff2') format('woff2');
+    unicode-range:
+        U+0100-024F,
+        U+0259,
+        U+1E00-1EFF,
+        U+2020,
+        U+20A0-20AB,
+        U+20AD-20CF,
+        U+2113,
+        U+2C60-2C7F,
+        U+A720-A7FF;
+}
+
+@font-face {
+    font-family: 'Comfortaa';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('../assets/fonts/comfortaa/comfortaa-latin-400.woff2') format('woff2');
+    unicode-range:
+        U+0000-00FF,
+        U+0131,
+        U+0152-0153,
+        U+02BB-02BC,
+        U+02C6,
+        U+02DA,
+        U+02DC,
+        U+0304,
+        U+0308,
+        U+0329,
+        U+2000-206F,
+        U+2074,
+        U+20AC,
+        U+2122,
+        U+2191,
+        U+2193,
+        U+2212,
+        U+2215,
+        U+FEFF,
+        U+FFFD;
+}
+
+@font-face {
+    font-family: 'Comfortaa';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('../assets/fonts/comfortaa/comfortaa-latin-ext-400.woff2') format('woff2');
+    unicode-range:
+        U+0100-024F,
+        U+0259,
+        U+1E00-1EFF,
+        U+2020,
+        U+20A0-20AB,
+        U+20AD-20CF,
+        U+2113,
+        U+2C60-2C7F,
+        U+A720-A7FF;
+}
+
+@font-face {
+    font-family: 'Comfortaa';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url('../assets/fonts/comfortaa/comfortaa-latin-500.woff2') format('woff2');
+    unicode-range:
+        U+0000-00FF,
+        U+0131,
+        U+0152-0153,
+        U+02BB-02BC,
+        U+02C6,
+        U+02DA,
+        U+02DC,
+        U+0304,
+        U+0308,
+        U+0329,
+        U+2000-206F,
+        U+2074,
+        U+20AC,
+        U+2122,
+        U+2191,
+        U+2193,
+        U+2212,
+        U+2215,
+        U+FEFF,
+        U+FFFD;
+}
+
+@font-face {
+    font-family: 'Comfortaa';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url('../assets/fonts/comfortaa/comfortaa-latin-ext-500.woff2') format('woff2');
+    unicode-range:
+        U+0100-024F,
+        U+0259,
+        U+1E00-1EFF,
+        U+2020,
+        U+20A0-20AB,
+        U+20AD-20CF,
+        U+2113,
+        U+2C60-2C7F,
+        U+A720-A7FF;
+}
+
+@font-face {
+    font-family: 'Comfortaa';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url('../assets/fonts/comfortaa/comfortaa-latin-600.woff2') format('woff2');
+    unicode-range:
+        U+0000-00FF,
+        U+0131,
+        U+0152-0153,
+        U+02BB-02BC,
+        U+02C6,
+        U+02DA,
+        U+02DC,
+        U+0304,
+        U+0308,
+        U+0329,
+        U+2000-206F,
+        U+2074,
+        U+20AC,
+        U+2122,
+        U+2191,
+        U+2193,
+        U+2212,
+        U+2215,
+        U+FEFF,
+        U+FFFD;
+}
+
+@font-face {
+    font-family: 'Comfortaa';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url('../assets/fonts/comfortaa/comfortaa-latin-ext-600.woff2') format('woff2');
+    unicode-range:
+        U+0100-024F,
+        U+0259,
+        U+1E00-1EFF,
+        U+2020,
+        U+20A0-20AB,
+        U+20AD-20CF,
+        U+2113,
+        U+2C60-2C7F,
+        U+A720-A7FF;
+}
+
+@font-face {
+    font-family: 'Comfortaa';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('../assets/fonts/comfortaa/comfortaa-latin-700.woff2') format('woff2');
+    unicode-range:
+        U+0000-00FF,
+        U+0131,
+        U+0152-0153,
+        U+02BB-02BC,
+        U+02C6,
+        U+02DA,
+        U+02DC,
+        U+0304,
+        U+0308,
+        U+0329,
+        U+2000-206F,
+        U+2074,
+        U+20AC,
+        U+2122,
+        U+2191,
+        U+2193,
+        U+2212,
+        U+2215,
+        U+FEFF,
+        U+FFFD;
+}
+
+@font-face {
+    font-family: 'Comfortaa';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('../assets/fonts/comfortaa/comfortaa-latin-ext-700.woff2') format('woff2');
+    unicode-range:
+        U+0100-024F,
+        U+0259,
+        U+1E00-1EFF,
+        U+2020,
+        U+20A0-20AB,
+        U+20AD-20CF,
+        U+2113,
+        U+2C60-2C7F,
+        U+A720-A7FF;
 }
 
 :root {
@@ -155,6 +382,56 @@ a.button:hover {
     color: #fff;
     background: var(--color-primary);
     box-shadow: 0 12px 30px var(--color-shadow);
+}
+
+.nav-actions {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.language-switcher {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.2rem;
+    border: 1px solid rgba(19, 137, 14, 0.28);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.72);
+}
+
+.language-current,
+.language-alternate {
+    min-height: 34px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 34px;
+    padding: 0.35rem 0.7rem;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    line-height: 1;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.language-current {
+    color: #fff;
+    background: var(--color-primary);
+}
+
+.language-alternate {
+    color: var(--color-primary);
+}
+
+.language-alternate:hover,
+.language-alternate:focus-visible {
+    background: rgba(19, 137, 14, 0.12);
+    outline: none;
 }
 
 .nav-cta {
@@ -472,6 +749,17 @@ h2 {
 
     .nav-cta {
         padding-inline: 0.85rem;
+    }
+
+    .nav-actions {
+        gap: 0.45rem;
+    }
+
+    .language-current,
+    .language-alternate {
+        min-height: 32px;
+        padding: 0.3rem 0.55rem;
+        font-size: 0.72rem;
     }
 
     .hero-actions,
@@ -1275,8 +1563,16 @@ a.button,
     justify-self: start;
 }
 
-.footer-social {
+.footer-social-rail {
     justify-self: center;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.9rem;
+}
+
+.footer-social {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -1336,6 +1632,38 @@ a.button,
     white-space: nowrap;
 }
 
+.language-switcher-footer {
+    position: relative;
+    gap: 0.18rem;
+    padding: 0.14rem;
+    border-color: rgba(19, 137, 14, 0.18);
+    background: rgba(19, 137, 14, 0.06);
+    box-shadow: inset 0 0 0 1px rgba(19, 137, 14, 0.03);
+}
+
+.language-switcher-footer::before {
+    content: "";
+    position: absolute;
+    left: -0.55rem;
+    top: 50%;
+    width: 1px;
+    height: 24px;
+    background: rgba(19, 137, 14, 0.18);
+    transform: translateY(-50%);
+}
+
+.language-switcher-footer .language-current,
+.language-switcher-footer .language-alternate {
+    min-width: 38px;
+    min-height: 38px;
+    padding: 0.35rem 0.45rem;
+    font-size: 0.72rem;
+}
+
+.language-switcher-footer .language-current {
+    box-shadow: 0 8px 18px rgba(19, 137, 14, 0.16);
+}
+
 .footer-credit {
     justify-self: end;
 }
@@ -1348,6 +1676,7 @@ a.button,
     }
 
     .footer-links,
+    .footer-social-rail,
     .footer-social,
     .footer-credit {
         justify-self: center;
@@ -1356,6 +1685,10 @@ a.button,
     .footer-credit {
         margin-left: 0;
         text-align: center;
+    }
+
+    .language-switcher-footer::before {
+        display: none;
     }
 }
 

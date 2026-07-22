@@ -36,19 +36,25 @@ jobs:
           SOCIAL_IMAGE_HOSTS = {"social-wish", "campaign-wish", "donation-wish"}
           REQUIRED_FILES = [
               "index.html",
+              "en/index.html",
               "robots.txt",
               "llms.txt",
               "sitemap.xml",
               "wishlist-products.json",
+              "wishlist-products.en.json",
               "wishlist-content.json",
+              "wishlist-content.en.json",
               "styles/main.css",
               "js/adCard.js",
               "js/card.js",
               "js/cardStack.js",
               "js/http.js",
               "js/widget.js",
+              "js/wishlistUi.js",
               "js/wishlistProductsData.js",
+              "js/wishlistProductsData.en.js",
               "js/wishlistContentData.js",
+              "js/wishlistContentData.en.js",
               "favicon.ico",
               "favicon.svg",
               "favicon.png",
@@ -60,6 +66,14 @@ jobs:
               "icon-512.png",
               "icon-maskable-512.png",
               "site.webmanifest",
+              "site.en.webmanifest",
+              "assets/fonts/comfortaa/comfortaa-latin-ext-300.woff2",
+              "assets/fonts/comfortaa/comfortaa-latin-ext-400.woff2",
+              "assets/fonts/comfortaa/comfortaa-latin-ext-500.woff2",
+              "assets/fonts/comfortaa/comfortaa-latin-ext-600.woff2",
+              "assets/fonts/comfortaa/comfortaa-latin-ext-700.woff2",
+              "assets/vendor/fontawesome/webfonts/fa-solid-900.woff2",
+              "assets/vendor/fontawesome/webfonts/fa-brands-400.woff2",
               "assets/social/lazy-stoner-donator-og.png",
           ]
           REQUIRED_DIRECTORIES = ["assets", "js", "styles"]
@@ -93,31 +107,76 @@ jobs:
                   fail(f"missing required directory: {relative_path}")
 
           index_html = (ROOT / "index.html").read_text(encoding="utf-8")
+          en_html = (ROOT / "en/index.html").read_text(encoding="utf-8")
           expected_meta = [
               'property="og:image" content="https://lsd.cannachris.de/assets/social/lazy-stoner-donator-og.png"',
               'property="og:image:width" content="1200"',
               'property="og:image:height" content="630"',
               'name="twitter:card" content="summary_large_image"',
-              'rel="icon" href="/favicon.ico" sizes="any"',
-              'rel="icon" href="/favicon.svg" type="image/svg+xml"',
-              'rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"',
-              'rel="manifest" href="/site.webmanifest"',
+              'favicon.ico" sizes="any"',
+              'favicon.svg" type="image/svg+xml"',
+              'apple-touch-icon.png"',
+              '.webmanifest',
+              'hreflang="de"',
+              'hreflang="en"',
+              'hreflang="x-default"',
+              'class="language-switcher"',
+              'wishlistUi.js"',
           ]
           for snippet in expected_meta:
               if snippet not in index_html:
                   fail(f"index.html is missing meta/link snippet: {snippet}")
+              if snippet not in en_html:
+                  fail(f"en/index.html is missing meta/link snippet: {snippet}")
+
+          if 'lang="en"' not in en_html:
+              fail("en/index.html must use lang=en")
+          if 'rel="canonical" href="https://lsd.cannachris.de/en/"' not in en_html:
+              fail("en/index.html must canonicalize to /en/")
+          if 'rel="canonical" href="https://lsd.cannachris.de/"' not in index_html:
+              fail("index.html must canonicalize to /")
 
           products = read_json("wishlist-products.json")
+          products_en = read_json("wishlist-products.en.json")
           content = read_json("wishlist-content.json")
+          content_en = read_json("wishlist-content.en.json")
           fallback_products = read_fallback_assignment("js/wishlistProductsData.js", "birthdayWishlistProducts")
+          fallback_products_en = read_fallback_assignment("js/wishlistProductsData.en.js", "birthdayWishlistProductsEn")
           fallback_content = read_fallback_assignment("js/wishlistContentData.js", "birthdayWishlistContent")
+          fallback_content_en = read_fallback_assignment("js/wishlistContentData.en.js", "birthdayWishlistContentEn")
           json_ld = read_json_ld(index_html)
 
           if products != fallback_products:
               fail("product JSON and fallback product JS differ")
 
+          if products_en != fallback_products_en:
+              fail("English product JSON and fallback product JS differ")
+
           if content != fallback_content:
               fail("content JSON and fallback content JS differ")
+
+          if content_en != fallback_content_en:
+              fail("English content JSON and fallback content JS differ")
+
+          for required_key in ("seo", "i18n", "a11y", "hero", "wishlist", "card", "footer"):
+              if required_key not in content:
+                  fail(f"wishlist-content.json missing key: {required_key}")
+              if required_key not in content_en:
+                  fail(f"wishlist-content.en.json missing key: {required_key}")
+
+          if content.get("locale") != "de" or content_en.get("locale") != "en":
+              fail("locale fields must be de/en")
+
+          sitemap = (ROOT / "sitemap.xml").read_text(encoding="utf-8")
+          for snippet in (
+              "https://lsd.cannachris.de/en/",
+              'hreflang="de"',
+              'hreflang="en"',
+              'hreflang="x-default"',
+              "wishlist-content.en.json",
+          ):
+              if snippet not in sitemap:
+                  fail(f"sitemap.xml missing: {snippet}")
 
           json_ld_items = json_ld.get("mainEntity", {}).get("itemListElement", [])
           if json_ld.get("mainEntity", {}).get("numberOfItems") != len(products):
@@ -186,11 +245,14 @@ jobs:
           artifact_dir = root / "deploy-artifact"
           static_files = [
               "index.html",
+              "en/index.html",
               "robots.txt",
               "llms.txt",
               "sitemap.xml",
               "wishlist-products.json",
+              "wishlist-products.en.json",
               "wishlist-content.json",
+              "wishlist-content.en.json",
               "favicon.png",
               "favicon.ico",
               "favicon.svg",
@@ -202,6 +264,7 @@ jobs:
               "icon-512.png",
               "icon-maskable-512.png",
               "site.webmanifest",
+              "site.en.webmanifest",
           ]
           static_directories = ["assets", "js", "styles"]
           forbidden_parts = {"prompts", "scripts", "data", "db"}
@@ -279,3 +342,7 @@ jobs:
         run: |
           curl --fail --silent --show-error --location --max-time 20 https://lsd.cannachris.de/ > /tmp/lsd.html
           grep -q "Lazy Stoner Donator" /tmp/lsd.html
+          grep -q 'hreflang="en"' /tmp/lsd.html
+          curl --fail --silent --show-error --location --max-time 20 https://lsd.cannachris.de/en/ > /tmp/lsd-en.html
+          grep -q "Cannachris Wishlist" /tmp/lsd-en.html
+          grep -q 'hreflang="de"' /tmp/lsd-en.html

@@ -7,8 +7,6 @@ class AdCard extends Card {
         this.adId = cardOptions.adId;
         this.title = cardOptions.title || 'Amazon Wunsch';
         this.status = cardOptions.status;
-        this.statusLabel = cardOptions.statusLabel || 'Schon geschenkt';
-        this.statusMeta = cardOptions.statusMeta || 'Danke fürs Möglichmachen';
         this.image = cardOptions.image;
         this.imageFallback = cardOptions.imageFallback;
         this.imageAlt = cardOptions.imageAlt;
@@ -21,6 +19,9 @@ class AdCard extends Card {
         this.featureReason = cardOptions.featureReason;
         this.productUrl = cardOptions.url || this.createProductUrl(this.adId);
         this.content = window.birthdayWishlistContent || {};
+        const cardContent = this.content.card || {};
+        this.statusLabel = cardOptions.statusLabel || cardContent.giftedLabel || 'Schon geschenkt';
+        this.statusMeta = cardOptions.statusMeta || cardContent.giftedMeta || 'Danke fürs Möglichmachen';
 
         this.domElement.id = this.adId;
         this.domElement.setAttribute('data-asin', this.adId);
@@ -138,58 +139,73 @@ class AdCard extends Card {
             return this.audienceLabel;
         }
 
+        const isEnglish = this.content && this.content.locale === 'en';
+        const label = (deLabel, enLabel) => (isEnglish ? enLabel : deLabel);
         const title = this.title.toLowerCase();
         const matches = (terms) => terms.some((term) => title.includes(term));
 
         if (matches(['smallrig', 'cage', 'rig', 'anamorphotisch', 'objektiv', 'stabilisator', 'quick release'])) {
-            return 'Für mobiles Creator-Setup';
+            return label('Für mobiles Creator-Setup', 'For a mobile creator setup');
         }
 
         if (matches(['prompter', 'stream deck', 'capture card', 'key light', 'softbox', 'elgato'])) {
-            return 'Für Stream, Video & Workflow';
+            return label('Für Stream, Video & Workflow', 'For stream, video & workflow');
         }
 
         if (matches(['ssd', 'speicher', 'festplatte', 'usb-c', 'hub', 'dock', 'monitor'])) {
-            return 'Für ein schnelleres Setup';
+            return label('Für ein schnelleres Setup', 'For a faster setup');
         }
 
         if (matches(['kamera', 'video', 'creator', 'vlog', 'foto', 'fotodrucker', 'sony alpha', 'osmo pocket', 'dji'])) {
-            return 'Für bessere Aufnahmen';
+            return label('Für bessere Aufnahmen', 'For better recordings');
         }
 
         if (matches(['mikro', 'micro', 'rode', 'røde', 'shure', 'focusrite', 'zoom', 'audio'])) {
-            return 'Für sauberen Content-Sound';
+            return label('Für sauberen Content-Sound', 'For clean content audio');
         }
 
         if (matches(['3d', 'laser', 'schrauber', 'tool', 'werkzeug', 'leatherman', 'lego', 'stickmaschine', 'scan', 'maker', 'solar'])) {
-            return 'Für Maker-Projekte';
+            return label('Für Maker-Projekte', 'For maker projects');
         }
 
         if (matches(['grow', 'pflanz', 'boveda', 'hygrometer', 'sensor', 'ventilator', 'vaporizer', 'volcano', 'venty', 'ph-messgerät'])) {
-            return 'Für Grow, Genuss & Pflege';
+            return label('Für Grow, Genuss & Pflege', 'For grow, enjoyment & care');
         }
 
         if (matches(['buch', 'geschichte', 'kunst des krieges', 'homo deus', 'arousal'])) {
-            return 'Für neue Perspektiven';
+            return label('Für neue Perspektiven', 'For new perspectives');
         }
 
         if (matches(['rucksack', 'filter', 'katadyn', 'schnorchel', 'pavillon', 'outdoor', 'vaude', 'iridium'])) {
-            return 'Für unterwegs & draußen';
+            return label('Für unterwegs & draußen', 'For travel & outdoors');
         }
 
         if (matches(['synth', 'stylophone', 'ukulele', 'pa-system'])) {
-            return 'Für Studio & Soundideen';
+            return label('Für Studio & Soundideen', 'For studio & sound ideas');
         }
 
         if (matches(['kaffee', 'cold brew', 'becher', 'flasche', 'uhr', 'licht', 'lampe'])) {
-            return 'Für Alltag mit Mehrwert';
+            return label('Für Alltag mit Mehrwert', 'For better everyday life');
         }
 
-        return 'Passt gut zu Chris';
+        return label('Passt gut zu Chris', 'A good fit for Chris');
     }
 
     hasAiAssistedImage() {
         return ['social-wish', 'campaign-wish', 'donation-wish'].includes(this.adHost);
+    }
+
+    resolveAssetPath(path) {
+        if (!path) {
+            return path;
+        }
+
+        if (/^(?:[a-z]+:)?\/\//i.test(path) || /^(?:data|blob):/i.test(path)) {
+            return path;
+        }
+
+        const normalizedPath = String(path).replace(/^\.\/+/, '').replace(/^\/+/, '');
+        return window.WishlistUi.resolveLocalPath(normalizedPath);
     }
 
     createCard() {
@@ -207,10 +223,19 @@ class AdCard extends Card {
         mediaLink.href = this.productUrl;
         mediaLink.target = '_blank';
         mediaLink.rel = 'noopener noreferrer sponsored';
-        mediaLink.setAttribute('aria-label', (this.ctaLabel ? this.ctaLabel + ': ' : '') + this.title);
+        const cardContent = this.content.card || {};
+        const mediaAriaTemplate = cardContent.mediaAria || '{action}: {title}';
+        const mediaAction = this.ctaLabel || this.getPrimaryActionLabel();
+        mediaLink.setAttribute(
+            'aria-label',
+            mediaAriaTemplate
+                .replace('{action}', mediaAction)
+                .replace('{title}', this.title)
+        );
+        mediaLink.setAttribute('title', cardContent.primaryActionTitle || mediaAction);
 
         const image = document.createElement('img');
-        image.src = this.image || './assets/images/gridAdCardLoader.gif';
+        image.src = this.resolveAssetPath(this.image) || window.WishlistUi.resolveLocalPath('assets/images/gridAdCardLoader.gif');
         image.alt = this.imageAlt || this.title;
         if (this.imageTitle) {
             image.title = this.imageTitle;
@@ -218,14 +243,15 @@ class AdCard extends Card {
         image.loading = 'lazy';
         image.decoding = 'async';
         image.onerror = () => {
-            if (this.imageFallback && image.src !== this.imageFallback) {
-                image.src = this.imageFallback;
+            const fallbackImage = this.resolveAssetPath(this.imageFallback);
+            if (fallbackImage && image.src !== fallbackImage) {
+                image.src = fallbackImage;
                 article.classList.add('has-image-fallback');
                 return;
             }
 
             image.onerror = null;
-            image.src = './assets/images/gridAdCardLoader.gif';
+            image.src = window.WishlistUi.resolveLocalPath('assets/images/gridAdCardLoader.gif');
             article.classList.add('has-image-fallback');
         };
         mediaLink.appendChild(image);
@@ -255,18 +281,25 @@ class AdCard extends Card {
         amazonLinkIcon.setAttribute('aria-hidden', 'true');
         amazonLink.appendChild(amazonLinkText);
         amazonLink.appendChild(amazonLinkIcon);
+        amazonLink.setAttribute(
+            'title',
+            this.status === 'gifted'
+                ? (cardContent.giftedActionTitle || amazonLinkText.textContent)
+                : (cardContent.primaryActionTitle || amazonLinkText.textContent)
+        );
 
         const copyButton = document.createElement('button');
         copyButton.className = 'button button-secondary product-action';
         copyButton.type = 'button';
         copyButton.setAttribute('aria-expanded', 'false');
         copyButton.setAttribute('aria-haspopup', 'menu');
+        copyButton.setAttribute('title', cardContent.shareActionTitle || cardContent.shareAction || 'Teilen');
         const copyIcon = document.createElement('i');
         copyIcon.className = 'fas fa-share-from-square';
         copyIcon.setAttribute('aria-hidden', 'true');
 
         const copyText = document.createElement('span');
-        copyText.textContent = (this.content.card && this.content.card.shareAction) || 'Teilen';
+        copyText.textContent = cardContent.shareAction || 'Teilen';
 
         copyButton.appendChild(copyIcon);
         copyButton.appendChild(copyText);
@@ -286,11 +319,24 @@ class AdCard extends Card {
             overlayIcon.setAttribute('aria-hidden', 'true');
 
             const overlayText = document.createElement('span');
-            overlayText.textContent = this.statusLabel.replace(/^🎁\s*/, '') || 'Schon geschenkt';
+            const cardContentGifted = this.content.card || {};
+            let giftedLabel = this.statusLabel.replace(/^🎁\s*/, '') || cardContentGifted.giftedLabel || 'Schon geschenkt';
+            if (cardContentGifted.giftedLabel && /schon geschenkt/i.test(giftedLabel)) {
+                giftedLabel = cardContentGifted.giftedLabel;
+            }
+            overlayText.textContent = giftedLabel;
 
             overlay.appendChild(overlayIcon);
             overlay.appendChild(overlayText);
             article.appendChild(overlay);
+        }
+
+        if (this.status === 'gifted' && this.content.card && this.content.card.giftedMeta) {
+            const germanDefaultMeta = /danke fürs möglichmachen/i.test(this.statusMeta || '');
+            if (!this.statusMeta || germanDefaultMeta) {
+                // Keep product-specific meta; only replace German defaults for locale UI.
+                meta.textContent = this.content.card.giftedMeta;
+            }
         }
 
         if (this.status !== 'gifted') {
@@ -298,24 +344,27 @@ class AdCard extends Card {
             badge.className = 'product-badge';
             if (this.hasAiAssistedImage()) {
                 badge.classList.add('has-ai-content');
-                badge.href = (this.content.card && this.content.card.aiContentUrl) || 'https://cannachris.de/ki-content/';
+                badge.href = cardContent.aiContentUrl || 'https://cannachris.de/ki-content/';
                 badge.target = '_blank';
                 badge.rel = 'noopener noreferrer';
-                badge.setAttribute('aria-label', (this.content.card && this.content.card.aiContentAria) || 'Wunsch - Hinweis zu KI-Content auf Cannachris öffnen');
+                badge.setAttribute('aria-label', cardContent.aiContentAria || 'Wunsch - Hinweis zu KI-Content auf Cannachris öffnen');
+                badge.setAttribute('title', cardContent.aiContentTitle || cardContent.aiContentAria || 'KI-Content');
+            } else {
+                badge.setAttribute('title', cardContent.badgeTitle || cardContent.badge || 'Wunsch');
             }
             const badgeIcon = document.createElement('i');
             badgeIcon.className = 'fas fa-gift';
             badgeIcon.setAttribute('aria-hidden', 'true');
 
             const badgeText = document.createElement('span');
-            badgeText.textContent = (this.content.card && this.content.card.badge) || 'Wunsch';
+            badgeText.textContent = cardContent.badge || 'Wunsch';
 
             badge.appendChild(badgeIcon);
             badge.appendChild(badgeText);
             if (this.hasAiAssistedImage()) {
                 const aiIcon = document.createElement('img');
                 aiIcon.className = 'product-badge-ai-icon';
-                aiIcon.src = 'assets/icons/cannachris-icon-okai.svg';
+                aiIcon.src = window.WishlistUi.resolveLocalPath('assets/icons/cannachris-icon-okai.svg');
                 aiIcon.alt = '';
                 aiIcon.width = 16;
                 aiIcon.height = 16;
@@ -343,6 +392,7 @@ class AdCard extends Card {
         menu.setAttribute('role', 'menu');
         const cardContent = this.content.card || {};
         menu.setAttribute('aria-label', (cardContent.shareMenuLabel || '{title} teilen').replace('{title}', this.title));
+        menu.setAttribute('title', (cardContent.shareActionTitle || cardContent.shareAction || 'Teilen'));
         menu.setAttribute('aria-hidden', 'true');
 
         const shareText = (cardContent.shareTextPrefix || 'Geschenkidee für Chris:') + ' ' + this.title;
@@ -459,7 +509,7 @@ class AdCard extends Card {
                 document.body.removeChild(textarea);
             }
 
-            setButtonLabel('Kopiert', 'fas fa-check');
+            setButtonLabel((this.content.card && this.content.card.copySuccess) || 'Kopiert', 'fas fa-check');
             button.classList.add('is-confirmed');
             if (wrapper) {
                 wrapper.classList.remove('is-open');
@@ -467,12 +517,12 @@ class AdCard extends Card {
                 AdCard.setShareMenuAccessibility(wrapper, false);
             }
         } catch (error) {
-            setButtonLabel('Fehler', 'fas fa-exclamation-triangle');
+            setButtonLabel((this.content.card && this.content.card.copyError) || 'Fehler', 'fas fa-exclamation-triangle');
             console.error(error);
         }
 
         window.setTimeout(() => {
-            setButtonLabel('Teilen');
+            setButtonLabel((this.content.card && this.content.card.shareAction) || 'Teilen');
             button.classList.remove('is-confirmed');
         }, 1800);
     }

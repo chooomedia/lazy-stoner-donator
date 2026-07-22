@@ -1,13 +1,17 @@
 User-agent: *
 Allow: /
+Allow: /en/
 Allow: /assets/
 Allow: /js/
 Allow: /styles/
 Allow: /wishlist-products.json
+Allow: /wishlist-products.en.json
 Allow: /wishlist-content.json
+Allow: /wishlist-content.en.json
 Allow: /favicon.ico
 Allow: /favicon.svg
 Allow: /site.webmanifest
+Allow: /site.en.webmanifest
 Allow: /apple-touch-icon.png
 Allow: /sitemap.xml
 Allow: /llms.txt

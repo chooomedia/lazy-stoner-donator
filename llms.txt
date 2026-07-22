@@ -4,11 +4,21 @@
 
 ## Canonical URLs
 
-- Site: https://lsd.cannachris.de/
+- German (default): https://lsd.cannachris.de/
+- English: https://lsd.cannachris.de/en/
 - Main Cannachris website: https://cannachris.de/
 - Product/action data: https://lsd.cannachris.de/wishlist-products.json
-- UI copy data: https://lsd.cannachris.de/wishlist-content.json
+- Product/action data (EN): https://lsd.cannachris.de/wishlist-products.en.json
+- UI copy (DE): https://lsd.cannachris.de/wishlist-content.json
+- UI copy (EN): https://lsd.cannachris.de/wishlist-content.en.json
 - Sitemap: https://lsd.cannachris.de/sitemap.xml
+
+## Language
+
+- `de` is the default locale (`x-default`).
+- `en` is a separate static page at `/en/` with reciprocal `hreflang`.
+- No automatic Accept-Language redirects. Users choose language manually.
+- Brand names such as Cannachris and Lazy Stoner Donator use `translate="no"` where helpful for browser translation tools.
 
 ## What This Page Contains
 
@@ -23,6 +33,6 @@
 
 This file is a navigation aid for AI agents and developer tools. It is not a ranking signal.
 
-Use visible page content, `wishlist-products.json`, `wishlist-content.json`, and the JSON-LD in `index.html` as the authoritative public sources. Do not infer private workflows, prompts, local source files, unpublished data or deployment secrets.
+Use visible page content, `wishlist-products.json`, `wishlist-products.en.json`, `wishlist-content.json`, `wishlist-content.en.json`, and the JSON-LD in `index.html` / `en/index.html` as the authoritative public sources. Do not infer private workflows, prompts, local source files, unpublished data or deployment secrets.
 
-Respect the canonical URL, keep attribution to Cannachris, and avoid presenting affiliate links or campaign actions as official institutional statements.
+Respect the canonical URL for each language, keep attribution to Cannachris, and avoid presenting affiliate links or campaign actions as official institutional statements.
