@@ -3,12 +3,12 @@
 [![Status: Production](https://img.shields.io/badge/status-production-13890e)](https://github.com/chooomedia/lazy-stoner-donator)
 [![Stack: HTML/CSS/Vanilla JS](https://img.shields.io/badge/stack-HTML%20%7C%20CSS%20%7C%20Vanilla%20JS-111111)](https://github.com/chooomedia/lazy-stoner-donator)
 [![Content: JSON Driven](https://img.shields.io/badge/content-JSON%20driven-2f6f3e)](https://github.com/chooomedia/lazy-stoner-donator/blob/lazy-stoner-donator/wishlist-products.json)
-[![Site: cannachris.de](https://img.shields.io/badge/site-cannachris.de%2Flazy--stoner--donator-4b8f5a)](https://cannachris.de/lazy-stoner-donator/)
+[![Site: lsd.cannachris.de](https://img.shields.io/badge/site-lsd.cannachris.de-4b8f5a)](https://lsd.cannachris.de/)
 
 **Static wishlist frontend for `cannachris.de`.** Presents curated gift ideas with affiliate links, share actions, gifted/open states, and JSON-LD structured data on top of a plain HTML, CSS, and vanilla JavaScript stack.
 
-Live site: [cannachris.de/lazy-stoner-donator](https://cannachris.de/lazy-stoner-donator/)  
-Default branch: `lazy-stoner-donator`  
+Live site: [lsd.cannachris.de](https://lsd.cannachris.de/)
+Default branch: `lazy-stoner-donator`
 Primary data sources: `wishlist-products.json`, `wishlist-content.json`
 
 ## At a Glance
@@ -142,6 +142,9 @@ This project is built for plain file deployment.
 - No package install is required.
 - Deploy `index.html`, `styles/`, `js/`, `assets/`, and the JSON data files together.
 - Do not deploy partial data changes without synchronizing fallback JavaScript and JSON-LD.
+- Production target: `https://lsd.cannachris.de/`
+- Automation: `.github/workflows/deploy.yml`
+- Full procedure: `docs/deployment.md`
 
 ## Working Model
 

@@ -1,0 +1,83 @@
+name: Validate and deploy
+
+on:
+  pull_request:
+    branches:
+      - lazy-stoner-donator
+  push:
+    branches:
+      - lazy-stoner-donator
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: production-deploy
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    name: Validate static site
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate runtime files and data sync
+        run: python3 scripts/validate-static-site.py
+
+      - name: Prepare deploy artifact
+        run: python3 scripts/prepare-deploy-artifact.py
+
+      - name: Upload deploy artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: lazy-stoner-donator-static
+          path: .deploy/
+          if-no-files-found: error
+
+  deploy:
+    name: Deploy to ALL-INKL
+    needs: validate
+    runs-on: ubuntu-latest
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/lazy-stoner-donator'
+
+    steps:
+      - name: Download deploy artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: lazy-stoner-donator-static
+          path: .deploy
+
+      - name: Verify required deploy secrets
+        env:
+          ALL_INKL_HOST: ${{ secrets.ALL_INKL_HOST }}
+          ALL_INKL_USERNAME: ${{ secrets.ALL_INKL_USERNAME }}
+          ALL_INKL_PRIVATE_KEY: ${{ secrets.ALL_INKL_PRIVATE_KEY }}
+          ALL_INKL_HOST_KEY_FINGERPRINT: ${{ secrets.ALL_INKL_HOST_KEY_FINGERPRINT }}
+          ALL_INKL_REMOTE_PATH: ${{ secrets.ALL_INKL_REMOTE_PATH }}
+        run: |
+          test -n "$ALL_INKL_HOST"
+          test -n "$ALL_INKL_USERNAME"
+          test -n "$ALL_INKL_PRIVATE_KEY"
+          test -n "$ALL_INKL_HOST_KEY_FINGERPRINT"
+          test -n "$ALL_INKL_REMOTE_PATH"
+
+      - name: Deploy artifact via SFTP
+        uses: eiserv/easySFTP@v1
+        with:
+          server: ${{ secrets.ALL_INKL_HOST }}
+          port: ${{ secrets.ALL_INKL_PORT || '22' }}
+          username: ${{ secrets.ALL_INKL_USERNAME }}
+          private-key: ${{ secrets.ALL_INKL_PRIVATE_KEY }}
+          passphrase: ${{ secrets.ALL_INKL_PRIVATE_KEY_PASSPHRASE }}
+          host-key-fingerprint: ${{ secrets.ALL_INKL_HOST_KEY_FINGERPRINT }}
+          uploads: .deploy/ => ${{ secrets.ALL_INKL_REMOTE_PATH }}
+          strategy: sync
+
+      - name: Smoke test production URL
+        run: |
+          curl --fail --silent --show-error --location --max-time 20 https://lsd.cannachris.de/ > /tmp/lsd.html
+          grep -q "Lazy Stoner Donator" /tmp/lsd.html
