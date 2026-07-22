@@ -1,6 +1,30 @@
 # Lazy Stoner Donator
 
-Static wishlist frontend for `cannachris.de`. The page presents curated gift ideas with affiliate links, filtered card states, share actions, and structured data for search engines.
+[![Status: Production](https://img.shields.io/badge/status-production-13890e)](https://github.com/chooomedia/lazy-stoner-donator)
+[![Stack: HTML/CSS/Vanilla JS](https://img.shields.io/badge/stack-HTML%20%7C%20CSS%20%7C%20Vanilla%20JS-111111)](https://github.com/chooomedia/lazy-stoner-donator)
+[![Content: JSON Driven](https://img.shields.io/badge/content-JSON%20driven-2f6f3e)](https://github.com/chooomedia/lazy-stoner-donator/blob/lazy-stoner-donator/wishlist-products.json)
+[![Site: cannachris.de](https://img.shields.io/badge/site-cannachris.de%2Flazy--stoner--donator-4b8f5a)](https://cannachris.de/lazy-stoner-donator/)
+
+**Static wishlist frontend for `cannachris.de`.** Presents curated gift ideas with affiliate links, share actions, gifted/open states, and JSON-LD structured data on top of a plain HTML, CSS, and vanilla JavaScript stack.
+
+Live site: [cannachris.de/lazy-stoner-donator](https://cannachris.de/lazy-stoner-donator/)  
+Default branch: `lazy-stoner-donator`  
+Primary data sources: `wishlist-products.json`, `wishlist-content.json`
+
+## At a Glance
+
+- Production-oriented static frontend with no build step.
+- JSON-first content model with JavaScript fallback mirrors.
+- Affiliate-safe product URLs and provenance-aware product records.
+- Responsive card grid with progressive rendering and keyboard-safe share menus.
+- Search-friendly structured data maintained directly in `index.html`.
+
+## Status
+
+- Runtime model: static site
+- Delivery model: deployable as plain files
+- Maintenance state: active
+- Repository role: project-specific branch line extracted from the former `gridCards` history
 
 ## Scope
 
@@ -19,6 +43,16 @@ Static wishlist frontend for `cannachris.de`. The page presents curated gift ide
 - Runtime fallback data: `js/wishlistProductsData.js`, `js/wishlistContentData.js`
 
 There is no build step and no package manager in this project.
+
+## Quick Start
+
+```bash
+git clone https://github.com/chooomedia/lazy-stoner-donator.git
+cd lazy-stoner-donator
+python3 -m http.server 8080
+```
+
+Open `http://localhost:8080`.
 
 ## Architecture
 
@@ -99,6 +133,15 @@ http://localhost:8080
 ```
 
 Do not test this page from a `file://` URL if you expect JSON fetches to work reliably.
+
+## Deployment
+
+This project is built for plain file deployment.
+
+- No build artifact is required.
+- No package install is required.
+- Deploy `index.html`, `styles/`, `js/`, `assets/`, and the JSON data files together.
+- Do not deploy partial data changes without synchronizing fallback JavaScript and JSON-LD.
 
 ## Working Model
 
@@ -181,6 +224,30 @@ If any of these fail, the page must remain usable.
 
 Avoid mixing unrelated cleanup with product or UI changes unless the cleanup is required to keep the branch consistent.
 
+## Troubleshooting
+
+### JSON content does not load
+
+- Verify local testing runs through `http://localhost` or another static server.
+- Check that `wishlist-products.json` and `wishlist-content.json` are valid JSON.
+- Confirm fallback files still mirror the same structure: `js/wishlistProductsData.js`, `js/wishlistContentData.js`.
+
+### Product count is wrong
+
+- Recount items in `wishlist-products.json`.
+- Update JSON-LD `numberOfItems` in `index.html`.
+- Verify ordering and count match the rendered grid.
+
+### Share menu behavior is broken
+
+- Check `js/adCard.js` for menu toggle logic, `aria-hidden`, and `tabIndex` handling.
+- Re-test outside click and `Escape` close behavior.
+
+### Layout looks wrong on featured cards
+
+- Inspect `displayTier` and `featureReason` fields in product data.
+- Re-test card alignment in `styles/main.css` on desktop and mobile widths.
+
 ## File Map
 
 ```text
@@ -216,3 +283,7 @@ A change is ready when:
 - footer/toolbar overlap was checked
 - structured data matches the live product set
 - the page was tested through a local static server
+
+## Maintainer
+
+- Christopher Matt / Cannachris
