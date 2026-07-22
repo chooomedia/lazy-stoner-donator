@@ -1,34 +1,28 @@
 # Lazy Stoner Donator
 
-> Personal birthday wishlist for Cannachris with gift ideas around content creation, activism, technology, and daily work.
+> Runtime-only static wishlist for Cannachris with product wishes, social-wish actions, campaign support cards, donation links, share metadata and JSON-LD.
 
-## Pages
+## Canonical URLs
 
-- [Lazy Stoner Donator](https://lsd.cannachris.de/): Public wishlist with product cards, affiliate links, and marked gifted items.
-- [Cannachris](https://cannachris.de/): Main Cannachris website.
-- [Contact](https://cannachris.de/kontakt/): Contact page.
+- Site: https://lsd.cannachris.de/
+- Main Cannachris website: https://cannachris.de/
+- Product/action data: https://lsd.cannachris.de/wishlist-products.json
+- UI copy data: https://lsd.cannachris.de/wishlist-content.json
+- Sitemap: https://lsd.cannachris.de/sitemap.xml
 
-## Data
+## What This Page Contains
 
-- [Product data](https://lsd.cannachris.de/wishlist-products.json): Canonical JSON source for wishlist products.
-- [Core copy](https://lsd.cannachris.de/wishlist-content.json): Editorial UI copy, CTA variants, and tone settings.
+- 86 wishlist/action cards for Cannachris.
+- Amazon/product wishes with provenance fields and affiliate-safe URLs.
+- Social-wish cards for kindness, transparency, digital courage, foodsharing, DKMS, blood donation, volunteering, democracy, neighborhood help and cannabis education.
+- Campaign/support cards for ÄKN transparency, Cannabis Social Club approval, and DHV support.
+- WebP image metadata for social/action cards: alt text, title, caption, keywords and intent.
+- Open Graph and Twitter Card metadata for social sharing.
 
-## AI & SEO Operating Model
+## AI and SEO Notes
 
-This file is a curated navigation aid for AI agents and developer tools, not a Google ranking signal. Maintain it as a concise, accurate map of the project so retrieval systems can understand the page purpose, primary data sources, and canonical URLs without guessing.
+This file is a navigation aid for AI agents and developer tools. It is not a ranking signal.
 
-Recommended workflow:
+Use visible page content, `wishlist-products.json`, `wishlist-content.json`, and the JSON-LD in `index.html` as the authoritative public sources. Do not infer private workflows, prompts, local source files, unpublished data or deployment secrets.
 
-1. Crawlability first: keep `robots.txt` explicit for search and AI retrieval bots, and avoid blocking the public wishlist, JSON data, CSS, JavaScript, or images required to understand the page.
-2. Structured data second: keep JSON-LD synchronized with the visible product list, including `Product`, `Offer`, canonical Amazon URL, image, availability state, and stable identifiers such as ASIN.
-3. Human-readable HTML third: expose the core purpose, product names, status labels, and actions in semantic HTML so crawlers do not depend on screenshots or hidden client-side state.
-4. Evidence over invention: when replacing unavailable products, verify the product page, ASIN, title, image, and availability before updating JSON. Keep replacement provenance in the data.
-5. Community and trust signals: Reddit, review portals, and comparison sites can inform what people actually recommend, but they should be treated as discovery sources. Final product data must still be verified against the target product page.
-6. Maintenance cadence: refresh availability, product images, structured data, and this file whenever products are removed, replaced, or materially reordered.
-
-Implementation notes:
-
-- Keep `llms.txt` short, flat, and current; stale machine-readable guidance is worse than no guidance.
-- Do not claim that `llms.txt` improves Google rankings. Google Search ignores it for ranking, while some AI agents and developer tools may use it as a navigation hint.
-- Prefer canonical, stable URLs and avoid URL shorteners.
-- Preserve accessibility labels, clear headings, and visible status text because these help both users and retrieval systems.
+Respect the canonical URL, keep attribution to Cannachris, and avoid presenting affiliate links or campaign actions as official institutional statements.

@@ -25,11 +25,185 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Validate runtime files and data sync
-        run: python3 scripts/validate-static-site.py
+      - name: Validate runtime files, SEO assets and data sync
+        run: |
+          python3 - <<'PY'
+          import json
+          import re
+          from pathlib import Path
+
+          ROOT = Path.cwd()
+          SOCIAL_IMAGE_HOSTS = {"social-wish", "campaign-wish", "donation-wish"}
+          REQUIRED_FILES = [
+              "index.html",
+              "robots.txt",
+              "llms.txt",
+              "sitemap.xml",
+              "wishlist-products.json",
+              "wishlist-content.json",
+              "styles/main.css",
+              "js/adCard.js",
+              "js/card.js",
+              "js/cardStack.js",
+              "js/http.js",
+              "js/widget.js",
+              "js/wishlistProductsData.js",
+              "js/wishlistContentData.js",
+              "favicon.png",
+              "assets/lsd-favicon.png",
+              "assets/social/lazy-stoner-donator-og.png",
+          ]
+          REQUIRED_DIRECTORIES = ["assets", "js", "styles"]
+
+          def fail(message):
+              raise SystemExit(f"validation failed: {message}")
+
+          def read_json(relative_path):
+              with (ROOT / relative_path).open("r", encoding="utf-8") as handle:
+                  return json.load(handle)
+
+          def read_fallback_assignment(relative_path, variable_name):
+              source = (ROOT / relative_path).read_text(encoding="utf-8")
+              match = re.search(rf"window\.{re.escape(variable_name)}\s*=\s*(.*?);\s*$", source, re.DOTALL)
+              if not match:
+                  fail(f"{relative_path} does not assign window.{variable_name}")
+              return json.loads(match.group(1))
+
+          def read_json_ld(index_html):
+              match = re.search(r'<script[^>]+id="wishlist-schema"[^>]*>\s*(.*?)\s*</script>', index_html, re.DOTALL)
+              if not match:
+                  fail("index.html does not contain wishlist-schema JSON-LD")
+              return json.loads(match.group(1))
+
+          for relative_path in REQUIRED_FILES:
+              if not (ROOT / relative_path).is_file():
+                  fail(f"missing required file: {relative_path}")
+
+          for relative_path in REQUIRED_DIRECTORIES:
+              if not (ROOT / relative_path).is_dir():
+                  fail(f"missing required directory: {relative_path}")
+
+          index_html = (ROOT / "index.html").read_text(encoding="utf-8")
+          expected_meta = [
+              'property="og:image" content="https://lsd.cannachris.de/assets/social/lazy-stoner-donator-og.png"',
+              'property="og:image:width" content="1200"',
+              'property="og:image:height" content="630"',
+              'name="twitter:card" content="summary_large_image"',
+              'rel="icon" type="image/png" href="/favicon.png"',
+              'rel="apple-touch-icon" href="/assets/lsd-favicon.png"',
+          ]
+          for snippet in expected_meta:
+              if snippet not in index_html:
+                  fail(f"index.html is missing meta/link snippet: {snippet}")
+
+          products = read_json("wishlist-products.json")
+          content = read_json("wishlist-content.json")
+          fallback_products = read_fallback_assignment("js/wishlistProductsData.js", "birthdayWishlistProducts")
+          fallback_content = read_fallback_assignment("js/wishlistContentData.js", "birthdayWishlistContent")
+          json_ld = read_json_ld(index_html)
+
+          if products != fallback_products:
+              fail("product JSON and fallback product JS differ")
+
+          if content != fallback_content:
+              fail("content JSON and fallback content JS differ")
+
+          json_ld_items = json_ld.get("mainEntity", {}).get("itemListElement", [])
+          if json_ld.get("mainEntity", {}).get("numberOfItems") != len(products):
+              fail("JSON-LD numberOfItems does not match wishlist-products.json")
+
+          if len(json_ld_items) != len(products):
+              fail("JSON-LD itemListElement count does not match wishlist-products.json")
+
+          if not json_ld.get("primaryImageOfPage", {}).get("url", "").endswith("/assets/social/lazy-stoner-donator-og.png"):
+              fail("JSON-LD primaryImageOfPage does not reference the OG image")
+
+          for index, product in enumerate(products, start=1):
+              for field in ("adId", "title", "url", "image"):
+                  if not product.get(field):
+                      fail(f"product #{index} is missing required field: {field}")
+
+              json_ld_item = json_ld_items[index - 1]
+              if json_ld_item.get("position") != index:
+                  fail(f"JSON-LD item position mismatch at product #{index}")
+
+              if product.get("host") not in SOCIAL_IMAGE_HOSTS:
+                  continue
+
+              image = product.get("image", "")
+              image_path = ROOT / image
+              if not image.startswith("assets/images/social-wishes/"):
+                  fail(f"social product #{index} image must live in assets/images/social-wishes")
+              if image.endswith(".svg") or not image.endswith(".webp"):
+                  fail(f"social product #{index} image must use WebP")
+              if not image_path.is_file():
+                  fail(f"social product #{index} image file does not exist: {image}")
+
+              image_alt = product.get("imageAlt", "")
+              if not isinstance(image_alt, str) or not (50 <= len(image_alt) <= 140):
+                  fail(f"social product #{index} imageAlt must be 50-140 characters")
+
+              image_title = product.get("imageTitle", "")
+              if not isinstance(image_title, str) or not (25 <= len(image_title) <= 80):
+                  fail(f"social product #{index} imageTitle must be 25-80 characters")
+
+              image_keywords = product.get("imageKeywords")
+              if not isinstance(image_keywords, list) or not (3 <= len(image_keywords) <= 8):
+                  fail(f"social product #{index} imageKeywords must contain 3-8 strings")
+              if not all(isinstance(keyword, str) and keyword.strip() for keyword in image_keywords):
+                  fail(f"social product #{index} imageKeywords must only contain non-empty strings")
+              if not product.get("seoIntent"):
+                  fail(f"social product #{index} is missing seoIntent")
+
+              structured_item = json_ld_item.get("item", {})
+              if not structured_item.get("keywords") or not structured_item.get("about"):
+                  fail(f"social product #{index} JSON-LD is missing keywords/about metadata")
+
+          print(f"validated {len(products)} products, SEO assets and metadata")
+          PY
 
       - name: Prepare deploy artifact
-        run: python3 scripts/prepare-deploy-artifact.py
+        run: |
+          python3 - <<'PY'
+          import shutil
+          from pathlib import Path
+
+          root = Path.cwd()
+          artifact_dir = root / "deploy-artifact"
+          static_files = [
+              "index.html",
+              "robots.txt",
+              "llms.txt",
+              "sitemap.xml",
+              "wishlist-products.json",
+              "wishlist-content.json",
+              "favicon.png",
+          ]
+          static_directories = ["assets", "js", "styles"]
+          forbidden_parts = {"prompts", "scripts", "data", "db"}
+
+          if artifact_dir.exists():
+              shutil.rmtree(artifact_dir)
+          artifact_dir.mkdir(parents=True)
+
+          for relative_path in static_files:
+              source = root / relative_path
+              target = artifact_dir / relative_path
+              target.parent.mkdir(parents=True, exist_ok=True)
+              shutil.copy2(source, target)
+
+          for relative_path in static_directories:
+              shutil.copytree(root / relative_path, artifact_dir / relative_path, dirs_exist_ok=True)
+
+          for path in artifact_dir.rglob("*"):
+              relative_parts = set(path.relative_to(artifact_dir).parts)
+              if relative_parts & forbidden_parts:
+                  raise SystemExit(f"forbidden path in artifact: {path.relative_to(artifact_dir)}")
+              if path.suffix == ".xcf":
+                  raise SystemExit(f"source design file must not be deployed: {path.relative_to(artifact_dir)}")
+
+          print(f"prepared deploy artifact at {artifact_dir}")
+          PY
 
       - name: Upload deploy artifact
         uses: actions/upload-artifact@v4

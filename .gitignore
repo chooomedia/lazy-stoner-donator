@@ -2,3 +2,8 @@
 deploy-artifact/
 __pycache__/
 *.pyc
+prompts/
+scripts/
+data/
+db/
+*.xcf

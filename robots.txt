@@ -1,16 +1,9 @@
 User-agent: *
 Allow: /
-
-User-agent: GPTBot
-Allow: /
-
-User-agent: OAI-SearchBot
-Allow: /
-
-User-agent: ClaudeBot
-Allow: /
-
-User-agent: PerplexityBot
-Allow: /
+Allow: /assets/
+Allow: /js/
+Allow: /styles/
+Allow: /wishlist-products.json
+Allow: /wishlist-content.json
 
 Sitemap: https://lsd.cannachris.de/sitemap.xml
