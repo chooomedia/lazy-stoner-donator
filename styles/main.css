@@ -1727,28 +1727,22 @@ a.button,
     }
 
     .wishlist-toolbar .status-message {
-        width: var(--mobile-toolbar-size);
-        min-width: var(--mobile-toolbar-size);
-        max-width: var(--mobile-toolbar-size);
+        width: auto;
+        min-width: 0;
+        max-width: none;
         min-height: var(--mobile-toolbar-size);
-        height: var(--mobile-toolbar-size);
+        height: auto;
         display: inline-flex;
         align-items: center;
         justify-content: center;
         flex: 0 0 auto;
-        padding-inline: 0;
-        overflow: hidden;
-        color: #ffffff;
-        background: var(--color-primary-dark);
-        font-size: 0;
-    }
-
-    .wishlist-toolbar .status-message::before {
-        content: '\f06b';
-        font-family: 'Font Awesome 6 Free';
-        font-size: 1rem;
-        font-weight: 900;
-        line-height: 1;
+        padding: 0 0.2rem;
+        overflow: visible;
+        border-radius: 0;
+        color: var(--color-primary-dark);
+        background: transparent;
+        font: 800 0.76rem/1 var(--font-base);
+        white-space: nowrap;
     }
 
     .wishlist-filters {
@@ -1774,28 +1768,10 @@ a.button,
     }
 
     .filter-chip[data-filter="all"] {
-        width: auto;
-        min-width: 0;
-        flex-basis: auto;
-        padding-inline: 0.62rem;
-    }
-
-    .filter-chip[data-filter="all"]::after {
-        content: attr(data-count);
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        min-width: 1.5rem;
-        min-height: 1.5rem;
-        padding: 0.14rem 0.38rem;
-        border-radius: 999px;
-        color: currentColor;
-        background: rgba(255, 255, 255, 0.18);
-        font: 800 0.72rem/1 var(--font-base);
-    }
-
-    .filter-chip[data-filter="all"][data-count=""]::after {
-        display: none;
+        width: var(--mobile-toolbar-size);
+        min-width: var(--mobile-toolbar-size);
+        flex-basis: var(--mobile-toolbar-size);
+        padding-inline: 0;
     }
 
     .filter-chip[data-filter="all"] span,
