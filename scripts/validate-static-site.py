@@ -16,6 +16,7 @@ REQUIRED_FILES = [
     "index.html",
     "robots.txt",
     "llms.txt",
+    "sitemap.xml",
     "wishlist-products.json",
     "wishlist-content.json",
     "styles/main.css",

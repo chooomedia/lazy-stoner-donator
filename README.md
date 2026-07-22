@@ -140,7 +140,7 @@ This project is built for plain file deployment.
 
 - No build artifact is required.
 - No package install is required.
-- Deploy `index.html`, `styles/`, `js/`, `assets/`, and the JSON data files together.
+- Deploy `index.html`, `robots.txt`, `llms.txt`, `sitemap.xml`, `styles/`, `js/`, `assets/`, and the JSON data files together.
 - Do not deploy partial data changes without synchronizing fallback JavaScript and JSON-LD.
 - Production target: `https://lsd.cannachris.de/`
 - Automation: `.github/workflows/deploy.yml`

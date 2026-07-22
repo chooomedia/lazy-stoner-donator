@@ -11,6 +11,7 @@ Only the static runtime files are deployed:
 - `index.html`
 - `robots.txt`
 - `llms.txt`
+- `sitemap.xml`
 - `wishlist-products.json`
 - `wishlist-content.json`
 - `assets/`
@@ -31,9 +32,21 @@ Configure these in GitHub under `Settings -> Secrets and variables -> Actions`.
 | `ALL_INKL_PRIVATE_KEY` | Yes | Private key for the deploy user |
 | `ALL_INKL_PRIVATE_KEY_PASSPHRASE` | No | Passphrase if the private key is encrypted |
 | `ALL_INKL_HOST_KEY_FINGERPRINT` | Yes | SHA256 host key fingerprint for host verification |
-| `ALL_INKL_REMOTE_PATH` | Yes | Document root mapped to `lsd.cannachris.de` |
+| `ALL_INKL_REMOTE_PATH` | Yes | Document root mapped to `lsd.cannachris.de`, for example `/www/htdocs/w01fdbd6/lsd.cannachris.de/` |
 
 Use a dedicated deploy key. Do not reuse a personal workstation key.
+
+Known production values for this ALL-INKL account:
+
+| Secret | Value |
+| --- | --- |
+| `ALL_INKL_HOST` | `dd22834.kasserver.com` |
+| `ALL_INKL_PORT` | `22` |
+| `ALL_INKL_USERNAME` | `ssh-w01fdbd6` |
+| `ALL_INKL_HOST_KEY_FINGERPRINT` | `SHA256:1s4GZZqxxFK/lCYyA2sdosUWXykd2H+bxD2lnvpuzcU` |
+| `ALL_INKL_REMOTE_PATH` | `/www/htdocs/w01fdbd6/lsd.cannachris.de/` |
+
+The fingerprint above is the ED25519 host key for `dd22834.kasserver.com`.
 
 ## Host Key Fingerprint
 
@@ -78,6 +91,24 @@ lsd.cannachris.de
 ```
 
 The subdomain should point to the same directory used as `ALL_INKL_REMOTE_PATH`.
+
+Recommended document root based on the current ALL-INKL account path:
+
+```text
+/www/htdocs/w01fdbd6/lsd.cannachris.de/
+```
+
+In KAS, the subdomain path is usually configured relative to the account root. For this setup, use:
+
+```text
+lsd.cannachris.de
+```
+
+For SFTP deployment, use the absolute path:
+
+```text
+/www/htdocs/w01fdbd6/lsd.cannachris.de/
+```
 
 ALL-INKL supports subdomain provisioning through the KAS API. The relevant action is `add_subdomain` with:
 

@@ -1,17 +1,18 @@
 # Lazy Stoner Donator
 
-> Persönliche Geburtstags-Wishlist von Cannachris mit Geschenkideen rund um Content, Aktivismus, Technik und Alltag.
+> Personal birthday wishlist for Cannachris with gift ideas around content creation, activism, technology, and daily work.
 
-## Seiten
+## Pages
 
-- [Lazy Stoner Donator](https://cannachris.de/lazy-stoner-donator/): Öffentliche Wunschliste mit Produktkarten, Amazon-Links und markierten bereits geschenkten Artikeln.
-- [Cannachris](https://cannachris.de/): Hauptseite von Cannachris.
-- [Kontakt](https://cannachris.de/kontakt/): Kontaktmöglichkeit.
+- [Lazy Stoner Donator](https://lsd.cannachris.de/): Public wishlist with product cards, affiliate links, and marked gifted items.
+- [Cannachris](https://cannachris.de/): Main Cannachris website.
+- [Contact](https://cannachris.de/kontakt/): Contact page.
 
-## Daten
+## Data
 
-- [Produktdaten](https://cannachris.de/lazy-stoner-donator/wishlist-products.json): JSON-Quelle der Wunschprodukte.
-- [Core-Texte](https://cannachris.de/lazy-stoner-donator/wishlist-content.json): Redaktionelle UI-Texte, CTA-Varianten und Tonalität.
+- [Product data](https://lsd.cannachris.de/wishlist-products.json): Canonical JSON source for wishlist products.
+- [Core copy](https://lsd.cannachris.de/wishlist-content.json): Editorial UI copy, CTA variants, and tone settings.
+
 ## AI & SEO Operating Model
 
 This file is a curated navigation aid for AI agents and developer tools, not a Google ranking signal. Maintain it as a concise, accurate map of the project so retrieval systems can understand the page purpose, primary data sources, and canonical URLs without guessing.

@@ -13,4 +13,4 @@ Allow: /
 User-agent: PerplexityBot
 Allow: /
 
-Sitemap: https://cannachris.de/sitemap_index.xml
+Sitemap: https://lsd.cannachris.de/sitemap.xml
