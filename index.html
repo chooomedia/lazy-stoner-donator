@@ -1938,6 +1938,31 @@
                 return template.replace('{count}', total);
             }
 
+            function updateFilterCounts() {
+                const counts = {
+                    all: visibleProducts.length,
+                    wishlist: visibleProducts.filter((product) => product.status !== 'gifted').length,
+                    gifted: visibleProducts.filter((product) => product.status === 'gifted').length
+                };
+
+                filterButtons.forEach((button, index) => {
+                    const count = counts[button.dataset.filter];
+                    const titleBase = ((wishlistContent.wishlist && wishlistContent.wishlist.filterTitles) || [])[index]
+                        || button.dataset.titleBase
+                        || button.getAttribute('title')
+                        || '';
+
+                    button.dataset.count = typeof count === 'number' ? String(count) : '';
+                    button.dataset.titleBase = titleBase;
+
+                    if (titleBase && typeof count === 'number') {
+                        const labelWithCount = `${titleBase} (${count})`;
+                        button.setAttribute('title', labelWithCount);
+                        button.setAttribute('aria-label', labelWithCount);
+                    }
+                });
+            }
+
             function resetGrid() {
                 if (activeObserver) {
                     activeObserver.disconnect();
@@ -2025,6 +2050,7 @@
                     applyWishlistContent(await loadWishlistContent());
                     const products = await loadWishlistProducts();
                     visibleProducts = products.filter((product) => product.title && product.image && product.url);
+                    updateFilterCounts();
 
                     renderProductsProgressively(getFilteredProducts());
 

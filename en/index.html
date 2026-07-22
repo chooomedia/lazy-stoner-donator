@@ -1915,26 +1915,51 @@
 
             function getStatusText(rendered, total) {
                 if (total === 0) {
-                    return (wishlistContent.wishlist && wishlistContent.wishlist.empty) || 'Keine passenden Wünsche gefunden.';
+                    return (wishlistContent.wishlist && wishlistContent.wishlist.empty) || 'No matching wishes found.';
                 }
 
                 if (rendered < total) {
-                    const template = (wishlistContent.wishlist && wishlistContent.wishlist.statusProgress) || '{rendered} von {total}';
+                    const template = (wishlistContent.wishlist && wishlistContent.wishlist.statusProgress) || '{rendered} of {total}';
                     return template.replace('{rendered}', rendered).replace('{total}', total);
                 }
 
                 if (activeFilter === 'gifted') {
-                    const template = (wishlistContent.wishlist && wishlistContent.wishlist.statusGifted) || '{count} gekauft';
+                    const template = (wishlistContent.wishlist && wishlistContent.wishlist.statusGifted) || '{count} gifted';
                     return template.replace('{count}', total);
                 }
 
                 if (activeFilter === 'wishlist') {
-                    const template = (wishlistContent.wishlist && wishlistContent.wishlist.statusOpen) || '{count} offen';
+                    const template = (wishlistContent.wishlist && wishlistContent.wishlist.statusOpen) || '{count} open';
                     return template.replace('{count}', total);
                 }
 
-                const template = (wishlistContent.wishlist && wishlistContent.wishlist.statusAll) || '{count} Wünsche';
+                const template = (wishlistContent.wishlist && wishlistContent.wishlist.statusAll) || '{count} wishes';
                 return template.replace('{count}', total);
+            }
+
+            function updateFilterCounts() {
+                const counts = {
+                    all: visibleProducts.length,
+                    wishlist: visibleProducts.filter((product) => product.status !== 'gifted').length,
+                    gifted: visibleProducts.filter((product) => product.status === 'gifted').length
+                };
+
+                filterButtons.forEach((button, index) => {
+                    const count = counts[button.dataset.filter];
+                    const titleBase = ((wishlistContent.wishlist && wishlistContent.wishlist.filterTitles) || [])[index]
+                        || button.dataset.titleBase
+                        || button.getAttribute('title')
+                        || '';
+
+                    button.dataset.count = typeof count === 'number' ? String(count) : '';
+                    button.dataset.titleBase = titleBase;
+
+                    if (titleBase && typeof count === 'number') {
+                        const labelWithCount = `${titleBase} (${count})`;
+                        button.setAttribute('title', labelWithCount);
+                        button.setAttribute('aria-label', labelWithCount);
+                    }
+                });
             }
 
             function resetGrid() {
@@ -2024,6 +2049,7 @@
                     applyWishlistContent(await loadWishlistContent());
                     const products = await loadWishlistProducts();
                     visibleProducts = products.filter((product) => product.title && product.image && product.url);
+                    updateFilterCounts();
 
                     renderProductsProgressively(getFilteredProducts());
 
