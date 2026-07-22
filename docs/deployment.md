@@ -43,10 +43,10 @@ Known production values for this ALL-INKL account:
 | `ALL_INKL_HOST` | `dd22834.kasserver.com` |
 | `ALL_INKL_PORT` | `22` |
 | `ALL_INKL_USERNAME` | `ssh-w01fdbd6` |
-| `ALL_INKL_HOST_KEY_FINGERPRINT` | `SHA256:1s4GZZqxxFK/lCYyA2sdosUWXykd2H+bxD2lnvpuzcU` |
+| `ALL_INKL_HOST_KEY_FINGERPRINT` | `SHA256:t+/3D/dxHw71Mfd4dzOQZjg6klolPZ7mJgSgTz7ECpE` |
 | `ALL_INKL_REMOTE_PATH` | `/www/htdocs/w01fdbd6/lsd.cannachris.de/` |
 
-The fingerprint above is the ED25519 host key for `dd22834.kasserver.com`.
+The fingerprint above is the ECDSA host key presented to the SFTP action by `dd22834.kasserver.com`.
 
 ## Host Key Fingerprint
 
