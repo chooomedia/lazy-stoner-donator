@@ -35,7 +35,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: lazy-stoner-donator-static
-          path: .deploy/
+          path: deploy-artifact/
           if-no-files-found: error
 
   deploy:
@@ -49,7 +49,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: lazy-stoner-donator-static
-          path: .deploy
+          path: deploy-artifact
 
       - name: Verify required deploy secrets
         env:
@@ -74,7 +74,7 @@ jobs:
           private-key: ${{ secrets.ALL_INKL_PRIVATE_KEY }}
           passphrase: ${{ secrets.ALL_INKL_PRIVATE_KEY_PASSPHRASE }}
           host-key-fingerprint: ${{ secrets.ALL_INKL_HOST_KEY_FINGERPRINT }}
-          uploads: .deploy/ => ${{ secrets.ALL_INKL_REMOTE_PATH }}
+          uploads: deploy-artifact/ => ${{ secrets.ALL_INKL_REMOTE_PATH }}
           strategy: sync
 
       - name: Smoke test production URL

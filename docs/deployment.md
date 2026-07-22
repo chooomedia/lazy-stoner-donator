@@ -145,7 +145,7 @@ Create the deploy artifact locally:
 python3 scripts/prepare-deploy-artifact.py
 ```
 
-The artifact is written to `.deploy/`.
+The artifact is written to `deploy-artifact/`.
 
 ## GitHub Actions Flow
 
@@ -158,7 +158,7 @@ Workflow file:
 Jobs:
 
 - `validate`: checks runtime files, JSON syntax, fallback data synchronization, and JSON-LD product count.
-- `deploy`: uploads `.deploy/` to ALL-INKL via SFTP after validation succeeds.
+- `deploy`: uploads `deploy-artifact/` to ALL-INKL via SFTP after validation succeeds.
 
 Deployment triggers:
 
