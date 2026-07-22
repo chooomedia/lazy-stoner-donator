@@ -1429,6 +1429,11 @@ a.button,
 
 .product-card .product-action {
     min-width: 0;
+    min-height: 48px;
+    line-height: 1.15;
+    text-align: center;
+    white-space: normal;
+    overflow-wrap: anywhere;
 }
 
 .product-card .product-action.button-secondary {

@@ -14,6 +14,7 @@ class AdCard extends Card {
         this.price = cardOptions.price;
         this.byline = cardOptions.byline;
         this.audienceLabel = cardOptions.audienceLabel;
+        this.ctaLabel = cardOptions.ctaLabel;
         this.displayTier = cardOptions.displayTier;
         this.featureReason = cardOptions.featureReason;
         this.productUrl = cardOptions.url || this.createProductUrl(this.adId);
@@ -105,6 +106,10 @@ class AdCard extends Card {
 
     getPrimaryActionLabel() {
         const cardContent = this.content.card || {};
+
+        if (this.ctaLabel) {
+            return this.ctaLabel;
+        }
 
         if (this.status === 'gifted') {
             return cardContent.giftedAction || 'Details ansehen';

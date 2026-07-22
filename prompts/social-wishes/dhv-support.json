@@ -1,0 +1,54 @@
+{
+  "name": "lazy-stoner-donator-dhv-support",
+  "model": "gemini-nano-banana",
+  "source_image": {
+    "url": "https://cannachris.de/wp-content/uploads/2026/03/cannachris-cannabis-aktivist-portrait-fragdenstaat-deutschland-lol-tshirt-looking-critical-aekn-cannabis-comic.webp",
+    "role": "visual_reference",
+    "preserve": [
+      "recognizable Cannachris likeness",
+      "hand-drawn comic portrait style",
+      "warm tired activist personality",
+      "green/off-white LSD campaign palette"
+    ]
+  },
+  "wishlist_card": {
+    "adId": "donation-dhv-support",
+    "title": "DHV-Arbeit mit einer Spende unterstützen",
+    "target_url": "https://hanfverband.de/spenden",
+    "current_icon": "assets/images/social-wishes/dhv-donation.svg"
+  },
+  "creative_direction": {
+    "summary": "Create one square editorial illustration for a Lazy Stoner Donator campaign/support card.",
+    "scene": "Cannachris placing a green coin into a transparent advocacy jar with a stylized hemp leaf, direct movement support, no official DHV logo, no text.",
+    "character": "Cannachris as a sympathetic tired-but-warm comic activist, focused but friendly, not intoxicated, not angry.",
+    "visual_style": "same clean comic style as the LSD social asset prompt: crisp outlines, warm skin tones, green cannabis-campaign accents, simple background, readable at card size, no photorealism.",
+    "composition": "Square card image, centered character, clear symbolic action, generous padding, high contrast, works at small mobile card size.",
+    "text_policy": "Do not render text, logos, watermarks or fake UI. The card title and button remain HTML text."
+  },
+  "required_outputs": [
+    {
+      "id": "card_image",
+      "filename": "assets/images/social-wishes/dhv-support.webp",
+      "size": "1200x900",
+      "purpose": "Replacement/upgrade image for the matching campaign/support card",
+      "safe_area": "Keep character face and core symbol inside the central 900x650 area."
+    }
+  ],
+  "negative_prompt": [
+    "no photorealism",
+    "no party logos",
+    "no official logos",
+    "no embedded readable text",
+    "no drug consumption imagery",
+    "no guilt pressure",
+    "no extra fingers or distorted hands",
+    "no watermark"
+  ],
+  "quality_checks": [
+    "recognizable Cannachris reference",
+    "same LSD campaign color/style family",
+    "action is understandable without text",
+    "friendly and empowering tone",
+    "works as a normal wishlist card image"
+  ]
+}

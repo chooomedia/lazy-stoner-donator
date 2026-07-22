@@ -95,7 +95,8 @@ window.birthdayWishlistProducts = [
         "availabilityStatus": "action_available_via_linked_resource",
         "availabilityEvidence": "Random Acts of Kindness lists practical kindness ideas such as active listening, kind notes and community cleanups.",
         "audienceLabel": "Für mehr Wärme im Alltag",
-        "description": "Ein herzliches Lächeln, aktives Zuhören oder eine kleine Hilfeleistung bewusst verschenken und jemandem den Tag leichter machen."
+        "description": "Ein herzliches Lächeln, aktives Zuhören oder eine kleine Hilfeleistung bewusst verschenken und jemandem den Tag leichter machen.",
+        "ctaLabel": "Idee öffnen"
     },
     {
         "host": "amazon",
@@ -161,6 +162,29 @@ window.birthdayWishlistProducts = [
             "title": "Samsung Portable SSD T9, 2 TB",
             "reason": "User requested replacing the Samsung SSD with the Osprey Archeon backpack and forcing featured layout via artificial high price."
         }
+    },
+    {
+        "host": "campaign-wish",
+        "partner": null,
+        "adId": "campaign-aekn-transparency",
+        "title": "ÄKN-Transparenzkampagne unterstützen",
+        "url": "https://cannachris.de/aekn-anfrage/",
+        "image": "assets/images/social-wishes/aekn-campaign.svg",
+        "price": null,
+        "byline": "Cannachris ÄKN-Kampagne",
+        "imageFallback": "assets/images/social-wishes/aekn-campaign.svg",
+        "imageQuality": "local_editorial_svg_icon",
+        "priceValue": null,
+        "priceCurrency": null,
+        "priceSource": null,
+        "priceStatus": "non_commercial_campaign_action",
+        "priceEvidence": "This is a campaign action card, not a priced product.",
+        "priceCheckedAt": "2026-07-22T11:34:00+00:00",
+        "availabilityStatus": "action_available_via_linked_resource",
+        "availabilityEvidence": "Cannachris provides a public ÄKN email action that lets citizens ask scientific transparency questions.",
+        "audienceLabel": "Für Wissenschaft & Transparenz",
+        "ctaLabel": "ÄKN fragen",
+        "description": "Eine vorausgefüllte Anfrage an die Ärztekammer Niedersachsen senden und wissenschaftliche Redlichkeit in der Cannabispolitik einfordern."
     },
     {
         "host": "amazon",
@@ -256,7 +280,8 @@ window.birthdayWishlistProducts = [
         "availabilityStatus": "action_available_via_linked_resource",
         "availabilityEvidence": "FragDenStaat provides a public flow for starting information freedom requests.",
         "audienceLabel": "Für politische Transparenz",
-        "description": "Eine konkrete Informationsfreiheitsanfrage stellen oder jemanden dabei unterstützen, Akten, Daten und Entscheidungen nachvollziehbar zu machen."
+        "description": "Eine konkrete Informationsfreiheitsanfrage stellen oder jemanden dabei unterstützen, Akten, Daten und Entscheidungen nachvollziehbar zu machen.",
+        "ctaLabel": "Anfrage stellen"
     },
     {
         "host": "amazon",
@@ -408,7 +433,8 @@ window.birthdayWishlistProducts = [
         "availabilityStatus": "action_available_via_linked_resource",
         "availabilityEvidence": "ichbinhier offers learning resources for digital civil courage against hate online.",
         "audienceLabel": "Für bessere Kommentarspalten",
-        "description": "Nicht wegscrollen, sondern freundlich, sachlich und solidarisch reagieren, wenn Menschen online abgewertet oder angegriffen werden."
+        "description": "Nicht wegscrollen, sondern freundlich, sachlich und solidarisch reagieren, wenn Menschen online abgewertet oder angegriffen werden.",
+        "ctaLabel": "Courage lernen"
     },
     {
         "host": "amazon",
@@ -560,7 +586,8 @@ window.birthdayWishlistProducts = [
         "availabilityStatus": "action_available_via_linked_resource",
         "availabilityEvidence": "foodsharing describes itself as a free, community-based movement against food waste.",
         "audienceLabel": "Für weniger Verschwendung",
-        "description": "Überschüssige Lebensmittel weitergeben, Fairteiler nutzen oder lokal mithelfen, damit gute Dinge nicht in der Tonne landen."
+        "description": "Überschüssige Lebensmittel weitergeben, Fairteiler nutzen oder lokal mithelfen, damit gute Dinge nicht in der Tonne landen.",
+        "ctaLabel": "Rette mit"
     },
     {
         "host": "amazon",
@@ -644,6 +671,29 @@ window.birthdayWishlistProducts = [
         "priceCheckedAt": "2026-07-22T06:30:15.837181+00:00"
     },
     {
+        "host": "campaign-wish",
+        "partner": null,
+        "adId": "campaign-augsburg-csc",
+        "title": "Augsburg/CSC-Kampagne stärken",
+        "url": "https://cannachris.de/cannabis-social-clubs-genehmigung-deutschland-email-aktion/",
+        "image": "assets/images/social-wishes/augsburg-csc-campaign.svg",
+        "price": null,
+        "byline": "Cannachris CSC-Aktion",
+        "imageFallback": "assets/images/social-wishes/augsburg-csc-campaign.svg",
+        "imageQuality": "local_editorial_svg_icon",
+        "priceValue": null,
+        "priceCurrency": null,
+        "priceSource": null,
+        "priceStatus": "non_commercial_campaign_action",
+        "priceEvidence": "This is a campaign action card, not a priced product.",
+        "priceCheckedAt": "2026-07-22T11:34:00+00:00",
+        "availabilityStatus": "action_available_via_linked_resource",
+        "availabilityEvidence": "Cannachris documents an email action for faster Cannabis Social Club approval and implementation.",
+        "audienceLabel": "Für Clubs & lokale Praxis",
+        "ctaLabel": "Aktion öffnen",
+        "description": "Die CSC-Genehmigungsaktion teilen oder nutzen, damit lokale Anbauvereinigungen nicht unnötig ausgebremst werden."
+    },
+    {
         "host": "amazon",
         "partner": "cann4chris-21",
         "adId": "B06WLQFVVV",
@@ -721,7 +771,8 @@ window.birthdayWishlistProducts = [
         "availabilityStatus": "action_available_via_linked_resource",
         "availabilityEvidence": "DKMS explains online registration, cheek swab kit and donor file inclusion for Germany.",
         "audienceLabel": "Für eine zweite Lebenschance",
-        "description": "Ein Registrierungsset bestellen, Wangenabstrich machen und vielleicht eines Tages einem Menschen mit Blutkrebs helfen."
+        "description": "Ein Registrierungsset bestellen, Wangenabstrich machen und vielleicht eines Tages einem Menschen mit Blutkrebs helfen.",
+        "ctaLabel": "Kit bestellen"
     },
     {
         "host": "amazon",
@@ -876,7 +927,8 @@ window.birthdayWishlistProducts = [
         "availabilityStatus": "action_available_via_linked_resource",
         "availabilityEvidence": "DRK provides a blood donation appointment search for local donation dates.",
         "audienceLabel": "Für konkrete medizinische Hilfe",
-        "description": "Einen Termin in der Nähe suchen, Eignung prüfen und mit einer Blutspende die Versorgung von Patient:innen unterstützen."
+        "description": "Einen Termin in der Nähe suchen, Eignung prüfen und mit einer Blutspende die Versorgung von Patient:innen unterstützen.",
+        "ctaLabel": "Termin finden"
     },
     {
         "host": "amazon",
@@ -1031,7 +1083,8 @@ window.birthdayWishlistProducts = [
         "availabilityStatus": "action_available_via_linked_resource",
         "availabilityEvidence": "DSEE is a federal contact point for strengthening volunteering and civic engagement.",
         "audienceLabel": "Für lokalen Zusammenhalt",
-        "description": "Eine Aufgabe finden, die zur eigenen Zeit und Energie passt, und Engagement als realistische, kleine Gewohnheit starten."
+        "description": "Eine Aufgabe finden, die zur eigenen Zeit und Energie passt, und Engagement als realistische, kleine Gewohnheit starten.",
+        "ctaLabel": "Ehrenamt finden"
     },
     {
         "host": "amazon",
@@ -1197,7 +1250,8 @@ window.birthdayWishlistProducts = [
         "availabilityStatus": "action_available_via_linked_resource",
         "availabilityEvidence": "Demokratie leben! funds civic engagement for democracy, diversity and prevention of extremism.",
         "audienceLabel": "Für Vielfalt & gegen Polarisierung",
-        "description": "Ein Projekt, eine lokale Initiative oder Bildungsarbeit unterstützen, die demokratisches Miteinander praktisch erfahrbar macht."
+        "description": "Ein Projekt, eine lokale Initiative oder Bildungsarbeit unterstützen, die demokratisches Miteinander praktisch erfahrbar macht.",
+        "ctaLabel": "Projekt finden"
     },
     {
         "host": "amazon",
@@ -1345,7 +1399,8 @@ window.birthdayWishlistProducts = [
         "availabilityStatus": "action_available_via_linked_resource",
         "availabilityEvidence": "nebenan.de connects local neighbors for help, sharing, groups and activities.",
         "audienceLabel": "Für Nähe im eigenen Viertel",
-        "description": "Etwas verleihen, kurz einkaufen, zuhören oder eine kleine praktische Hilfe in der direkten Umgebung anbieten."
+        "description": "Etwas verleihen, kurz einkaufen, zuhören oder eine kleine praktische Hilfe in der direkten Umgebung anbieten.",
+        "ctaLabel": "Hilfe anbieten"
     },
     {
         "host": "amazon",
@@ -1389,6 +1444,29 @@ window.birthdayWishlistProducts = [
         "priceStatus": "price_not_found",
         "priceEvidence": "Amazon did not expose a reliable price in the available wishlist/live page data.",
         "priceCheckedAt": "2026-07-22T06:30:15.837181+00:00"
+    },
+    {
+        "host": "donation-wish",
+        "partner": null,
+        "adId": "donation-dhv-support",
+        "title": "DHV-Arbeit mit einer Spende unterstützen",
+        "url": "https://hanfverband.de/spenden",
+        "image": "assets/images/social-wishes/dhv-donation.svg",
+        "price": null,
+        "byline": "Deutscher Hanfverband",
+        "imageFallback": "assets/images/social-wishes/dhv-donation.svg",
+        "imageQuality": "local_editorial_svg_icon",
+        "priceValue": null,
+        "priceCurrency": null,
+        "priceSource": null,
+        "priceStatus": "voluntary_external_donation",
+        "priceEvidence": "The DHV donation page describes voluntary support via bank transfer or PayPal; this card does not set a fixed amount.",
+        "priceCheckedAt": "2026-07-22T11:34:00+00:00",
+        "availabilityStatus": "donation_available_via_linked_resource",
+        "availabilityEvidence": "The official DHV donation page explains one-time support and payment options.",
+        "audienceLabel": "Für starke Cannabis-Lobbyarbeit",
+        "ctaLabel": "DHV spenden",
+        "description": "Den Deutschen Hanfverband direkt unterstützen, damit Aufklärung, Lobbyarbeit und rechtspolitische Arbeit weiterlaufen."
     },
     {
         "host": "amazon",
@@ -1500,7 +1578,8 @@ window.birthdayWishlistProducts = [
         "availabilityStatus": "action_available_via_linked_resource",
         "availabilityEvidence": "The German Hemp Association provides topic pages on cannabis policy, law, medicine, use and social clubs.",
         "audienceLabel": "Für Aufklärung statt Stigma",
-        "description": "Ein Gespräch führen, einen Fakt prüfen oder eine sachliche Quelle teilen, damit Cannabispolitik weniger von Vorurteilen lebt."
+        "description": "Ein Gespräch führen, einen Fakt prüfen oder eine sachliche Quelle teilen, damit Cannabispolitik weniger von Vorurteilen lebt.",
+        "ctaLabel": "Fakten lesen"
     },
     {
         "host": "amazon",
