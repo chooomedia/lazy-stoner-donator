@@ -1,0 +1,78 @@
+{
+  "name": "lazy-stoner-donator-social-assets",
+  "model": "gemini-nano-banana",
+  "source_image": {
+    "url": "https://cannachris.de/wp-content/uploads/2026/03/cannachris-cannabis-aktivist-portrait-fragdenstaat-deutschland-lol-tshirt-looking-critical-aekn-cannabis-comic.webp",
+    "role": "visual_reference",
+    "preserve": [
+      "hand-drawn comic portrait style",
+      "recognizable Cannachris likeness",
+      "transparent cutout feeling",
+      "warm activist personality",
+      "dark shirt with playful patch energy"
+    ]
+  },
+  "creative_direction": {
+    "summary": "Create a sympathetic Lazy Stoner Donator social-sharing hero image and icon set from the existing comic portrait reference.",
+    "character": "A stereotypical but affectionate Cannachris character: tired eyes, soft sleepy expression, very warm gaze, slightly drooling in a harmless cartoon way, one hand stretched forward in a gentle begging gesture, friendly and funny rather than desperate.",
+    "mood": "heartfelt, lazy, tired, generous, slightly absurd, human, approachable, activist-friendly",
+    "visual_style": "clean high-resolution illustrated comic artwork, crisp outlines, warm skin tones, soft green cannabis-campaign accents, modern editorial social-media composition, no photorealism",
+    "composition": "Center the character with enough safe space around head and hand for social-media cropping. Keep the face readable at small sizes. Use a soft green and off-white background with subtle wishlist/gift motifs.",
+    "text_policy": "Do not render text inside the image except if explicitly requested for a later variant. Leave text overlays to HTML/social platform metadata."
+  },
+  "required_outputs": [
+    {
+      "id": "og_landscape",
+      "filename": "assets/social/lazy-stoner-donator-og.webp",
+      "size": "1200x630",
+      "purpose": "Open Graph, LinkedIn, Facebook, WhatsApp, Telegram",
+      "safe_area": "Keep the face, extended hand, and main gesture inside the central 1000x520 area."
+    },
+    {
+      "id": "square_social",
+      "filename": "assets/social/lazy-stoner-donator-square.webp",
+      "size": "1200x1200",
+      "purpose": "Square social preview and fallback image",
+      "safe_area": "Keep the full head and extended hand inside the central 900x900 area."
+    },
+    {
+      "id": "transparent_head",
+      "filename": "assets/social/lazy-stoner-donator-head-transparent.png",
+      "size": "1024x1024",
+      "purpose": "High-resolution transparent source for favicon and app icons",
+      "safe_area": "Head and shoulders only, transparent background, strong silhouette."
+    },
+    {
+      "id": "favicon_source",
+      "filename": "assets/icons/favicon-source-1024.png",
+      "size": "1024x1024",
+      "purpose": "Source icon for generated favicon sizes",
+      "safe_area": "Head only, bold outline, readable at 32x32."
+    }
+  ],
+  "negative_prompt": [
+    "do not make the character look sick, frightening, intoxicated, aggressive, humiliated, dirty, or exploitative",
+    "no realistic saliva strings; keep drool as a tiny harmless cartoon detail",
+    "no needles, drugs, smoke clouds, bongs, or illegal-consumption imagery",
+    "no political party logos",
+    "no unreadable text, no watermark, no pseudo-signature",
+    "no AI-glitch artifacts, extra fingers, broken hands, distorted eyes, cropped face, or missing hand",
+    "no photorealistic rendering"
+  ],
+  "seo_context": {
+    "focus_keyword": "Lazy Stoner Donator",
+    "page_url": "https://lsd.cannachris.de/",
+    "meta_title": "Lazy Stoner Donator - Cannachris Wunschliste",
+    "meta_description": "Unterstütze Cannachris mit nützlichen Wunschgeschenken, kleinen Gesten und konkreten Ideen für Content, Aktivismus, Alltag und Community.",
+    "share_message": "Ein müder, herzlicher Cannachris bittet charmant um Support: Wunsch aussuchen, teilen oder eine gute Tat schenken."
+  },
+  "quality_checks": [
+    "face remains recognizable from the reference image",
+    "expression is tired but warm, not miserable",
+    "begging gesture is friendly and humorous",
+    "image works without embedded text",
+    "landscape crop works for Open Graph",
+    "square crop works for social feeds",
+    "head crop remains readable as favicon"
+  ]
+}
