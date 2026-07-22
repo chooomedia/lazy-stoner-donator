@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Lazy Stoner Donator">
+  <style>
+    .bg { fill: #13890e; }
+    .fg { fill: #ffffff; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #67ae68; }
+      .fg { fill: #0b2b0d; }
+    }
+  </style>
+  <circle class="bg" cx="32" cy="32" r="30"/>
+  <text class="fg" x="32" y="38" text-anchor="middle" font-family="Comfortaa, Arial, sans-serif" font-size="21" font-weight="800">LSD</text>
+</svg>

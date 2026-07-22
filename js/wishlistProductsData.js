@@ -1857,6 +1857,7 @@ window.birthdayWishlistProducts = [
         "availabilityStatus": "available_on_source_page",
         "availabilityEvidence": "The public product page exposes Groove Techno Vol. 1 with add-to-cart flow and sample loops.",
         "audienceLabel": "Für Sound, Edits & Content-Vibes",
-        "description": "Groove-Techno-Sample-Pack von Stereo Voltage mit 342 Loops, 285 One-Shots, royalty-free Lizenz und Sounds für alle DAWs."
+        "description": "Groove-Techno-Sample-Pack von Stereo Voltage mit 342 Loops, 285 One-Shots, royalty-free Lizenz und Sounds für alle DAWs.",
+        "ctaLabel": "Pack ansehen"
     }
 ];

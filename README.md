@@ -36,8 +36,8 @@ The site uses standard SEO foundations rather than hidden AI-only content:
 
 - Canonical URL: `https://lsd.cannachris.de/`.
 - Open Graph image: `assets/social/lazy-stoner-donator-og.png` at `1200x630`.
-- Favicon: `favicon.png`; Apple touch icon: `assets/lsd-favicon.png`.
-- JSON-LD: `WebPage` with `ItemList`, `Product` entries for product cards and `Thing` entries for social/action cards.
+- Favicon stack: `favicon.ico`, `favicon.svg`, PNG sizes, `apple-touch-icon.png` and `site.webmanifest`.
+- JSON-LD: `WebPage` with a valid `ItemList` of `Thing` entries. The wishlist overview does not emit incomplete `Product` or `Offer` markup.
 - Social/action images include `imageAlt`, `imageTitle`, `imageCaption`, `imageKeywords` and `seoIntent` in `wishlist-products.json`.
 - `robots.txt` and `llms.txt` are kept simple and point crawlers to canonical runtime data.
 

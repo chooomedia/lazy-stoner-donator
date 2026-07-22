@@ -35,7 +35,7 @@ class VideoCard extends Card {
         const link = document.createElement('a');
         link.href = 'https://www.youtube.com/watch?v=' + videoId;
         link.target = '_blank';
-        link.rel = 'noopener';
+        link.rel = 'noopener noreferrer';
 
         const image = document.createElement('img');
         image.src = 'https://i.ytimg.com/vi/' + videoId + '/mqdefault.jpg';
@@ -49,7 +49,7 @@ class VideoCard extends Card {
         const link = document.createElement('a');
         link.href = videoUrl;
         link.target = '_blank';
-        link.rel = 'noopener';
+        link.rel = 'noopener noreferrer';
         link.textContent = 'Vimeo Video öffnen';
         return link;
     }

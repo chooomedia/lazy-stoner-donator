@@ -44,7 +44,12 @@
         "copySuccess": "Kopiert",
         "copyError": "Fehler",
         "giftedLabel": "Schon geschenkt",
-        "giftedMeta": "Danke fürs Möglichmachen"
+        "giftedMeta": "Danke fürs Möglichmachen",
+        "aiContentUrl": "https://cannachris.de/ki-content/",
+        "aiContentAria": "Wunsch - Hinweis zu KI-Content auf Cannachris öffnen",
+        "shareMenuLabel": "{title} teilen",
+        "shareViaAria": "Über {service} teilen",
+        "copyLinkAria": "Affiliate-Link kopieren"
     },
     "footer": {
         "links": [
@@ -58,10 +63,16 @@
             "TikTok",
             "YouTube",
             "X",
-            "Twitch"
+            "Twitch",
+            "KI-Content"
         ],
         "creditText": "Realized with 🥦 and 💚 by",
         "creditAlt": "Matt Interfaces",
-        "creditTitle": "Matt Interfaces - Web Development & Automation"
+        "creditTitle": "Matt Interfaces - Web Development & Automation",
+        "aiContentTitle": "Hinweis zu KI-Content auf Cannachris"
+    },
+    "seo": {
+        "structuredDataModel": "Die Seite nutzt ItemList/Thing-Markup für die Wunschlisten-Übersicht. Product- und Offer-Markup bleibt den eigentlichen Shop-Produktseiten vorbehalten, damit keine unvollständigen Merchant-Listing-Daten entstehen.",
+        "faviconModel": "Moderner Favicon-Stack mit SVG, ICO-Fallback, PNG-Größen, Apple Touch Icon und Webmanifest."
     }
 }

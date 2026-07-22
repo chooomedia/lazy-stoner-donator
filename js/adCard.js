@@ -188,6 +188,10 @@ class AdCard extends Card {
         return 'Passt gut zu Chris';
     }
 
+    hasAiAssistedImage() {
+        return ['social-wish', 'campaign-wish', 'donation-wish'].includes(this.adHost);
+    }
+
     createCard() {
         const article = document.createElement('article');
         article.className = 'product-card';
@@ -202,7 +206,7 @@ class AdCard extends Card {
         mediaLink.className = 'product-media';
         mediaLink.href = this.productUrl;
         mediaLink.target = '_blank';
-        mediaLink.rel = 'noopener sponsored';
+        mediaLink.rel = 'noopener noreferrer sponsored';
         mediaLink.setAttribute('aria-label', (this.ctaLabel ? this.ctaLabel + ': ' : '') + this.title);
 
         const image = document.createElement('img');
@@ -243,8 +247,14 @@ class AdCard extends Card {
         amazonLink.className = 'button button-primary product-action';
         amazonLink.href = this.productUrl;
         amazonLink.target = '_blank';
-        amazonLink.rel = 'noopener sponsored';
-        amazonLink.textContent = this.getPrimaryActionLabel();
+        amazonLink.rel = 'noopener noreferrer sponsored';
+        const amazonLinkText = document.createElement('span');
+        amazonLinkText.textContent = this.getPrimaryActionLabel();
+        const amazonLinkIcon = document.createElement('i');
+        amazonLinkIcon.className = 'fas fa-external-link-alt';
+        amazonLinkIcon.setAttribute('aria-hidden', 'true');
+        amazonLink.appendChild(amazonLinkText);
+        amazonLink.appendChild(amazonLinkIcon);
 
         const copyButton = document.createElement('button');
         copyButton.className = 'button button-secondary product-action';
@@ -252,7 +262,7 @@ class AdCard extends Card {
         copyButton.setAttribute('aria-expanded', 'false');
         copyButton.setAttribute('aria-haspopup', 'menu');
         const copyIcon = document.createElement('i');
-        copyIcon.className = 'fas fa-share-alt';
+        copyIcon.className = 'fas fa-share-from-square';
         copyIcon.setAttribute('aria-hidden', 'true');
 
         const copyText = document.createElement('span');
@@ -284,17 +294,35 @@ class AdCard extends Card {
         }
 
         if (this.status !== 'gifted') {
-            const badge = document.createElement('span');
+            const badge = document.createElement(this.hasAiAssistedImage() ? 'a' : 'span');
             badge.className = 'product-badge';
+            if (this.hasAiAssistedImage()) {
+                badge.classList.add('has-ai-content');
+                badge.href = (this.content.card && this.content.card.aiContentUrl) || 'https://cannachris.de/ki-content/';
+                badge.target = '_blank';
+                badge.rel = 'noopener noreferrer';
+                badge.setAttribute('aria-label', (this.content.card && this.content.card.aiContentAria) || 'Wunsch - Hinweis zu KI-Content auf Cannachris öffnen');
+            }
             const badgeIcon = document.createElement('i');
             badgeIcon.className = 'fas fa-gift';
             badgeIcon.setAttribute('aria-hidden', 'true');
 
             const badgeText = document.createElement('span');
-            badgeText.textContent = 'Wunsch';
+            badgeText.textContent = (this.content.card && this.content.card.badge) || 'Wunsch';
 
             badge.appendChild(badgeIcon);
             badge.appendChild(badgeText);
+            if (this.hasAiAssistedImage()) {
+                const aiIcon = document.createElement('img');
+                aiIcon.className = 'product-badge-ai-icon';
+                aiIcon.src = 'assets/icons/cannachris-icon-okai.svg';
+                aiIcon.alt = '';
+                aiIcon.width = 16;
+                aiIcon.height = 16;
+                aiIcon.decoding = 'async';
+                aiIcon.setAttribute('aria-hidden', 'true');
+                badge.appendChild(aiIcon);
+            }
             article.appendChild(badge);
         }
 
@@ -313,10 +341,11 @@ class AdCard extends Card {
         const menu = document.createElement('div');
         menu.className = 'product-share-menu';
         menu.setAttribute('role', 'menu');
-        menu.setAttribute('aria-label', this.title + ' teilen');
+        const cardContent = this.content.card || {};
+        menu.setAttribute('aria-label', (cardContent.shareMenuLabel || '{title} teilen').replace('{title}', this.title));
         menu.setAttribute('aria-hidden', 'true');
 
-        const shareText = 'Geschenkidee für Chris: ' + this.title;
+        const shareText = (cardContent.shareTextPrefix || 'Geschenkidee für Chris:') + ' ' + this.title;
         const encodedUrl = encodeURIComponent(this.productUrl);
         const encodedText = encodeURIComponent(shareText);
         const encodedTitle = encodeURIComponent(this.title);
@@ -352,9 +381,9 @@ class AdCard extends Card {
             const link = document.createElement('a');
             link.href = target.url;
             link.target = target.url.startsWith('mailto:') ? '_self' : '_blank';
-            link.rel = target.url.startsWith('mailto:') ? '' : 'noopener sponsored';
+            link.rel = target.url.startsWith('mailto:') ? '' : 'noopener noreferrer sponsored';
             link.setAttribute('role', 'menuitem');
-            link.setAttribute('aria-label', 'Über ' + target.label + ' teilen');
+            link.setAttribute('aria-label', (cardContent.shareViaAria || 'Über {service} teilen').replace('{service}', target.label));
             link.tabIndex = -1;
 
             const icon = document.createElement('i');
@@ -368,7 +397,7 @@ class AdCard extends Card {
         const copyLink = document.createElement('button');
         copyLink.type = 'button';
         copyLink.setAttribute('role', 'menuitem');
-        copyLink.setAttribute('aria-label', 'Affiliate-Link kopieren');
+        copyLink.setAttribute('aria-label', cardContent.copyLinkAria || 'Affiliate-Link kopieren');
         copyLink.tabIndex = -1;
 
         const copyIcon = document.createElement('i');
@@ -401,7 +430,7 @@ class AdCard extends Card {
     }
 
     async copyProductLink(button, wrapper) {
-        const setButtonLabel = (label, iconClass = 'fas fa-share-alt') => {
+        const setButtonLabel = (label, iconClass = 'fas fa-share-from-square') => {
             button.replaceChildren();
 
             const icon = document.createElement('i');

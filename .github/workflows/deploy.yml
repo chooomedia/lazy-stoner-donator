@@ -49,8 +49,17 @@ jobs:
               "js/widget.js",
               "js/wishlistProductsData.js",
               "js/wishlistContentData.js",
+              "favicon.ico",
+              "favicon.svg",
               "favicon.png",
-              "assets/lsd-favicon.png",
+              "favicon-16x16.png",
+              "favicon-32x32.png",
+              "favicon-48x48.png",
+              "apple-touch-icon.png",
+              "icon-192.png",
+              "icon-512.png",
+              "icon-maskable-512.png",
+              "site.webmanifest",
               "assets/social/lazy-stoner-donator-og.png",
           ]
           REQUIRED_DIRECTORIES = ["assets", "js", "styles"]
@@ -89,8 +98,10 @@ jobs:
               'property="og:image:width" content="1200"',
               'property="og:image:height" content="630"',
               'name="twitter:card" content="summary_large_image"',
-              'rel="icon" type="image/png" href="/favicon.png"',
-              'rel="apple-touch-icon" href="/assets/lsd-favicon.png"',
+              'rel="icon" href="/favicon.ico" sizes="any"',
+              'rel="icon" href="/favicon.svg" type="image/svg+xml"',
+              'rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"',
+              'rel="manifest" href="/site.webmanifest"',
           ]
           for snippet in expected_meta:
               if snippet not in index_html:
@@ -117,6 +128,9 @@ jobs:
 
           if not json_ld.get("primaryImageOfPage", {}).get("url", "").endswith("/assets/social/lazy-stoner-donator-og.png"):
               fail("JSON-LD primaryImageOfPage does not reference the OG image")
+
+          if '"@type": "Product"' in index_html or '"@type": "Offer"' in index_html:
+              fail("wishlist overview must not expose incomplete Product or Offer rich-result markup")
 
           for index, product in enumerate(products, start=1):
               for field in ("adId", "title", "url", "image"):
@@ -178,6 +192,16 @@ jobs:
               "wishlist-products.json",
               "wishlist-content.json",
               "favicon.png",
+              "favicon.ico",
+              "favicon.svg",
+              "favicon-16x16.png",
+              "favicon-32x32.png",
+              "favicon-48x48.png",
+              "apple-touch-icon.png",
+              "icon-192.png",
+              "icon-512.png",
+              "icon-maskable-512.png",
+              "site.webmanifest",
           ]
           static_directories = ["assets", "js", "styles"]
           forbidden_parts = {"prompts", "scripts", "data", "db"}
