@@ -37,7 +37,7 @@
   "mainEntity": {
     "@type": "ItemList",
     "name": "Lazy Stoner Donator",
-    "numberOfItems": 72,
+    "numberOfItems": 73,
     "itemListElement": [
       {
         "@type": "ListItem",
@@ -173,9 +173,7 @@
           "offers": {
             "@type": "Offer",
             "url": "https://www.amazon.com/Osprey-Archeon-Unisex-Backpacking-Backpack/dp/B0CPL72C61?th=1",
-            "availability": "https://schema.org/InStock",
-            "price": "999.0",
-            "priceCurrency": "EUR"
+            "availability": "https://schema.org/InStock"
           }
         }
       },
@@ -1414,6 +1412,24 @@
             "availability": "https://schema.org/InStock"
           }
         }
+      },
+      {
+        "@type": "ListItem",
+        "position": 73,
+        "item": {
+          "@type": "Product",
+          "name": "Stereo Voltage Groove Techno Volume 01 Sample Pack",
+          "image": "https://stereovoltage.com/wp-content/uploads/2026/02/font-sharp-base-image-1.jpg",
+          "url": "https://stereovoltage.com/sample-shop/",
+          "sku": "stereovoltage-groove-techno-volume-01",
+          "brand": "Stereo Voltage",
+          "description": "Techno & Hardgroove Sample Pack von Stereo Voltage, inspiriert von modernem Groove-Techno und nutzbar als Soundfutter für Content, Edits und kreative Sessions.",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://stereovoltage.com/sample-shop/",
+            "availability": "https://schema.org/InStock"
+          }
+        }
       }
     ]
   }
@@ -1444,7 +1460,10 @@
                 </p>
                 <div class="hero-actions" aria-label="Schnellaktionen">
                     <a class="button button-primary" href="#wishlist">Wunsch finden</a>
-                    <a class="button button-secondary" href="https://cannachris.de/">Mehr über Chris</a>
+                    <a class="button button-secondary" href="https://cannachris.de/" target="_blank" rel="noopener">
+                        <span>Mehr über Chris</span>
+                        <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                    </a>
                 </div>
             </div>
         </section>
@@ -1566,7 +1585,10 @@
                 document.getElementById('hero-title').textContent = hero.title || 'Danke, dass du Chris unterstützen möchtest.';
                 document.querySelector('.hero-copy > p:not(.eyebrow)').textContent = hero.text || '';
                 document.querySelector('.hero-actions .button-primary').textContent = hero.primaryCta || 'Wunsch finden';
-                document.querySelector('.hero-actions .button-secondary').textContent = hero.secondaryCta || 'Mehr über Chris';
+                const secondaryHeroButtonLabel = document.querySelector('.hero-actions .button-secondary span');
+                if (secondaryHeroButtonLabel) {
+                    secondaryHeroButtonLabel.textContent = hero.secondaryCta || 'Mehr über Chris';
+                }
                 document.querySelector('.wishlist-section .eyebrow').textContent = wishlist.eyebrow || 'Wunschliste';
                 document.getElementById('wishlist-title').textContent = wishlist.title || 'Wähle etwas, das Aufklärung leichter macht.';
                 status.textContent = wishlist.loading || 'Wunschliste wird geladen...';

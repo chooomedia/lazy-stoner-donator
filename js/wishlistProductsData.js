@@ -1371,5 +1371,29 @@ window.birthdayWishlistProducts = [
         "priceStatus": "price_not_found",
         "priceEvidence": "Amazon did not expose a reliable price in the available wishlist/live page data.",
         "priceCheckedAt": "2026-07-22T06:30:15.837181+00:00"
+    },
+    {
+        "host": "stereovoltage",
+        "partner": null,
+        "adId": "stereovoltage-groove-techno-volume-01",
+        "title": "Stereo Voltage Groove Techno Volume 01 Sample Pack",
+        "url": "https://stereovoltage.com/sample-shop/",
+        "image": "https://stereovoltage.com/wp-content/uploads/2026/02/font-sharp-base-image-1.jpg",
+        "price": null,
+        "byline": "Stereo Voltage",
+        "imageFallback": "https://stereovoltage.com/wp-content/uploads/2023/08/logo-stereovoltage-grand-bold-italic_font_2-no-space-08-2023-1735x268px.svg",
+        "imageQuality": "stereovoltage_sample_shop_page_image",
+        "priceValue": null,
+        "priceCurrency": null,
+        "priceSource": null,
+        "priceStatus": "price_not_published_on_source_page",
+        "priceEvidence": "Stereo Voltage sample shop page exposes the Groove Techno Volume 01 sample pack and a free demo pack, but no reliable product price in the available page data.",
+        "priceCheckedAt": "2026-07-22T11:16:00+00:00",
+        "availabilityStatus": "available_on_source_page",
+        "availabilityEvidence": "The public sample shop page exposes Groove Techno Volume 01 and a downloadable demo pack.",
+        "audienceLabel": "Für Sound, Edits & Content-Vibes",
+        "displayTier": "featured",
+        "featureReason": "Besonderer Wunsch: Sample-Pack-Support",
+        "description": "Techno & Hardgroove Sample Pack von Stereo Voltage, inspiriert von modernem Groove-Techno und nutzbar als Soundfutter für Content, Edits und kreative Sessions."
     }
 ];

@@ -1299,6 +1299,10 @@ a.button,
 }
 
 @media (max-width: 560px) {
+    :root {
+        --mobile-toolbar-size: 42px;
+    }
+
     .wishlist-toolbar {
         position: fixed;
         right: auto;
@@ -1328,33 +1332,68 @@ a.button,
     }
 
     .wishlist-toolbar .status-message {
-        min-width: 4.75rem;
-        max-width: 5.35rem;
+        width: var(--mobile-toolbar-size);
+        min-width: var(--mobile-toolbar-size);
+        max-width: var(--mobile-toolbar-size);
+        min-height: var(--mobile-toolbar-size);
+        height: var(--mobile-toolbar-size);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
         flex: 0 0 auto;
-        padding-inline: 0.52rem;
+        padding-inline: 0;
         overflow: hidden;
-        text-overflow: ellipsis;
-        font-size: 0.76rem;
+        color: #ffffff;
+        background: var(--color-primary-dark);
+        font-size: 0;
+    }
+
+    .wishlist-toolbar .status-message::before {
+        content: '\f06b';
+        font-family: 'Font Awesome 5 Free';
+        font-size: 1rem;
+        font-weight: 900;
+        line-height: 1;
     }
 
     .wishlist-filters {
-        flex: 1 1 auto;
+        flex: 0 0 auto;
         display: flex;
         min-width: 0;
         gap: 0.25rem;
     }
 
     .filter-chip {
-        min-height: 34px;
-        flex: 1 1 0;
+        width: var(--mobile-toolbar-size);
+        min-width: var(--mobile-toolbar-size);
+        height: var(--mobile-toolbar-size);
+        min-height: var(--mobile-toolbar-size);
+        flex: 0 0 var(--mobile-toolbar-size);
         gap: 0.28rem;
-        padding: 0.44rem 0.36rem;
+        padding: 0;
         font-size: 0.7rem;
         white-space: nowrap;
     }
 
+    .filter-chip[data-filter="all"] {
+        width: auto;
+        min-width: calc(var(--mobile-toolbar-size) * 1.72);
+        flex-basis: auto;
+        padding-inline: 0.68rem;
+    }
+
+    .filter-chip:not([data-filter="all"]) span {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        white-space: nowrap;
+    }
+
     .filter-chip i {
-        font-size: 0.72rem;
+        font-size: 1rem;
     }
 
     .footer-social {
