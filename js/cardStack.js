@@ -1,85 +1,26 @@
 class CardStack extends Widget {
-    constructor(parentContainerId, options) {
-        super(parentContainerId);
-        this.domElement.className = "innerDialog";
-        this.domElement.style.transition = "all 0.33s ease";
-        this.domElement.style.height = "auto";
-        this.domElement.style.display = "grid";
-        this.domElement.style.gridTemplateAreas =
-                                            "header header login" +
-                                            "content content content" +
-                                            "sidebar content content" +
-                                            "footer footer footer";
-        this.domElement.style.gridArea = "content";
-        this.domElement.style.gridTemplateRows = "repeat(1, 3fr)"; 
-        this.domElement.style.gridGap = "6px";
-        this.domElement.style.transformOrigin = "top";
-        this.domElement.style.gridTemplateColumns = "repeat(auto-fit, minmax(240px, 1fr))";     
-        this.domElement.style.fontSize = "18px";
-
+    constructor(parentContainer, options = {}) {
+        super(null);
         this.options = options;
+        this.cards = [];
+        this.domElement.className = options.className || 'wishlist-grid';
 
-        if (this.options && this.options.columnCount) {
-            this.domElement.style.gridTemplateColumns = "repeat(" + this.options.columnCount +", 1fr)";
-        } else {
-            this.columnCount = 3;
+        if (typeof parentContainer === 'string') {
+            this.containerDomElement = document.getElementById(parentContainer);
+        } else if (parentContainer && parentContainer.nodeType === 1) {
+            this.containerDomElement = parentContainer;
         }
 
-        this.cards = [];
-        // Dieses DOM Element enthält später (nach Aufruf von 'addCard(card)') alle hinzugefügten Karten.        
-
-        document.addEventListener('mousemove', (event) => {
-            let elementAtMousePosition = document.elementFromPoint(event.x, event.y);
-            if (!elementAtMousePosition) {
-                return;
-            }
-            this.cards.forEach(card => {
-                let current = elementAtMousePosition;
-                while (current) {
-                    if (current == card.domElement) {
-                        card.onMouseEnter();
-                        break;
-                    }
-                    if (current == this.domElement) {
-                        current = null;
-                        break;
-                    }
-                    current = current.parentElement;
-                }
-                if (!current) {
-                    card.onMouseLeave();
-                }
-            });
-        });
+        if (this.containerDomElement) {
+            this.domElement = this.containerDomElement;
+            this.domElement.classList.add(options.className || 'wishlist-grid');
+        }
     }
 
-    /**
-     * Adds a new card to the stack and creates a 'div' element for it.
-     * The created 'div' is then appended under the CardStack's 'containerDomElement'.
-     * @param {Card} card The card definition (front- and back-html)
-     */
-    addCard(card) { 
+    addCard(card) {
         this.cards.push(card);
         this.domElement.appendChild(card.domElement);
-
-        setTimeout(() => {
-            if (this.options && this.options.itemBackgr) {
-                if (typeof this.options.itemBackgr === "function") {
-                    card.domElement.style.background = this.options.itemBackgr(card);
-                } else if (typeof this.options.itemBackgr === "string") {
-                    card.domElement.style.background = this.options.itemBackgr;
-                }
-            }
-
-            if (this.options && this.options.itemHeight) {
-                if (typeof this.options.itemHeight === "function") {
-                    card.domElement.style.height = this.options.itemHeight(card);
-                } else if (typeof this.options.itemHeight === "string") {
-                    card.domElement.style.height = this.options.itemHeight;
-                }
-            }
-            card.show();
-        }, 0);
+        window.requestAnimationFrame(() => card.show());
     }
 
     getCard(index) {

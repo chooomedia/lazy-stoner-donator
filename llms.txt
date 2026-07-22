@@ -1,0 +1,33 @@
+# Lazy Stoner Donator
+
+> Persönliche Geburtstags-Wishlist von Cannachris mit Geschenkideen rund um Content, Aktivismus, Technik und Alltag.
+
+## Seiten
+
+- [Lazy Stoner Donator](https://cannachris.de/lazy-stoner-donator/): Öffentliche Wunschliste mit Produktkarten, Amazon-Links und markierten bereits geschenkten Artikeln.
+- [Cannachris](https://cannachris.de/): Hauptseite von Cannachris.
+- [Kontakt](https://cannachris.de/kontakt/): Kontaktmöglichkeit.
+
+## Daten
+
+- [Produktdaten](https://cannachris.de/lazy-stoner-donator/wishlist-products.json): JSON-Quelle der Wunschprodukte.
+- [Core-Texte](https://cannachris.de/lazy-stoner-donator/wishlist-content.json): Redaktionelle UI-Texte, CTA-Varianten und Tonalität.
+## AI & SEO Operating Model
+
+This file is a curated navigation aid for AI agents and developer tools, not a Google ranking signal. Maintain it as a concise, accurate map of the project so retrieval systems can understand the page purpose, primary data sources, and canonical URLs without guessing.
+
+Recommended workflow:
+
+1. Crawlability first: keep `robots.txt` explicit for search and AI retrieval bots, and avoid blocking the public wishlist, JSON data, CSS, JavaScript, or images required to understand the page.
+2. Structured data second: keep JSON-LD synchronized with the visible product list, including `Product`, `Offer`, canonical Amazon URL, image, availability state, and stable identifiers such as ASIN.
+3. Human-readable HTML third: expose the core purpose, product names, status labels, and actions in semantic HTML so crawlers do not depend on screenshots or hidden client-side state.
+4. Evidence over invention: when replacing unavailable products, verify the product page, ASIN, title, image, and availability before updating JSON. Keep replacement provenance in the data.
+5. Community and trust signals: Reddit, review portals, and comparison sites can inform what people actually recommend, but they should be treated as discovery sources. Final product data must still be verified against the target product page.
+6. Maintenance cadence: refresh availability, product images, structured data, and this file whenever products are removed, replaced, or materially reordered.
+
+Implementation notes:
+
+- Keep `llms.txt` short, flat, and current; stale machine-readable guidance is worse than no guidance.
+- Do not claim that `llms.txt` improves Google rankings. Google Search ignores it for ranking, while some AI agents and developer tools may use it as a navigation hint.
+- Prefer canonical, stable URLs and avoid URL shorteners.
+- Preserve accessibility labels, clear headings, and visible status text because these help both users and retrieval systems.

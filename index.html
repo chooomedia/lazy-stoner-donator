@@ -1,525 +1,1813 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>gridCards Widget</title>
-    <!-- adds own icon and font-family-->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
-        crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-    <style>
-        :root {
-            /* global variables */
-            /* set own icon font-family Group */
-            --card-font-family: 'Montserrat', sans-serif;
-            --card-rgba-prim-color: rgba(53,53,53,0.7);
-            --card-rgba-sec-color: rgba(53, 53, 53, 00.7);
-            --card-buttons-color: #3aa1cf;
+    <meta name="description" content="Cannachris Geburtstags-Wishlist mit persönlichen Wunschprodukten und direkten Amazon-Links.">
+    <title>Lazy Stoner Donator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+        integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <script type="application/ld+json" id="wishlist-schema">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://cannachris.de/lazy-stoner-donator/#webpage",
+  "name": "Lazy Stoner Donator",
+  "inLanguage": "de-DE",
+  "description": "Persönliche Geburtstags-Wishlist von Cannachris mit Geschenkideen rund um Content, Aktivismus, Technik und Alltag.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "@id": "https://cannachris.de/#website",
+    "name": "Cannachris",
+    "url": "https://cannachris.de/"
+  },
+  "about": {
+    "@type": "Person",
+    "name": "Cannachris",
+    "url": "https://cannachris.de/"
+  },
+  "mainEntity": {
+    "@type": "ItemList",
+    "name": "Lazy Stoner Donator",
+    "numberOfItems": 72,
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@type": "Product",
+          "name": "DJI Osmo Pocket 3 Audio Combo mit Mic 2 (1 Sender + 1 Empfänger), Pocket-Gimbal-Vlog-Kamera, 1-Zoll-CMOS und 4K/240fps, 3-Achsen-Stabilisierung, 2× verlustfreier Zoom",
+          "image": "https://m.media-amazon.com/images/I/418Mm7RagyL.jpg",
+          "url": "https://www.amazon.de/dp/B0H2MTN6DM/ref=nosim?tag=cann4chris-21",
+          "sku": "B0H2MTN6DM",
+          "brand": "Amazon",
+          "description": "DJI Osmo Pocket 3 Audio Combo mit Mic 2 (1 Sender + 1 Empfänger), Pocket-Gimbal-Vlog-Kamera, 1-Zoll-CMOS und 4K/240fps, 3-Achsen-Stabilisierung, 2× verlustfreier Zoom",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/B0H2MTN6DM/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock",
+            "price": "588.0",
+            "priceCurrency": "EUR"
+          }
         }
-
-        body {
-            font-family: var(--card-font-family);
-            font-weight: 500;
-            letter-spacing: -1px;
-            font-size: 24px;
-            overscroll-behavior: contain;
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@type": "Product",
+          "name": "Elgato Prompter, Teleprompter mit integriertem Bildschirm | Drag-and-Drop-Anzeige, für DSLR, Webcam, Smartphone, liest Chat oder Skripte, Mac, PC, Stream Deck",
+          "image": "https://m.media-amazon.com/images/I/41Zkw5EjauL.jpg",
+          "url": "https://www.amazon.de/dp/B0CH3P9K1X/ref=nosim?tag=cann4chris-21",
+          "sku": "B0CH3P9K1X",
+          "brand": "Amazon",
+          "description": "Elgato Prompter, Teleprompter mit integriertem Bildschirm | Drag-and-Drop-Anzeige, für DSLR, Webcam, Smartphone, liest Chat oder Skripte, Mac, PC, Stream Deck",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/B0CH3P9K1X/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock",
+            "price": "219.99",
+            "priceCurrency": "EUR"
+          }
         }
-
-        button, input[type=button] {
-            font-family: var(--card-font-family);
-            font-size: 16px;
-            font-weight: 600;
-            letter-spacing: -1px;
-            text-shadow: 2px -2px var(--card-rgba-prim-color);
-            background-color: var(--card-buttons-color) !important;
-            transform: skewX(0.055turn);
-            left: 1px;
-            position: relative;
-            color: #FFF;
-            border: unset;
-            margin:3px 0;
-            transition: all .3s;
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@type": "Product",
+          "name": "SMALLRIG A7 V / A7R V / A7 IV “Rhinoceros“ Cage für Sony Alpha 7 V/Alpha 7R V/Alpha 7 IV/Alpha 7S III/Alpha 7R IV, neues Elegantes und schlankes Design - 6029",
+          "image": "https://m.media-amazon.com/images/I/41MOcqgMa8L.jpg",
+          "url": "https://www.amazon.de/dp/B0GD5LZTBP/ref=nosim?tag=cann4chris-21",
+          "sku": "B0GD5LZTBP",
+          "brand": "Amazon",
+          "description": "SMALLRIG A7 V / A7R V / A7 IV “Rhinoceros“ Cage für Sony Alpha 7 V/Alpha 7R V/Alpha 7 IV/Alpha 7S III/Alpha 7R IV, neues Elegantes und schlankes Design - 6029",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/B0GD5LZTBP/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock",
+            "price": "89.15",
+            "priceCurrency": "EUR"
+          }
         }
-
-        button:disabled {
-            opacity: .5;
-            cursor: not-allowed;
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "item": {
+          "@type": "Product",
+          "name": "Sony Alpha ZV-E10 II Spiegellose APS-C Videokamera mit 16-50 mm f/3.5-5.6 (4K60p Video, 4:2:2 10Bit-Aufnahme, 26 MP, Digitale Stabilisierung, Echtzeit Auto-Augenfokus)",
+          "image": "https://m.media-amazon.com/images/I/41VBOL3Da3L.jpg",
+          "url": "https://www.amazon.de/dp/B0D8QRHQNL/ref=nosim?tag=cann4chris-21",
+          "sku": "B0D8QRHQNL",
+          "brand": "Amazon",
+          "description": "Sony Alpha ZV-E10 II Spiegellose APS-C Videokamera mit 16-50 mm f/3.5-5.6 (4K60p Video, 4:2:2 10Bit-Aufnahme, 26 MP, Digitale Stabilisierung, Echtzeit Auto-Augenfokus)",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/B0D8QRHQNL/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock",
+            "price": "929.0",
+            "priceCurrency": "EUR"
+          }
         }
-
-        button:hover, button:focus {
-            text-shadow: 4px -5px var(--card-rgba-prim-color);
-            background-color: var(--card-rgba-sec-color) !important;
-            color: #FFF !important; 
-            cursor:pointer; 
+      },
+      {
+        "@type": "ListItem",
+        "position": 5,
+        "item": {
+          "@type": "Product",
+          "name": "SMALLRIG x Brandon Li All-in-One-Videokit für Mobilgeräte, universelles Video-Rig-Kit aus Aluminium mit Schnellverschluss und 67-mm-VND-Filter für M.2-SSD, für iPhone 17, für Samsung – 4596B",
+          "image": "https://m.media-amazon.com/images/I/415u-+q2CkL.jpg",
+          "url": "https://www.amazon.de/dp/B0DKD64CLD/ref=nosim?tag=cann4chris-21",
+          "sku": "B0DKD64CLD",
+          "brand": "Amazon",
+          "description": "SMALLRIG x Brandon Li All-in-One-Videokit für Mobilgeräte, universelles Video-Rig-Kit aus Aluminium mit Schnellverschluss und 67-mm-VND-Filter für M.2-SSD, für iPhone 17, für Samsung – 4596B",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/B0DKD64CLD/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock",
+            "price": "209.18",
+            "priceCurrency": "EUR"
+          }
         }
-
-        div {
-            font-size: 26px;
+      },
+      {
+        "@type": "ListItem",
+        "position": 6,
+        "item": {
+          "@type": "Product",
+          "name": "Elgato 4K X Capture Card, HDMI 2.1, 4K144 | VRR-Passthrough, HDR10, bis 1080p240-Aufnahme, USB 3.2 Gen 2, für OBS, PS5, Xbox, Switch, PC, Mac",
+          "image": "https://m.media-amazon.com/images/I/31w6ze0NvXL.jpg",
+          "url": "https://www.amazon.de/dp/B0CPFWXMBL/ref=nosim?tag=cann4chris-21",
+          "sku": "B0CPFWXMBL",
+          "brand": "Amazon",
+          "description": "Elgato 4K X Capture Card, HDMI 2.1, 4K144 | VRR-Passthrough, HDR10, bis 1080p240-Aufnahme, USB 3.2 Gen 2, für OBS, PS5, Xbox, Switch, PC, Mac",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/B0CPFWXMBL/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock",
+            "price": "199.99",
+            "priceCurrency": "EUR"
+          }
         }
-
-        div p {
-            text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-            margin: 0 auto;
-            color: #FFF;
-            position: relative;
-            display: block;
-            padding: 4px;
-            text-align: justify;
-            font-weight: 200;
-            letter-spacing: -2px;
-            width: 91%;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            border-bottom: 1px solid rgba(43,43,43,0.35);
+      },
+      {
+        "@type": "ListItem",
+        "position": 7,
+        "item": {
+          "@type": "Product",
+          "name": "Osprey Archeon 30L Backpacking Backpack for Men and Women, Black",
+          "image": "https://www.ospreycanada.com/wp-content/uploads/osprey-lifestyle-day-packs/10005915.jpg",
+          "url": "https://www.amazon.com/Osprey-Archeon-Unisex-Backpacking-Backpack/dp/B0CPL72C61?th=1",
+          "sku": "B0CPL72C61",
+          "brand": "Visit the Osprey Store",
+          "description": "30L Osprey Archeon mit 16-Zoll-Laptopfach, Tech-Organisation, NanoTough-Coating, bluesign-zertifizierten Materialien und modularen Front-Straps.",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.com/Osprey-Archeon-Unisex-Backpacking-Backpack/dp/B0CPL72C61?th=1",
+            "availability": "https://schema.org/InStock",
+            "price": "999.0",
+            "priceCurrency": "EUR"
+          }
         }
-
-        div aside {
-            animation: slideToRight .5s 1 alternate;
-            background: rgba(255,255,255,0.95);
-            border: 1px solid #0099CC;
-            font-size: 17px;
-            transform: translateX(-1px);
-            padding: 4px;
-            line-height: 17.8px;
-            transition: all .5s;
-            min-height: 140px;
-            color: rgba(0,0,0,0.8);
-            letter-spacing: -.75px;
-            min-width: 265px;
+      },
+      {
+        "@type": "ListItem",
+        "position": 8,
+        "item": {
+          "@type": "Product",
+          "name": "Elgato Key Light, professionelle Studioleuchte, 2800 Lumen | WLAN-App-Steuerung, 2900-7000K Farbtemperatur, 160 OSRAM-LEDs, Opalglas-Diffusion, Tischklemme",
+          "image": "https://m.media-amazon.com/images/I/31hDyrbUv+L.jpg",
+          "url": "https://www.amazon.de/dp/B07L755X9G/ref=nosim?tag=cann4chris-21",
+          "sku": "B07L755X9G",
+          "brand": "Amazon",
+          "description": "Elgato Key Light, professionelle Studioleuchte, 2800 Lumen | WLAN-App-Steuerung, 2900-7000K Farbtemperatur, 160 OSRAM-LEDs, Opalglas-Diffusion, Tischklemme",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/B07L755X9G/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock"
+          }
         }
-
-        div p:nth-child(1) {
-            border-bottom: unset;
+      },
+      {
+        "@type": "ListItem",
+        "position": 9,
+        "item": {
+          "@type": "Product",
+          "name": "Elgato Stream Deck MK.2 Studio-Controller, 15 Makrotasten | Für Aktionen in OBS, Twitch, YouTube und mehr, visuelles Feedback, hunderte Plugins, Mac und PC",
+          "image": "https://m.media-amazon.com/images/I/41G+KLmHC6L.jpg",
+          "url": "https://www.amazon.de/dp/B09738CV2G/ref=nosim?tag=cann4chris-21",
+          "sku": "B09738CV2G",
+          "brand": "Amazon",
+          "description": "Elgato Stream Deck MK.2 Studio-Controller, 15 Makrotasten | Für Aktionen in OBS, Twitch, YouTube und mehr, visuelles Feedback, hunderte Plugins, Mac und PC",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/B09738CV2G/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock",
+            "price": "119.99",
+            "priceCurrency": "EUR"
+          }
         }
-
-        div.gridCardElement {
-            transform: scale(0);
-            transition: transform 1s;
-            animation: animatefromMiddle .4s 1 cubic-bezier(0.55, 0.085, 0.68, 0.53);
+      },
+      {
+        "@type": "ListItem",
+        "position": 10,
+        "item": {
+          "@type": "Product",
+          "name": "Rode Wireless Pro Mikrofon-Set mit Interview GO Handadapter und keepdrum Fell-Windschutz Schwarz",
+          "image": "https://m.media-amazon.com/images/I/417Dw6X8D5L.jpg",
+          "url": "https://www.amazon.de/dp/B0DP4KR25W/ref=nosim?tag=cann4chris-21",
+          "sku": "B0DP4KR25W",
+          "brand": "Amazon",
+          "description": "Rode Wireless Pro Mikrofon-Set mit Interview GO Handadapter und keepdrum Fell-Windschutz Schwarz",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/B0DP4KR25W/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock",
+            "price": "339.9",
+            "priceCurrency": "EUR"
+          }
         }
-
-        @keyframes animatefromMiddle {
-            from { transform: scale(0); }
-            to   { transform: scale(1); }
+      },
+      {
+        "@type": "ListItem",
+        "position": 11,
+        "item": {
+          "@type": "Product",
+          "name": "SMALLRIG 1,33x Anamorphotisches Objektiv für Mobiltelefone, 2.4:1 Breitbild-Deformationsobjektiv mit T-Mount für Filmaufnahmen, Handy-Kinoobjektiv für iPhone 15/14/13/12, für Samsung S21/S22-4590",
+          "image": "https://m.media-amazon.com/images/I/31twY8MCPcL.jpg",
+          "url": "https://www.amazon.de/dp/B0D6RPG3T7/ref=nosim?tag=cann4chris-21",
+          "sku": "B0D6RPG3T7",
+          "brand": "Amazon",
+          "description": "SMALLRIG 1,33x Anamorphotisches Objektiv für Mobiltelefone, 2.4:1 Breitbild-Deformationsobjektiv mit T-Mount für Filmaufnahmen, Handy-Kinoobjektiv für iPhone 15/14/13/12, für Samsung S21/S22-4590",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/B0D6RPG3T7/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock",
+            "price": "116.9",
+            "priceCurrency": "EUR"
+          }
         }
-
-        @keyframes slideToRight {
-            from { transform: translateX(100%); min-width: 0px; opacity:0; z-index: -1; }
-            to   { transform: translateX(0); min-width: 265px; opacity:1; z-index: 999; }
+      },
+      {
+        "@type": "ListItem",
+        "position": 12,
+        "item": {
+          "@type": "Product",
+          "name": "SMALLRIG Universal Quick Release Phone Cage Kit Aluminium Smartphone Video Rig mit kabelloser Steuerung, Unterstützung für MagSafe, für iPhone 17 16 15 14Serie für Samsung S25 für Pixel - 4597",
+          "image": "https://m.media-amazon.com/images/I/41UKHDIMR2L.jpg",
+          "url": "https://www.amazon.de/dp/B0DCBCVFT2/ref=nosim?tag=cann4chris-21",
+          "sku": "B0DCBCVFT2",
+          "brand": "Amazon",
+          "description": "SMALLRIG Universal Quick Release Phone Cage Kit Aluminium Smartphone Video Rig mit kabelloser Steuerung, Unterstützung für MagSafe, für iPhone 17 16 15 14Serie für Samsung S25 für Pixel - 4597",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/B0DCBCVFT2/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock",
+            "price": "78.68",
+            "priceCurrency": "EUR"
+          }
         }
-
-        @media (min-width: 1401px) {
-            #Header .innerDialog {
-                grid-template-columns: repeat(4, 1fr) !important;
-            }
+      },
+      {
+        "@type": "ListItem",
+        "position": 13,
+        "item": {
+          "@type": "Product",
+          "name": "Shure MV7+ Podcast Mikrofon-Verbessertes Audio, LED-Touchpanel, USB-C- und XLR-Ausgänge, Auto-Level-Modus, digitaler Pop-Filter, Halleffekte, Podcasting, Streaming, Aufnahme - Schwarz",
+          "image": "https://m.media-amazon.com/images/I/41VBDk7OHSL.jpg",
+          "url": "https://www.amazon.de/dp/B0CTJ7PVN1/ref=nosim?tag=cann4chris-21",
+          "sku": "B0CTJ7PVN1",
+          "brand": "Amazon",
+          "description": "Shure MV7+ Podcast Mikrofon-Verbessertes Audio, LED-Touchpanel, USB-C- und XLR-Ausgänge, Auto-Level-Modus, digitaler Pop-Filter, Halleffekte, Podcasting, Streaming, Aufnahme - Schwarz",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/B0CTJ7PVN1/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock",
+            "price": "295.0",
+            "priceCurrency": "EUR"
+          }
         }
-
-        @media (max-width: 1400px) {
-            #Header {
-                margin: 0 10% !important;
-            }
-            #Header .innerDialog {
-                grid-template-columns: 1fr 1fr 1fr !important;
-            }
+      },
+      {
+        "@type": "ListItem",
+        "position": 14,
+        "item": {
+          "@type": "Product",
+          "name": "LG UltraWide 49U950A-W.AEU (49 Zoll) 32:9 Curved DQHD Nano IPS Monitor, 144Hz, AMD FreeSync™ Premium, DisplayHDR™ 400, USB-C (90W), Weiß",
+          "image": "https://m.media-amazon.com/images/I/41i5FttJHYL.jpg",
+          "url": "https://www.amazon.de/dp/B0FKBNYF46/ref=nosim?tag=cann4chris-21",
+          "sku": "B0FKBNYF46",
+          "brand": "Amazon",
+          "description": "LG UltraWide 49U950A-W.AEU (49 Zoll) 32:9 Curved DQHD Nano IPS Monitor, 144Hz, AMD FreeSync™ Premium, DisplayHDR™ 400, USB-C (90W), Weiß",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/B0FKBNYF46/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock"
+          }
         }
-
-        @media (max-width: 1024px) {
-            #Header {
-                margin: 0 1em !important;
-            }
-            #Header .innerDialog {
-                grid-template-columns: 1fr 1fr 1fr !important;
-            }
+      },
+      {
+        "@type": "ListItem",
+        "position": 15,
+        "item": {
+          "@type": "Product",
+          "name": "NEEWER 18mm Weitwinkelobjektiv mit 17mm Gewinde Objektiv Clip für Handy Kamera, 100° FOV, 0,75 fache Vergrößerung, 6 Elemente in 5 Gruppen, kompatibel mit iPhone Android Samsung für Fotografie, LS-72",
+          "image": "https://m.media-amazon.com/images/I/41L64bpT9SL.jpg",
+          "url": "https://www.amazon.de/dp/B0FK26M3HD/ref=nosim?tag=cann4chris-21",
+          "sku": "B0FK26M3HD",
+          "brand": "Amazon",
+          "description": "NEEWER 18mm Weitwinkelobjektiv mit 17mm Gewinde Objektiv Clip für Handy Kamera, 100° FOV, 0,75 fache Vergrößerung, 6 Elemente in 5 Gruppen, kompatibel mit iPhone Android Samsung für Fotografie, LS-72",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/B0FK26M3HD/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock",
+            "price": "63.99",
+            "priceCurrency": "EUR"
+          }
         }
-
-        @media screen and (max-width: 768px) {
-            #Header {
-                margin: 0 2% !important;
-            }
-            #Header .innerDialog {
-                grid-template-columns: 1fr 1fr !important;
-                grid-template-areas: +
-                "header header"
-                "header header"
-                "content content"
-                "header header"
-                "content content"
-                "footer footer"; 
-            }
+      },
+      {
+        "@type": "ListItem",
+        "position": 16,
+        "item": {
+          "@type": "Product",
+          "name": "Creality K2 SE Combo 3D-Drucker 2026, Multicolor-Druck mit CFS, bis zu 500 mm/s Hochgeschwindigkeit, intelligente Auto-Nivellierung, Vollmetall-Rahmen, komplett vormontiert, 220 × 215 × 245 mm Bauraum",
+          "image": "https://m.media-amazon.com/images/I/41RLr38VQ0L.jpg",
+          "url": "https://www.amazon.de/dp/B0FZS1VLHV/ref=nosim?tag=cann4chris-21",
+          "sku": "B0FZS1VLHV",
+          "brand": "Amazon",
+          "description": "Creality K2 SE Combo 3D-Drucker 2026, Multicolor-Druck mit CFS, bis zu 500 mm/s Hochgeschwindigkeit, intelligente Auto-Nivellierung, Vollmetall-Rahmen, komplett vormontiert, 220 × 215 × 245 mm Bauraum",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/B0FZS1VLHV/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock",
+            "price": "424.14",
+            "priceCurrency": "EUR"
+          }
         }
-
-        @media screen and (max-width: 414px) {
-            #Header {
-                width: 94%;
-                margin: 0 3% !important;
-            }
-            button {
-                min-width: 48px;
-                padding-left: 11px;
-            }
-            #Header .innerDialog {
-                grid-template-columns: 1fr !important;
-                grid-template-areas: +
-                "header"
-                "header"
-                "content"
-                "header"
-                "content"
-                "footer"; 
-            }
+      },
+      {
+        "@type": "ListItem",
+        "position": 17,
+        "item": {
+          "@type": "Product",
+          "name": "DJI RS 3 Mini, Kamera Gimbal Stabilisator, Canon/Sony/Nikon/Fujifilm | 2 kg getestete Zuladung, native vertikale Aufnahmen, Bluetooth-Aufnahmetaste, RS-Stabilisierung der 3. Generation, 795g",
+          "image": "https://m.media-amazon.com/images/I/31q3LMFZHRL.jpg",
+          "url": "https://www.amazon.de/dp/B0BLD1KBHQ/ref=nosim?tag=cann4chris-21",
+          "sku": "B0BLD1KBHQ",
+          "brand": "Amazon",
+          "description": "DJI RS 3 Mini, Kamera Gimbal Stabilisator, Canon/Sony/Nikon/Fujifilm | 2 kg getestete Zuladung, native vertikale Aufnahmen, Bluetooth-Aufnahmetaste, RS-Stabilisierung der 3. Generation, 795g",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/B0BLD1KBHQ/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock",
+            "price": "199.0",
+            "priceCurrency": "EUR"
+          }
         }
-
-        @media screen and (max-width: 320px) {
-            #Header {
-                width: 100% !important;
-                left: 0px !important;            }
-            iframe {
-                transform: rotateY(180deg) scaleX(1.051) !important;
-                left: 0px !important;
-            } 
+      },
+      {
+        "@type": "ListItem",
+        "position": 18,
+        "item": {
+          "@type": "Product",
+          "name": "RØDE PSA1+ Professionelles Gelenkarmstativ für Studioanwendungen mit innovativem Federsystem, Neopren, Schwarz",
+          "image": "https://m.media-amazon.com/images/I/21nCXzbCM1L.jpg",
+          "url": "https://www.amazon.de/dp/B09JBVR5B4/ref=nosim?tag=cann4chris-21",
+          "sku": "B09JBVR5B4",
+          "brand": "Amazon",
+          "description": "RØDE PSA1+ Professionelles Gelenkarmstativ für Studioanwendungen mit innovativem Federsystem, Neopren, Schwarz",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/B09JBVR5B4/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock",
+            "price": "99.0",
+            "priceCurrency": "EUR"
+          }
         }
-    </style>
+      },
+      {
+        "@type": "ListItem",
+        "position": 19,
+        "item": {
+          "@type": "Product",
+          "name": "Venty Vaporizer von Storz & Bickel – das neueste Gerät – Gehen Sie mit dem Strom! | Storz & Bickel Venty Vaporizer – das neueste Gerät – Gehen Sie mit dem Strom!",
+          "image": "https://m.media-amazon.com/images/I/31tDbc0XO1L.jpg",
+          "url": "https://www.amazon.de/dp/B0CPYGYF11/ref=nosim?tag=cann4chris-21",
+          "sku": "B0CPYGYF11",
+          "brand": "Amazon",
+          "description": "Venty Vaporizer von Storz & Bickel – das neueste Gerät – Gehen Sie mit dem Strom! | Storz & Bickel Venty Vaporizer – das neueste Gerät – Gehen Sie mit dem Strom!",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/B0CPYGYF11/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock",
+            "price": "312.0",
+            "priceCurrency": "EUR"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 20,
+        "item": {
+          "@type": "Product",
+          "name": "Focusrite Scarlett Solo 3. Gen USB-Audio-Interface-Bundle für Gitarristen, Sänger oder Produzenten. Klang in Studioqualität und sämtliche Software, die du für Aufnahmen und Kompositionen benötigst",
+          "image": "https://m.media-amazon.com/images/I/31Ty6bmUmVL.jpg",
+          "url": "https://www.amazon.de/dp/B07QR6Z1JB/ref=nosim?tag=cann4chris-21",
+          "sku": "B07QR6Z1JB",
+          "brand": "Amazon",
+          "description": "Focusrite Scarlett Solo 3. Gen USB-Audio-Interface-Bundle für Gitarristen, Sänger oder Produzenten. Klang in Studioqualität und sämtliche Software, die du für Aufnahmen und Kompositionen benötigst",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/B07QR6Z1JB/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock",
+            "price": "92.7",
+            "priceCurrency": "EUR"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 21,
+        "item": {
+          "@type": "Product",
+          "name": "NEEWER 24\"x24\" Softbox Beleuchtungsset mit Stativständern, 2er Pack, 45W zweifarbige 2,4G LED Glühbirnen, 10 Kanäle, 2900K-7000K, 1400Lux/m, CRI95, 20m Fernbedienung, Fotografie Dauerlicht kit, NK103",
+          "image": "https://m.media-amazon.com/images/I/4117gvrSLaL.jpg",
+          "url": "https://www.amazon.de/dp/B0DZ1VY1LR/ref=nosim?tag=cann4chris-21",
+          "sku": "B0DZ1VY1LR",
+          "brand": "Amazon",
+          "description": "NEEWER 24\"x24\" Softbox Beleuchtungsset mit Stativständern, 2er Pack, 45W zweifarbige 2,4G LED Glühbirnen, 10 Kanäle, 2900K-7000K, 1400Lux/m, CRI95, 20m Fernbedienung, Fotografie Dauerlicht kit, NK103",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/B0DZ1VY1LR/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 22,
+        "item": {
+          "@type": "Product",
+          "name": "VOLCANO HYBRID Vaporizer",
+          "image": "https://m.media-amazon.com/images/I/41tFBPlCWqL.jpg",
+          "url": "https://www.amazon.de/dp/B07T9T4Z7J/ref=nosim?tag=cann4chris-21",
+          "sku": "B07T9T4Z7J",
+          "brand": "Storz & Bickel (Haushaltswaren)",
+          "description": "VOLCANO HYBRID Vaporizer",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/B07T9T4Z7J/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock",
+            "price": "475.0",
+            "priceCurrency": "EUR"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 23,
+        "item": {
+          "@type": "Product",
+          "name": "APEXEL 100Ultra Makro Objektiv mit Ringlicht, verbesserte Version des Objektiv für Handy für iPhone, Samsung, Pixel",
+          "image": "https://m.media-amazon.com/images/I/41bJeZawN9L.jpg",
+          "url": "https://www.amazon.de/dp/B0FJY37ZLP/ref=nosim?tag=cann4chris-21",
+          "sku": "B0FJY37ZLP",
+          "brand": "Amazon",
+          "description": "APEXEL 100Ultra Makro Objektiv mit Ringlicht, verbesserte Version des Objektiv für Handy für iPhone, Samsung, Pixel",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/B0FJY37ZLP/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock",
+            "price": "58.63",
+            "priceCurrency": "EUR"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 24,
+        "item": {
+          "@type": "Product",
+          "name": "EMART Weiß Hintergrund 165x220cm, White Screen Roll-up Panel Fotohintergrund, Weißer Hintergrund mit Ständer für Fotostudio, Streaming, Videokonferenzen, TikTok, Zoom",
+          "image": "https://m.media-amazon.com/images/I/318tAK4IWlL.jpg",
+          "url": "https://www.amazon.de/dp/B0FKFZH65C/ref=nosim?tag=cann4chris-21",
+          "sku": "B0FKFZH65C",
+          "brand": "Amazon",
+          "description": "EMART Weiß Hintergrund 165x220cm, White Screen Roll-up Panel Fotohintergrund, Weißer Hintergrund mit Ständer für Fotostudio, Streaming, Videokonferenzen, TikTok, Zoom",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/B0FKFZH65C/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock",
+            "price": "159.99",
+            "priceCurrency": "EUR"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 25,
+        "item": {
+          "@type": "Product",
+          "name": "Zeadio All-in-One Video-Rig-Kit, Handheld Stabilisator mit Smartphone-Cage, RGB-Videoleuchte, Mikrofon, Action-Kamera-Adapter, kompatibel mit Smartphones, Action-Kameras, DSLRs und anderen Kameras usw",
+          "image": "https://m.media-amazon.com/images/I/41NCmOtDmWL.jpg",
+          "url": "https://www.amazon.de/dp/B0F664T5TN/ref=nosim?tag=cann4chris-21",
+          "sku": "B0F664T5TN",
+          "brand": "Amazon",
+          "description": "Zeadio All-in-One Video-Rig-Kit, Handheld Stabilisator mit Smartphone-Cage, RGB-Videoleuchte, Mikrofon, Action-Kamera-Adapter, kompatibel mit Smartphones, Action-Kameras, DSLRs und anderen Kameras usw",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/B0F664T5TN/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock",
+            "price": "89.98",
+            "priceCurrency": "EUR"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 26,
+        "item": {
+          "@type": "Product",
+          "name": "AFAITH 6in1 Kit, Wireless Bluetooth Fernkamera Blendenverschluss Release Control + Ausziehbares Selbstporträt Teleskop Handheld Monopod + Einstellbarer Smartphone Adapter Telefonhalter + Einziehbarer Drehturm Stativhalter Halter + Fischaugenobjektiv + Weitwinkelobjektiv + Makroobjektiv für iPhone 7 / 7plus 6 plus / 6, Samsung Galaxy S8 / S7 Edge / S6 Edge, Huawei P9 / P10, HTC, Blackberry, Smartphones GP036B (Schwarz)",
+          "image": "https://m.media-amazon.com/images/I/7193IuYpB7L.jpg",
+          "url": "https://www.amazon.de/dp/B00N2OQCIA/ref=nosim?tag=cann4chris-21",
+          "sku": "B00N2OQCIA",
+          "brand": "Besuche den AFAITH-Store",
+          "description": "AFAITH 6in1 Kit, Wireless Bluetooth Fernkamera Blendenverschluss Release Control + Ausziehbares Selbstporträt Teleskop Handheld Monopod + Einstellbarer Smartphone Adapter Telefonhalter + Einziehbarer Drehturm Stativhalter Halter + Fischaugenobjektiv + Weitwinkelobjektiv + Makroobjektiv für iPhone 7 / 7plus 6 plus / 6, Samsung Galaxy S8 / S7 Edge / S6 Edge, Huawei P9 / P10, HTC, Blackberry, Smartphones GP036B (Schwarz)",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/B00N2OQCIA/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 27,
+        "item": {
+          "@type": "Product",
+          "name": "TOCOL für iPhone 14 Hülle für Magsafe, Vollständiger Kameraschutz Stoßfest Kratzfest Transluzente Rückseite Magnetisch Handyhülle für iPhone 14 Case, Schwarz",
+          "image": "https://m.media-amazon.com/images/I/41uklR0Pm-L.jpg",
+          "url": "https://www.amazon.de/dp/B0CTCD7CS5/ref=nosim?tag=cann4chris-21",
+          "sku": "B0CTCD7CS5",
+          "brand": "Amazon",
+          "description": "TOCOL für iPhone 14 Hülle für Magsafe, Vollständiger Kameraschutz Stoßfest Kratzfest Transluzente Rückseite Magnetisch Handyhülle für iPhone 14 Case, Schwarz",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/B0CTCD7CS5/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock",
+            "price": "8.49",
+            "priceCurrency": "EUR"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 28,
+        "item": {
+          "@type": "Product",
+          "name": "STREBITO Mini-Elektroschrauber, 144-teiliges Elektro-Präzisionsschraubendreher-Set Kleiner Akkuschrauber, Elektronik-Reparatur-Werkzeugsatz für PC, Computer, Laptop, Telefon, RC-Drohne",
+          "image": "https://m.media-amazon.com/images/I/81MNRt-bmIL.jpg",
+          "url": "https://www.amazon.de/dp/B0C58TRNQV/ref=nosim?tag=cann4chris-21",
+          "sku": "B0C58TRNQV",
+          "brand": "Amazon.de Alternative, geprüft verfügbar",
+          "description": "STREBITO Mini-Elektroschrauber, 144-teiliges Elektro-Präzisionsschraubendreher-Set Kleiner Akkuschrauber, Elektronik-Reparatur-Werkzeugsatz für PC, Computer, Laptop, Telefon, RC-Drohne",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/B0C58TRNQV/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 29,
+        "item": {
+          "@type": "Product",
+          "name": "Behringer EUROPORT PPA500BT Ultrakompaktes tragbares 500-Watt-6-Kanal-PA-System mit Bluetooth-Drahtlostechnologie, drahtloser Mikrofonoption, Klark Teknik Multi-FX-Prozessor und FBQ-Feedback-Erkennung",
+          "image": "https://m.media-amazon.com/images/I/71jMrGV+vzL.jpg",
+          "url": "https://www.amazon.de/dp/B00OVAXR50/ref=nosim?tag=cann4chris-21",
+          "sku": "B00OVAXR50",
+          "brand": "Besuche den Behringer-Store",
+          "description": "Behringer EUROPORT PPA500BT Ultrakompaktes tragbares 500-Watt-6-Kanal-PA-System mit Bluetooth-Drahtlostechnologie, drahtloser Mikrofonoption, Klark Teknik Multi-FX-Prozessor und FBQ-Feedback-Erkennung",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/B00OVAXR50/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 30,
+        "item": {
+          "@type": "Product",
+          "name": "CASCHA Sopran Ukulele Set für Kinder und Erwachsene I Starter Kit mit 3 Plektren Tasche Lehrbuch Lernvideos über QR-Code Stimmgerät I Set Aquila Saiten Nylon I Kleine Hawaii Gitarre Braun",
+          "image": "https://m.media-amazon.com/images/I/81M3zV0bY9L.jpg",
+          "url": "https://www.amazon.de/dp/B06WLQFVVV/ref=nosim?tag=cann4chris-21",
+          "sku": "B06WLQFVVV",
+          "brand": "Besuche den CASCHA-Store",
+          "description": "CASCHA Sopran Ukulele Set für Kinder und Erwachsene I Starter Kit mit 3 Plektren Tasche Lehrbuch Lernvideos über QR-Code Stimmgerät I Set Aquila Saiten Nylon I Kleine Hawaii Gitarre Braun",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/B06WLQFVVV/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 31,
+        "item": {
+          "@type": "Product",
+          "name": "Samsung MZ-76E1T0B/EU 860 EVO 1 TB SATA 2,5\" Interne SSD Schwarz",
+          "image": "https://m.media-amazon.com/images/I/414xvZZLu2L.jpg",
+          "url": "https://www.amazon.de/dp/B078WST5RK/ref=nosim?tag=cann4chris-21",
+          "sku": "B078WST5RK",
+          "brand": "Besuche den Samsung-Store",
+          "description": "Samsung MZ-76E1T0B/EU 860 EVO 1 TB SATA 2,5\" Interne SSD Schwarz",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/B078WST5RK/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 32,
+        "item": {
+          "@type": "Product",
+          "name": "SATA-3 HDD/SSD Caddy mit Schnellauswerf-Mechanismus für DELL Latitude E6220, E6320, E6420, E6520, E6230, E6330, E6430, E6430s, E6520, E6530 mit Opticaddy OptiSpeed Technologie - ersetzt optisches Laufwerk (original Opticaddy Festplattenrahmen, Einbaurahmen, Adapter)",
+          "image": "https://m.media-amazon.com/images/I/71ep0ccjVeL.jpg",
+          "url": "https://www.amazon.de/dp/B00O9VRKIQ/ref=nosim?tag=cann4chris-21",
+          "sku": "B00O9VRKIQ",
+          "brand": "Marke: Opticaddy",
+          "description": "SATA-3 HDD/SSD Caddy mit Schnellauswerf-Mechanismus für DELL Latitude E6220, E6320, E6420, E6520, E6230, E6330, E6430, E6430s, E6520, E6530 mit Opticaddy OptiSpeed Technologie - ersetzt optisches Laufwerk (original Opticaddy Festplattenrahmen, Einbaurahmen, Adapter)",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/B00O9VRKIQ/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 33,
+        "item": {
+          "@type": "Product",
+          "name": "Longer RAY5 Laser Graviermaschine, 20W Laser-Ausgangsleistung, 3,5“ Farb-Touchscreen, Offline-Steuerung über App, Gravurwerkzeug für Metall/Glas/Holz, Arbeitsbereich 400x365mm",
+          "image": "https://m.media-amazon.com/images/I/71KQcxfk+UL.jpg",
+          "url": "https://www.amazon.de/dp/B0DWSXGGPS/ref=nosim?tag=cann4chris-21",
+          "sku": "B0DWSXGGPS",
+          "brand": "Amazon.de Alternative, geprüft verfügbar",
+          "description": "Longer RAY5 Laser Graviermaschine, 20W Laser-Ausgangsleistung, 3,5“ Farb-Touchscreen, Offline-Steuerung über App, Gravurwerkzeug für Metall/Glas/Holz, Arbeitsbereich 400x365mm",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/B0DWSXGGPS/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 34,
+        "item": {
+          "@type": "Product",
+          "name": "2026 große Powerbank 80000mAh, Power Bank 30W PD USB-C Schnellladefunktion, Externer Akku mit LED-Anzeige, 5 Ausgängen und 2 Eingängen, Externer Handyakku kompatibel mit iPhone,Samsung Tablets Outdoor",
+          "image": "https://m.media-amazon.com/images/I/41E+yTJJLmL.jpg",
+          "url": "https://www.amazon.de/dp/B0H3YXTKQ6/ref=nosim?tag=cann4chris-21",
+          "sku": "B0H3YXTKQ6",
+          "brand": "Amazon",
+          "description": "2026 große Powerbank 80000mAh, Power Bank 30W PD USB-C Schnellladefunktion, Externer Akku mit LED-Anzeige, 5 Ausgängen und 2 Eingängen, Externer Handyakku kompatibel mit iPhone,Samsung Tablets Outdoor",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/B0H3YXTKQ6/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock",
+            "price": "49.99",
+            "priceCurrency": "EUR"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 35,
+        "item": {
+          "@type": "Product",
+          "name": "70x70cm Scrog Netz Pflanzennetz Grow Net, Garden Net Plant Net, Trellis Net for Climbing Plants Cucumbers, Cucumber Net for Greenhouse, Support of Tent System for Garden, Elastic Trellis Net",
+          "image": "https://m.media-amazon.com/images/I/41OYemtzAcL.jpg",
+          "url": "https://www.amazon.de/dp/B0D3F48SYB/ref=nosim?tag=cann4chris-21",
+          "sku": "B0D3F48SYB",
+          "brand": "Amazon",
+          "description": "70x70cm Scrog Netz Pflanzennetz Grow Net, Garden Net Plant Net, Trellis Net for Climbing Plants Cucumbers, Cucumber Net for Greenhouse, Support of Tent System for Garden, Elastic Trellis Net",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/B0D3F48SYB/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock",
+            "price": "9.88",
+            "priceCurrency": "EUR"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 36,
+        "item": {
+          "@type": "Product",
+          "name": "Auto-K Racing Lackspray lichtblau RAL 5012 400 ml Autolack Spraylack Sprühlack",
+          "image": "https://m.media-amazon.com/images/I/41+1+X2WD+L.jpg",
+          "url": "https://www.amazon.de/dp/B0068J6KMO/ref=nosim?tag=cann4chris-21",
+          "sku": "B0068J6KMO",
+          "brand": "Amazon",
+          "description": "Auto-K Racing Lackspray lichtblau RAL 5012 400 ml Autolack Spraylack Sprühlack",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/B0068J6KMO/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock",
+            "price": "6.99",
+            "priceCurrency": "EUR"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 37,
+        "item": {
+          "@type": "Product",
+          "name": "Baxboy Herren-Hemd Slim-Fit Bügelleicht Für Anzug, Business, Hochzeit, Freizeit - Langarm Hemden für Männer Langarmhemd R-44",
+          "image": "https://m.media-amazon.com/images/I/61oe2L5nvhL.jpg",
+          "url": "https://www.amazon.de/dp/B01N4PEWFW/ref=nosim?tag=cann4chris-21",
+          "sku": "B01N4PEWFW",
+          "brand": "Marke: Baxboy",
+          "description": "Baxboy Herren-Hemd Slim-Fit Bügelleicht Für Anzug, Business, Hochzeit, Freizeit - Langarm Hemden für Männer Langarmhemd R-44",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/B01N4PEWFW/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 38,
+        "item": {
+          "@type": "Product",
+          "name": "Boveda zur Aufbewahrung von Kräutern | 2-Wege-Feuchtigkeitsregulierung mit 62 % relativer Feuchtigkeit | Größe 8 schützt bis zu 30 g Blüten | verhindert den Verlust von Terpenen, Übertrocknung & Schimmel | wiederverschließbare Verpackung mit 10 Stück",
+          "image": "https://m.media-amazon.com/images/I/51ofON6z5uL.jpg",
+          "url": "https://www.amazon.de/dp/B00JV27MF4/ref=nosim?tag=cann4chris-21",
+          "sku": "B00JV27MF4",
+          "brand": "Amazon",
+          "description": "Boveda zur Aufbewahrung von Kräutern | 2-Wege-Feuchtigkeitsregulierung mit 62 % relativer Feuchtigkeit | Größe 8 schützt bis zu 30 g Blüten | verhindert den Verlust von Terpenen, Übertrocknung & Schimmel | wiederverschließbare Verpackung mit 10 Stück",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/B00JV27MF4/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock",
+            "price": "20.27",
+            "priceCurrency": "EUR"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 39,
+        "item": {
+          "@type": "Product",
+          "name": "Brunner Pavillon Aquamar",
+          "image": "https://m.media-amazon.com/images/I/615IEOeQYPL.jpg",
+          "url": "https://www.amazon.de/dp/B01LXQ2ERP/ref=nosim?tag=cann4chris-21",
+          "sku": "B01LXQ2ERP",
+          "brand": "Marke: BRUNNER",
+          "description": "Brunner Pavillon Aquamar",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/B01LXQ2ERP/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 40,
+        "item": {
+          "@type": "Product",
+          "name": "Club Mate Granatapfel MEHRWEG (20 x 500 ml)",
+          "image": "https://m.media-amazon.com/images/I/81kBdH5SZBL.jpg",
+          "url": "https://www.amazon.de/dp/B00L0MZ8H2/ref=nosim?tag=cann4chris-21",
+          "sku": "B00L0MZ8H2",
+          "brand": "Marke: Club Mate",
+          "description": "Club Mate Granatapfel MEHRWEG (20 x 500 ml)",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/B00L0MZ8H2/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 41,
+        "item": {
+          "@type": "Product",
+          "name": "Die Kunst des Krieges",
+          "image": "https://m.media-amazon.com/images/I/31velERaGTL.jpg",
+          "url": "https://www.amazon.de/dp/3846871001/ref=nosim?tag=cann4chris-21",
+          "sku": "3846871001",
+          "brand": "Sun Tzu (Gebundene Ausgabe)",
+          "description": "Die Kunst des Krieges",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/3846871001/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock",
+            "price": "14.95",
+            "priceCurrency": "EUR"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 42,
+        "item": {
+          "@type": "Product",
+          "name": "Eine kurze Geschichte der Menschheit",
+          "image": "https://m.media-amazon.com/images/I/51CePcoOfeL.jpg",
+          "url": "https://www.amazon.de/dp/3570552691/ref=nosim?tag=cann4chris-21",
+          "sku": "3570552691",
+          "brand": "Yuval Noah Harari, Jürgen Neubauer (Broschiert)",
+          "description": "Eine kurze Geschichte der Menschheit",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/3570552691/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock",
+            "price": "18.0",
+            "priceCurrency": "EUR"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 43,
+        "item": {
+          "@type": "Product",
+          "name": "EL-Sunprotect Pilotenbrille Fliegerbrille Sonnenbrille Brille Top Design Schwarz Bunt Verspiegelt",
+          "image": "https://m.media-amazon.com/images/I/619i1YJ68xL.jpg",
+          "url": "https://www.amazon.de/dp/B01HUZ6MOK/ref=nosim?tag=cann4chris-21",
+          "sku": "B01HUZ6MOK",
+          "brand": "Besuche den Ciffre-Store",
+          "description": "EL-Sunprotect Pilotenbrille Fliegerbrille Sonnenbrille Brille Top Design Schwarz Bunt Verspiegelt",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/B01HUZ6MOK/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 44,
+        "item": {
+          "@type": "Product",
+          "name": "Elektrische Mühle aus Aluminium",
+          "image": "https://m.media-amazon.com/images/I/71j7gTKv28L.jpg",
+          "url": "https://www.amazon.de/dp/B00REU57XY/ref=nosim?tag=cann4chris-21",
+          "sku": "B00REU57XY",
+          "brand": "Marke: Strawberry",
+          "description": "Elektrische Mühle aus Aluminium",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/B00REU57XY/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 45,
+        "item": {
+          "@type": "Product",
+          "name": "EMART Foto Hintergrund Ständer, 2x3m Verstellbarer Hintergrundsystem mit 8 Hintergrundklemmen, 2 Sandsack für Fotostudio Porträt Produktfotografie Studiofotografie, aus Metall",
+          "image": "https://m.media-amazon.com/images/I/41hNrvytRKL.jpg",
+          "url": "https://www.amazon.de/dp/B00MTF6ZVC/ref=nosim?tag=cann4chris-21",
+          "sku": "B00MTF6ZVC",
+          "brand": "Amazon",
+          "description": "EMART Foto Hintergrund Ständer, 2x3m Verstellbarer Hintergrundsystem mit 8 Hintergrundklemmen, 2 Sandsack für Fotostudio Porträt Produktfotografie Studiofotografie, aus Metall",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/B00MTF6ZVC/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock",
+            "price": "47.49",
+            "priceCurrency": "EUR"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 46,
+        "item": {
+          "@type": "Product",
+          "name": "PILPOC theFube Fidget Toy - Premium Qualität Fidget Cube mit Exklusiver Schutzhülle, Anti Stress und ADHS Spielzeug, Fidget Würfel [Schwarz]",
+          "image": "https://m.media-amazon.com/images/I/71jlYEgs1vL.jpg",
+          "url": "https://www.amazon.de/dp/B0DDTJ66D3/ref=nosim?tag=cann4chris-21",
+          "sku": "B0DDTJ66D3",
+          "brand": "Amazon.de Alternative, geprüft verfügbar",
+          "description": "PILPOC theFube Fidget Toy - Premium Qualität Fidget Cube mit Exklusiver Schutzhülle, Anti Stress und ADHS Spielzeug, Fidget Würfel [Schwarz]",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/B0DDTJ66D3/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 47,
+        "item": {
+          "@type": "Product",
+          "name": "Gigabyte AERO15-DE325G 39,62 cm (15,6 Zoll) Gaming Laptop Notebook (Intel Core i7-7700HQ, 16GB RAM, NVIDIA GeForce GTX 1060, Win 10) Mehrfarbig",
+          "image": "https://m.media-amazon.com/images/I/61QNKV2FMXL.jpg",
+          "url": "https://www.amazon.de/dp/B072C8PSJ2/ref=nosim?tag=cann4chris-21",
+          "sku": "B072C8PSJ2",
+          "brand": "Besuche den Gigabyte-Store",
+          "description": "Gigabyte AERO15-DE325G 39,62 cm (15,6 Zoll) Gaming Laptop Notebook (Intel Core i7-7700HQ, 16GB RAM, NVIDIA GeForce GTX 1060, Win 10) Mehrfarbig",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/B072C8PSJ2/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 48,
+        "item": {
+          "@type": "Product",
+          "name": "Homo Deus: Eine Geschichte von Morgen (Beck Paperback)",
+          "image": "https://m.media-amazon.com/images/I/41SkuYKjgXL.jpg",
+          "url": "https://www.amazon.de/dp/3406727867/ref=nosim?tag=cann4chris-21",
+          "sku": "3406727867",
+          "brand": "Yuval Noah Harari, Andreas Wirthensohn (Taschenbuch)",
+          "description": "Homo Deus: Eine Geschichte von Morgen (Beck Paperback)",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/3406727867/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock",
+            "price": "18.0",
+            "priceCurrency": "EUR"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 49,
+        "item": {
+          "@type": "Product",
+          "name": "Iridium GO! 9560 Satellite Terminal with Wi-Fi Hotspot",
+          "image": "https://m.media-amazon.com/images/I/519jzK6rEJL.jpg",
+          "url": "https://www.amazon.de/dp/B07BM2FCFY/ref=nosim?tag=cann4chris-21",
+          "sku": "B07BM2FCFY",
+          "brand": "Besuche den Iridium-Store",
+          "description": "Iridium GO! 9560 Satellite Terminal with Wi-Fi Hotspot",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/B07BM2FCFY/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 50,
+        "item": {
+          "@type": "Product",
+          "name": "Bernette B79 Computer Näh- und Stickmaschine inkl. Sticksoftware-Modulen",
+          "image": "https://www.bernette.com/assets/uploads/general/Products/Models/7-Series/79/_1200x685_crop_center-center_none/b79_Frontal_Anschiebetisch.png",
+          "url": "https://www.amazon.de/dp/B07QJX8JW4/ref=nosim?tag=cann4chris-21",
+          "sku": "B07QJX8JW4",
+          "brand": "Bernette/Bernina-Kombi-Maschine als bestellbare Amazon-Alternative zur Janome Memory Craft 500E",
+          "description": "Bernette B79 Computer Näh- und Stickmaschine inkl. Sticksoftware-Modulen",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/B07QJX8JW4/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock",
+            "price": "2099.0",
+            "priceCurrency": "EUR"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 51,
+        "item": {
+          "@type": "Product",
+          "name": "Katadyn 8014932 Vario Filter aus der Backcountry Serie, Schwarz",
+          "image": "https://m.media-amazon.com/images/I/71UN6Sy7kJL.jpg",
+          "url": "https://www.amazon.de/dp/B000RZHU9C/ref=nosim?tag=cann4chris-21",
+          "sku": "B000RZHU9C",
+          "brand": "Besuche den KATADYN-Store",
+          "description": "Katadyn 8014932 Vario Filter aus der Backcountry Serie, Schwarz",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/B000RZHU9C/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 52,
+        "item": {
+          "@type": "Product",
+          "name": "Leatherman Surge Multi-Tool - 21 strapazierfähige Werkzeuge mit Klingen - Schwarz | 21 strapazierfähige Werkzeuge mit Klingen",
+          "image": "https://m.media-amazon.com/images/I/61Z9EjlRBaL.jpg",
+          "url": "https://www.amazon.de/dp/B002GJN96U/ref=nosim?tag=cann4chris-21",
+          "sku": "B002GJN96U",
+          "brand": "Besuche den Leatherman-Store",
+          "description": "Leatherman Surge Multi-Tool - 21 strapazierfähige Werkzeuge mit Klingen - Schwarz | 21 strapazierfähige Werkzeuge mit Klingen",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/B002GJN96U/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 53,
+        "item": {
+          "@type": "Product",
+          "name": "LEGO 10696 Classic Mittelgroße Bausteine-Box, Bausteine mit Aufbewahrungsbox für Kinder, Geschenk für Jungen und Mädchen ab 4 Jahren",
+          "image": "https://m.media-amazon.com/images/I/81riurHgf+L.jpg",
+          "url": "https://www.amazon.de/dp/B00NVDP3ZU/ref=nosim?tag=cann4chris-21",
+          "sku": "B00NVDP3ZU",
+          "brand": "Amazon",
+          "description": "LEGO 10696 Classic Mittelgroße Bausteine-Box, Bausteine mit Aufbewahrungsbox für Kinder, Geschenk für Jungen und Mädchen ab 4 Jahren",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/B00NVDP3ZU/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock",
+            "price": "17.08",
+            "priceCurrency": "EUR"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 54,
+        "item": {
+          "@type": "Product",
+          "name": "Machine Scan'n'cut Cm300",
+          "image": "https://m.media-amazon.com/images/I/71fyAtn2OzL.jpg",
+          "url": "https://www.amazon.de/dp/B0106K7NPS/ref=nosim?tag=cann4chris-21",
+          "sku": "B0106K7NPS",
+          "brand": "Besuche den Brother-Store",
+          "description": "Machine Scan'n'cut Cm300",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/B0106K7NPS/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 55,
+        "item": {
+          "@type": "Product",
+          "name": "Mactoou 5X 20L Stofftopf, Pflanzsack mit Griffe aus Filzstoff Pflanze Grow Bag für Tomaten, Gemüse, Blumen, Pflanzen - 5 Gallonen",
+          "image": "https://m.media-amazon.com/images/I/41UXGa2yakL.jpg",
+          "url": "https://www.amazon.de/dp/B08Y92Q5ZH/ref=nosim?tag=cann4chris-21",
+          "sku": "B08Y92Q5ZH",
+          "brand": "Amazon",
+          "description": "Mactoou 5X 20L Stofftopf, Pflanzsack mit Griffe aus Filzstoff Pflanze Grow Bag für Tomaten, Gemüse, Blumen, Pflanzen - 5 Gallonen",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/B08Y92Q5ZH/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock",
+            "price": "13.57",
+            "priceCurrency": "EUR"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 56,
+        "item": {
+          "@type": "Product",
+          "name": "MAVORI Thermo-Hygrometer 3er Set Digital - Mini Hygrometer Innen, 2-in-1 Feuchtigkeitsmessgerät & Raumthermometer digital °C/°F + on/off - für Raumklima, Growbox, Terrarium & Humidor - mit Batterien",
+          "image": "https://m.media-amazon.com/images/I/41QnMHk5gsL.jpg",
+          "url": "https://www.amazon.de/dp/B08KWDBZDV/ref=nosim?tag=cann4chris-21",
+          "sku": "B08KWDBZDV",
+          "brand": "Amazon",
+          "description": "MAVORI Thermo-Hygrometer 3er Set Digital - Mini Hygrometer Innen, 2-in-1 Feuchtigkeitsmessgerät & Raumthermometer digital °C/°F + on/off - für Raumklima, Growbox, Terrarium & Humidor - mit Batterien",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/B08KWDBZDV/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock",
+            "price": "8.9",
+            "priceCurrency": "EUR"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 57,
+        "item": {
+          "@type": "Product",
+          "name": "Motorola Sphere+ | 2 in 1 Stereo Bluetooth Lautsprecher und Kopfhörer Set | Headset und Freisprechanlage | Schwarz",
+          "image": "https://m.media-amazon.com/images/I/81k-aIyREiL.jpg",
+          "url": "https://www.amazon.de/dp/B074ZCWG7J/ref=nosim?tag=cann4chris-21",
+          "sku": "B074ZCWG7J",
+          "brand": "Besuche den Motorola-Store",
+          "description": "Motorola Sphere+ | 2 in 1 Stereo Bluetooth Lautsprecher und Kopfhörer Set | Headset und Freisprechanlage | Schwarz",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/B074ZCWG7J/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 58,
+        "item": {
+          "@type": "Product",
+          "name": "New Era 59fifty Basecap Blank",
+          "image": "https://m.media-amazon.com/images/I/7128xION6GL.jpg",
+          "url": "https://www.amazon.de/dp/B07KS64MHB/ref=nosim?tag=cann4chris-21",
+          "sku": "B07KS64MHB",
+          "brand": "Besuche den New Era-Store",
+          "description": "New Era 59fifty Basecap Blank",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/B07KS64MHB/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 59,
+        "item": {
+          "@type": "Product",
+          "name": "Nintendo Classic Mini: Nintendo Entertainment System",
+          "image": "https://m.media-amazon.com/images/I/612soTd2aCL.jpg",
+          "url": "https://www.amazon.de/dp/B01IFJEWTM/ref=nosim?tag=cann4chris-21",
+          "sku": "B01IFJEWTM",
+          "brand": "Besuche den Nintendo-Store",
+          "description": "Nintendo Classic Mini: Nintendo Entertainment System",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/B01IFJEWTM/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 60,
+        "item": {
+          "@type": "Product",
+          "name": "PEARL Spardose mit Zähler: Spardose mit elektronischem Münzzähler (mit Zählwerk, Sparschwein mit Zählwerk, Münz)",
+          "image": "https://m.media-amazon.com/images/I/71ZQw8vQQIL.jpg",
+          "url": "https://www.amazon.de/dp/B009URS9HK/ref=nosim?tag=cann4chris-21",
+          "sku": "B009URS9HK",
+          "brand": "Besuche den PEARL-Store",
+          "description": "PEARL Spardose mit Zähler: Spardose mit elektronischem Münzzähler (mit Zählwerk, Sparschwein mit Zählwerk, Münz)",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/B009URS9HK/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 61,
+        "item": {
+          "@type": "Product",
+          "name": "KODAK Step Sofort-Smartphone-Fotodrucker - Tragbarer Mini-Farb-Mobilfotodrucker - Zink 2x3” Klebefotos - Bluetooth-kompatibel mit iOS- & Android-Geräten - Spaßige Bearbeitungs-App - Blau",
+          "image": "https://m.media-amazon.com/images/I/71QpEGBGTRL.jpg",
+          "url": "https://www.amazon.de/dp/B08YFKSWWD/ref=nosim?tag=cann4chris-21",
+          "sku": "B08YFKSWWD",
+          "brand": "Amazon.de Alternative, geprüft verfügbar",
+          "description": "KODAK Step Sofort-Smartphone-Fotodrucker - Tragbarer Mini-Farb-Mobilfotodrucker - Zink 2x3” Klebefotos - Bluetooth-kompatibel mit iOS- & Android-Geräten - Spaßige Bearbeitungs-App - Blau",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/B08YFKSWWD/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 62,
+        "item": {
+          "@type": "Product",
+          "name": "Rick and Morty Christmas Jumper Ugly Sweater, Rainbow for Men, Women, Boys and Girls",
+          "image": "https://m.media-amazon.com/images/I/61uKF2jcK3L.jpg",
+          "url": "https://www.amazon.de/dp/B07G1VZ1GY/ref=nosim?tag=cann4chris-21",
+          "sku": "B07G1VZ1GY",
+          "brand": "Besuche den Numskull-Store",
+          "description": "Rick and Morty Christmas Jumper Ugly Sweater, Rainbow for Men, Women, Boys and Girls",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/B07G1VZ1GY/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 63,
+        "item": {
+          "@type": "Product",
+          "name": "Rick And Morty Pickle Rick Men's Sweater",
+          "image": "https://m.media-amazon.com/images/I/71tmXgVvo5L.jpg",
+          "url": "https://www.amazon.de/dp/B0766399V1/ref=nosim?tag=cann4chris-21",
+          "sku": "B0766399V1",
+          "brand": "Marke: RICK AND MORTY",
+          "description": "Rick And Morty Pickle Rick Men's Sweater",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/B0766399V1/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 64,
+        "item": {
+          "@type": "Product",
+          "name": "sourcing map 5 STK 2 V 80m A Poly Mini Solarzelle Panel Module Selberbasteln f Telefon Ladegerät DE de",
+          "image": "https://m.media-amazon.com/images/I/616+sXohuBL.jpg",
+          "url": "https://www.amazon.de/dp/B073Y4BJH3/ref=nosim?tag=cann4chris-21",
+          "sku": "B073Y4BJH3",
+          "brand": "Marke: uxcell",
+          "description": "sourcing map 5 STK 2 V 80m A Poly Mini Solarzelle Panel Module Selberbasteln f Telefon Ladegerät DE de",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/B073Y4BJH3/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 65,
+        "item": {
+          "@type": "Product",
+          "name": "Spider Farmer 5-in-1 pH-Messgerät-Set für Wasser, TDS-EC-Temperatur-Salzgehalt-Tester mit ATC, Wiederaufladbar, für Pflanzen Hydrokulturen Grow Schwimmbäder Fischbecken und Aquarium (IP67 Wasserdicht)",
+          "image": "https://m.media-amazon.com/images/I/41U72P14W3L.jpg",
+          "url": "https://www.amazon.de/dp/B0FNQ8YCK5/ref=nosim?tag=cann4chris-21",
+          "sku": "B0FNQ8YCK5",
+          "brand": "Amazon",
+          "description": "Spider Farmer 5-in-1 pH-Messgerät-Set für Wasser, TDS-EC-Temperatur-Salzgehalt-Tester mit ATC, Wiederaufladbar, für Pflanzen Hydrokulturen Grow Schwimmbäder Fischbecken und Aquarium (IP67 Wasserdicht)",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/B0FNQ8YCK5/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock",
+            "price": "59.99",
+            "priceCurrency": "EUR"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 66,
+        "item": {
+          "@type": "Product",
+          "name": "Spider Farmer GGS 3-in-1 Bodensensor Pro 3 Stück, EC/Feuchtigkeit/Temperatur Messer mit RJ12, Unterstützung Intelligente APP Steuerung für Garten Indoor Zuchtzelt Zimmer",
+          "image": "https://m.media-amazon.com/images/I/41VN91ov6WL.jpg",
+          "url": "https://www.amazon.de/dp/B0FP5CJXXV/ref=nosim?tag=cann4chris-21",
+          "sku": "B0FP5CJXXV",
+          "brand": "Amazon",
+          "description": "Spider Farmer GGS 3-in-1 Bodensensor Pro 3 Stück, EC/Feuchtigkeit/Temperatur Messer mit RJ12, Unterstützung Intelligente APP Steuerung für Garten Indoor Zuchtzelt Zimmer",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/B0FP5CJXXV/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock",
+            "price": "69.99",
+            "priceCurrency": "EUR"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 67,
+        "item": {
+          "@type": "Product",
+          "name": "Spider Farmer GGS AC5 5-Fach Steckdosenleiste, APP Basierte Kontrollen Steckdosen, 3 in 1 Boden Sensor, Temp Humid Light Sensor, für Indoor GrowZelt Grow Tent und Raum",
+          "image": "https://m.media-amazon.com/images/I/41EKYwJy0+L.jpg",
+          "url": "https://www.amazon.de/dp/B0DH1XNHXN/ref=nosim?tag=cann4chris-21",
+          "sku": "B0DH1XNHXN",
+          "brand": "Amazon",
+          "description": "Spider Farmer GGS AC5 5-Fach Steckdosenleiste, APP Basierte Kontrollen Steckdosen, 3 in 1 Boden Sensor, Temp Humid Light Sensor, für Indoor GrowZelt Grow Tent und Raum",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/B0DH1XNHXN/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock",
+            "price": "99.99",
+            "priceCurrency": "EUR"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 68,
+        "item": {
+          "@type": "Product",
+          "name": "Spider Farmer Rohrventilator 100mm, 4 Inch Abluftset mit GGS Temperatur Feuchtigkeitssensor, Aktivkohlefilter Schlauch Abluft Lüfter, Belüftungssystem Lüftungsset für Growzelt, Growbox",
+          "image": "https://m.media-amazon.com/images/I/51fKViLYTBL.jpg",
+          "url": "https://www.amazon.de/dp/B08S76FN8L/ref=nosim?tag=cann4chris-21",
+          "sku": "B08S76FN8L",
+          "brand": "Amazon",
+          "description": "Spider Farmer Rohrventilator 100mm, 4 Inch Abluftset mit GGS Temperatur Feuchtigkeitssensor, Aktivkohlefilter Schlauch Abluft Lüfter, Belüftungssystem Lüftungsset für Growzelt, Growbox",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/B08S76FN8L/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock",
+            "price": "152.99",
+            "priceCurrency": "EUR"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 69,
+        "item": {
+          "@type": "Product",
+          "name": "Stylophone GENX-2 Portable Analogue Synthesizer with Built-in Speaker, LFO, Filter, Analogue Delay and CV/Gate Output | Synthesizer Keyboard | Synth Musical Instrument",
+          "image": "https://m.media-amazon.com/images/I/71ZF1YOwQ8L.jpg",
+          "url": "https://www.amazon.de/dp/B075BBSLR2/ref=nosim?tag=cann4chris-21",
+          "sku": "B075BBSLR2",
+          "brand": "Besuche den Stylophone-Store",
+          "description": "Stylophone GENX-2 Portable Analogue Synthesizer with Built-in Speaker, LFO, Filter, Analogue Delay and CV/Gate Output | Synthesizer Keyboard | Synth Musical Instrument",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/B075BBSLR2/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 70,
+        "item": {
+          "@type": "Product",
+          "name": "YAMEE Docker-Cap Herren Docker Mütze Damen Seemannsmütze Hafenmütze Herrenmütze Bikercap Hat Wandermütze Dockercap Kopfbedeckung Seemannskappe （Kopfumfang Größenverstellbar）",
+          "image": "https://m.media-amazon.com/images/I/51qgER-e++L.jpg",
+          "url": "https://www.amazon.de/dp/B07JH3YJ7K/ref=nosim?tag=cann4chris-21",
+          "sku": "B07JH3YJ7K",
+          "brand": "Amazon",
+          "description": "YAMEE Docker-Cap Herren Docker Mütze Damen Seemannsmütze Hafenmütze Herrenmütze Bikercap Hat Wandermütze Dockercap Kopfbedeckung Seemannskappe （Kopfumfang Größenverstellbar）",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/B07JH3YJ7K/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock",
+            "price": "12.98",
+            "priceCurrency": "EUR"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 71,
+        "item": {
+          "@type": "Product",
+          "name": "Tascam DR-07XP Field Recorder, 2-Kanal-Handheld-Recorder mit 32-Bit-Float, USB-C-Audiointerface und verstellbaren AB/XY-Mikrofonen",
+          "image": "https://images.musicstore.de/images/0960/tascam-dr-07xp_1_REC0016908-000.jpg",
+          "url": "https://www.amazon.de/dp/B0DTJVYG96/ref=nosim?tag=cann4chris-21",
+          "sku": "B0DTJVYG96",
+          "brand": "Tascam DR-07XP als verfügbare, moderne Alternative zum Zoom H1 MB Bundle",
+          "description": "Tascam DR-07XP Field Recorder, 2-Kanal-Handheld-Recorder mit 32-Bit-Float, USB-C-Audiointerface und verstellbaren AB/XY-Mikrofonen",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/B0DTJVYG96/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 72,
+        "item": {
+          "@type": "Product",
+          "name": "HyperX Cloud II – Gaming Kopfhörer (für PC/PS4/Mac) rot",
+          "image": "https://m.media-amazon.com/images/I/71g5MRbP52L.jpg",
+          "url": "https://www.amazon.de/dp/B00SAYCXWG/ref=nosim?tag=cann4chris-21",
+          "sku": "B00SAYCXWG",
+          "brand": "Besuche den HyperX-Store",
+          "description": "HyperX Cloud II – Gaming Kopfhörer (für PC/PS4/Mac) rot",
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.amazon.de/dp/B00SAYCXWG/ref=nosim?tag=cann4chris-21",
+            "availability": "https://schema.org/InStock"
+          }
+        }
+      }
+    ]
+  }
+}
+</script>
 </head>
 
 <body>
-    <header id="Header" style="margin:0 14%;"></header>
+    <a class="skip-link" href="#wishlist">Direkt zur Wunschliste springen</a>
+
+    <header class="site-header" id="top">
+        <nav class="site-nav" aria-label="Hauptnavigation">
+            <a class="brand" href="https://cannachris.de/" aria-label="Zur Cannachris Website">
+                <img class="brand-logo" src="https://cannachris.de/wp-content/uploads/2022/08/cannachris-wordmark.png" alt="Cannachris">
+            </a>
+            <a class="nav-cta" href="#wishlist">Geschenk aussuchen</a>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <section class="hero section-shell" aria-labelledby="hero-title">
+            <div class="hero-copy">
+                <p class="eyebrow">Lazy Stoner Donator</p>
+                <h1 id="hero-title">Danke, dass du Chris unterstützen möchtest.</h1>
+                <p>
+                    Chris baut seit Jahren Aufklärung, Email-Aktionen, Support und Content für eine ehrlichere Cannabispolitik.
+                    Diese Wunschliste macht Unterstützung greifbar: Such dir etwas aus, das Technik, Alltag und die nächste Aktion leichter macht.
+                </p>
+                <div class="hero-actions" aria-label="Schnellaktionen">
+                    <a class="button button-primary" href="#wishlist">Wunsch finden</a>
+                    <a class="button button-secondary" href="https://cannachris.de/">Mehr über Chris</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="wishlist-section section-shell" id="wishlist" aria-labelledby="wishlist-title">
+            <div class="section-heading">
+                <p class="eyebrow">Wunschliste</p>
+                <h2 id="wishlist-title">Wähle etwas, das Aufklärung leichter macht.</h2>
+                <div class="wishlist-toolbar" aria-label="Wunschliste Status und Filter">
+                    <p id="wishlist-status" class="status-message" role="status">Wunschliste wird geladen...</p>
+                    <div class="wishlist-filters" role="group" aria-label="Wunschliste filtern">
+                        <button class="filter-chip is-active" type="button" data-filter="all" aria-pressed="true">
+                            <i class="fas fa-list" aria-hidden="true"></i><span>Alle</span>
+                        </button>
+                        <button class="filter-chip" type="button" data-filter="wishlist" aria-pressed="false">
+                            <i class="fas fa-gift" aria-hidden="true"></i><span>Offen</span>
+                        </button>
+                        <button class="filter-chip" type="button" data-filter="gifted" aria-pressed="false">
+                            <i class="fas fa-check" aria-hidden="true"></i><span>Geschenkt</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div id="wishlist-grid" class="wishlist-grid" aria-live="polite"></div>
+            <div id="wishlist-sentinel" class="wishlist-sentinel" aria-hidden="true"></div>
+        </section>
+    </main>
+
+    <footer class="site-footer" aria-label="Footer">
+        <div class="section-shell footer-inner">
+            <div class="footer-links" aria-label="Footer Links">
+                <a href="https://cannachris.de/impressum/">Impressum</a>
+                <a href="https://cannachris.de/datenschutz/">Datenschutz</a>
+                <a href="https://cannachris.de/kontakt/">Kontakt</a>
+            </div>
+            <nav class="footer-social" aria-label="Cannachris Social Media">
+                <a href="https://www.instagram.com/c4nnachris/" target="_blank" rel="noopener" aria-label="Cannachris auf Instagram">
+                    <i class="fab fa-instagram" aria-hidden="true"></i>
+                </a>
+                <a href="https://www.facebook.com/c4nnachris" target="_blank" rel="noopener" aria-label="Cannachris auf Facebook">
+                    <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                </a>
+                <a href="https://www.tiktok.com/@cann4chris" target="_blank" rel="noopener" aria-label="Cannachris auf TikTok">
+                    <i class="fab fa-tiktok" aria-hidden="true"></i>
+                </a>
+                <a href="https://www.youtube.com/channel/UCD3wuH5mUzr5el3KNZM9fOw" target="_blank" rel="noopener" aria-label="Cannachris auf YouTube">
+                    <i class="fab fa-youtube" aria-hidden="true"></i>
+                </a>
+                <a href="https://x.com/chooom" target="_blank" rel="noopener" aria-label="Cannachris auf X">
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
+                </a>
+                <a href="https://www.twitch.tv/c4nnachris" target="_blank" rel="noopener" aria-label="Cannachris auf Twitch">
+                    <i class="fab fa-twitch" aria-hidden="true"></i>
+                </a>
+            </nav>
+            <div class="footer-credit">Realized with 🥦 and 💚 by <img src="https://matt-interfaces.ch/wp-content/uploads/2024/02/matt-interface-logo-v3-100x40px.png" alt="Matt Interfaces" title="Matt Interfaces - Web Development &amp; Automation"></div>
+        </div>
+    </footer>
+
     <script src="js/widget.js" type="text/javascript"></script>
-    <script src="js/http.js" type="text/javascript"></script>
-    <script src="js/collapsibleContainer.js" type="text/javascript"></script>
     <script src="js/card.js" type="text/javascript"></script>
-    <script src="js/videoCard.js" type="text/javascript"></script>
+    <script src="js/adCard.js" type="text/javascript"></script>
     <script src="js/cardStack.js" type="text/javascript"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+    <script src="js/smoothScroll.js" type="text/javascript"></script>
+    <script src="js/wishlistProductsData.js" type="text/javascript"></script>
+    <script src="js/wishlistContentData.js" type="text/javascript"></script>
     <script>
-        {
-            // Creates first card stack from class-function call
-            let cardStack = new CardStack(null, {
-                //itemBackgr: "url('https://picsum.photos/397/210/?random') no-repeat",
-                itemBackgr: (card) => "url('https://picsum.photos/" + card.domElement.offsetWidth + "/" +
-                    226 +
-                    "/?random&bla=" + (Math.random()) + "') no-repeat",
-                itemHeight: "164px",
-                columnCount: 4
-            });
-            // Creates a video-card and put it into variable
-            let card1 = new VideoCard({
-                itemBackgr: "rgba(0, 153, 204, 0.1)",
-                videoUrl: "https://www.youtube.com/watch?v=ir3EV5wAitI&t=7s",
-                videoHost: "youtube-square"
-            });
-            // Adds created card into cardStack
-            cardStack.addCard(card1);
-
-            // Creates a video-card and put it into variable
-            let card2 = new VideoCard({
-                itemBackgr: "rgba(0, 153, 204, 0.1)",
-                videoUrl: "https://vimeo.com/213888883",
-                videoHost: "vimeo"
-            });
-            // Adds created card into cardStack
-            cardStack.addCard(card2);
-
-            let card3 = new VideoCard({
-                itemBackgr: "rgba(0, 153, 204, 0.1)",
-                videoUrl: "https://vimeo.com/75124475",
-                videoHost: "vimeo"
-            });
-            // Adds created card into cardStack
-            cardStack.addCard(card3);
-
-            // Mockuploop to show empty elements on frontend
-            /*for (let i = 0; i < 1; i++) {
-                let c = new Card({
-                    front: "Front",
-                    back: "Back",
-                    icon: "cog",
-                    itemBackgr: (card) => "url('https://picsum.photos/" + card.domElement.offsetWidth +
-                        "/" +
-                        226 + "/?random&bla=" + (Math.random()) + "no-repeat')"
-                });
-                cardStack.addCard(c);
-            }*/
-
-            let userLoginButton = this.createButton("Login", "unlock-alt");
-            userLoginButton.style.gridRow = "1";
-            userLoginButton.style.width = "106px";
-            userLoginButton.style.gridColumn = "inherit";
-            userLoginButton.addEventListener('click', (e) => {
-                enterToAccount();
+        document.addEventListener('DOMContentLoaded', () => {
+            const grid = document.getElementById('wishlist-grid');
+            const status = document.getElementById('wishlist-status');
+            const cardStack = new CardStack(grid, {
+                itemClassName: 'wishlist-card'
             });
 
-            function enterToAccount() {
-                let card4 = new Card({
-                    front: loginFormBox,
-                    itemBackgr: (card4) => "url('https://steamusercontent-a.akamaihd.net/ugc/947332735409813448/9B4B1B0387A432E60CD8C39A3A3E635F11C58AFF/') no-repeat 100% 0",
-                    cardHeight: "152px"
-                });
-                cardStack.addCard(card4);
-            }
-
-            function createFormHeader() {
-                let formHeader = document.createElement("p");
-                formHeader.style.width = "auto";
-                formHeader.style.lineHeight = "20px";
-                formHeader.innerHTML = "Register now for free";
-                return formHeader;
-            }
-
-            // Creates the user input elements
-            let loginFormBox = document.createElement("form");
-            loginFormBox.id = "gridLogin";
-            loginFormBox.style.display = "inline-grid";
-            loginFormBox.style.gridTempalteColumns = "1fr 1fr";
-            loginFormBox.style.gridRowGap = "4px";
-            loginFormBox.style.gridArea = "login";
-            loginFormBox.style.padding = "8px";
-            /* loginFormBox.addEventListener('onsubmit', async (e) => {
-                let response = await new Http().getDataFromCouch("http://127.0.0.1:5984/gridcards/e78465bf32c8797128adda21be000b19");
-                console.log(response);
-                return false;
-            }); */
-
-            // Creates the left inline Column for show Informations for beeing registering Users
-            let inputInformation = document.createElement("div");
-            inputInformation.innerHTML =
-                "<aside><b>Create a free account now</b> and " +
-                "connect Gridcards to your social media " +
-                "sites like <b>Facebook, Twitter, Youtube, " +
-                "Instagram</b> or <b>Vimeo</b> and <b>publish</b> them on " +
-                "</b>your own <b>Homepage</b> website. Show your collection " +
-                "to your friends and enjoy shared moments." +
-                "</aside>";
-
-            loginFormBox.appendChild(inputInformation);
-
-            // Creates different Input Element Types
-            function createInputElement(type, inputType, pattern, placehold, autoType) {
-                this.inputEl = document.createElement(type);
-                if (inputType) {
-                    this.inputEl.type = inputType;
-                }
-                if (pattern) {
-                    this.inputEl.pattern = pattern;
-                }
-                if (autoType) {
-                    this.inputEl.setAttribute("autocomplete", autoType);
-                }
-                this.inputEl.className = "gridLoginInput";
-                this.inputEl.style = "grid";
-                this.inputEl.style.lineHeight = "35px";
-                this.inputEl.style.border = "unset";
-                this.inputEl.style.fontFamily = "'Montserrat', sans-serif";
-                this.inputEl.style.padding = "0 8px";
-                this.inputEl.style.gridGap = "0 3px";
-                this.inputEl.style.marginLeft = "4px";
-                this.inputEl.style.width = "90%";
-                this.inputEl.style.background = "transparent";
-                this.inputEl.style.borderBottom = "1px solid #0099CC";
-                this.inputEl.style.textShadow = "0px 0px 0px #000";
-
-                this.inputEl.placeholder = placehold;
-                this.inputEl.setAttribute("required", "");
-                return this.inputEl;
-            }
-
-            function addIconsToInput(inputIcon) {
-                let iconBeforeInput = document.createElement("i");
-                iconBeforeInput.className = "fas fa-" + inputIcon;
-                iconBeforeInput.style.color = "#FFF";
-                iconBeforeInput.style.width = "32px";
-                iconBeforeInput.style.display = "block";
-                return iconBeforeInput
-            }
-
-            // Creates the input elements for userlogin
-            let inputMail = createInputElement("input", "email", "(.*)@(.*?)\.(.*)", "E-Mail *", "email");
-            let inputPaw = createInputElement("input", "password", "(.+)", "Password *", "current-password");
-            //let inputAvatar = createInputElement("input", "file", "(.+)", "upload Avatar *", "image");
-            //inputAvatar.accept = "image/*";
-            //inputAvatar.style.padding = "unset";
-
-            // START Creates the submit button for login or register
-            let registerButton = createInputElement("button", undefined, undefined);
-            registerButton.disabled = true;
-            registerButton.innerHTML = "register now";
-
-            inputPaw.addEventListener('change', (e) => {
-                if (inputMail.value.length !== 0 && inputPaw.value.length !== 0) {
-                    registerButton.disabled = false;
-                }
-            });
-
-            /*let decrypted = CryptoJS.AES.decrypt(encrypted, "password");
-            decrypted.toString(CryptoJS.enc.Utf8);*/
-
-            registerButton.addEventListener('click', async (e) => {
-                let encrypted = CryptoJS.AES.encrypt(inputPaw.value, "password");
-                let response = await new Http().post(
-                    "http://127.0.0.1:5984/gridcards/", {
-                        "email": inputMail.value,   // TODO: Set Email also as Username!
-                        "paw": encrypted.toString(), // Set 512h crypted paw to db
-                        "avatar": "https://diekommune.de.cool/avatar.png", // Set default Avatar
+            async function loadJson(path, fallback) {
+                try {
+                    const response = await fetch(path, {
+                        headers: { 'Accept': 'application/json' }
                     });
-            });
 
-            registerButton.style.background = "#FFF";
-            registerButton.style.color = "#FFF";
-            registerButton.style.width = "98%";
-            registerButton.style.margin = "7px 0 0 0";
-            registerButton.innerHTML = "complete Registration";
-            registerButton.style.transform = "skew(-0.005turn)";
-            registerButton.style.fontFamily = "'Montserrat', sans-serif";
-            registerButton.style.border = "1px solid #FFF";
-            // END
+                    if (!response.ok) {
+                        throw new Error(path + ' konnte nicht geladen werden.');
+                    }
 
-            let loginFormBoxInputs = document.createElement("div");
-            loginFormBoxInputs.appendChild(this.createFormHeader());
-            loginFormBoxInputs.appendChild(inputMail);
-            loginFormBoxInputs.appendChild(inputPaw);
-            //loginFormBoxInputs.appendChild(inputAvatar);
-            loginFormBoxInputs.appendChild(registerButton);
-
-            loginFormBox.appendChild(loginFormBoxInputs);
-
-            // Creates the header
-            let collapsibleContainer = new CollapsibleContainer("Header", {
-                title: "<i style='color:#0099CC;transform:skewX(-0.03turn);' class='fas fa-th'></i> gridCards",
-                content: cardStack.domElement
-            });
-
-            // Selects the nav top header
-            let topHeader = document.getElementsByTagName("section")[0];
-            if (topHeader) {
-                document.getElementsByTagName("button")[0].style.display = "none";
-            }
-            topHeader.appendChild(userLoginButton);
-        }
-
-        {
-            let cardStack2 = new CardStack(null, {
-                //itemBackgr: "url('https://picsum.photos/397/210/?random') no-repeat",
-                itemBackgr: (card) => "url('https://picsum.photos/" + card.domElement.offsetWidth + "/" + 226 +
-                    "/?random&bla=" + (Math.random()) + "no-repeat')",
-                columnCount: 4,
-                itemHeight: "226px",
-            });
-
-            // Mockuploop to show empty elements after second header on frontend
-            for (let i = 0; i < 30; i++) {
-                let c = new Card({
-                    front: "Lorem ipsum dolor sit amet",
-                    back: "And the second Element",
-                    icon: "puzzle-piece",
-                    itemBackgr: (card) => "url('https://picsum.photos/" + card.domElement.offsetWidth +
-                        "/" +
-                        200 + "/?random&bla=" + (Math.random()) + "no-repeat')"
-                });
-                cardStack2.addCard(c);
-            }
-
-            // Function to add 6 cards and append it into cardstack-class with function-call
-            function addCards() {
-                for (let i = 0; i < 6; i++) {
-                    let c = new Card({
-                        front: "Front",
-                        back: "Back",
-                        icon: "plus-square",
-                        itemBackgr: (card) => "url('https://picsum.photos/" + card.domElement.offsetWidth +
-                            "/" +
-                            200 + "/?random&bla=" + (Math.random()) + "no-repeat')",
-                    });
-                    cardStack2.addCard(c);
+                    return await response.json();
+                } catch (error) {
+                    if (fallback) {
+                        return fallback;
+                    }
+                    throw error;
                 }
             }
 
-            // Function to add card and append it into cardstack-class with function-call
-            function addCard() {
-                let c = new Card({
-                    front: "Front",
-                    back: "Back",
-                    icon: "plus",
-                    itemBackgr: (card) => "url('https://picsum.photos/" + card.domElement.offsetWidth +
-                        "/" +
-                        200 + "/?random&bla=" + (Math.random()) + "no-repeat')",
-                });
-                cardStack2.addCard(c);
+            const filterButtons = Array.from(document.querySelectorAll('[data-filter]'));
+            let activeFilter = 'all';
+            let visibleProducts = [];
+            let activeObserver = null;
+            let wishlistContent = window.birthdayWishlistContent || {};
+
+            async function loadWishlistContent() {
+                return loadJson('./wishlist-content.json', window.birthdayWishlistContent);
             }
 
-            // Get notated child-elements-node from parent-element-node 
-            let node = cardStack2.domElement;
+            async function loadWishlistProducts() {
+                return loadJson('./wishlist-products.json', window.birthdayWishlistProducts);
+            }
 
-            // Proofs is there child-notes from parent and delete all after while-loop 
-            function removeCards() {
-                if (node === undefined || node === null) {
+            function applyWishlistContent(content) {
+                wishlistContent = content || wishlistContent;
+                window.birthdayWishlistContent = wishlistContent;
+
+                const hero = wishlistContent.hero || {};
+                const wishlist = wishlistContent.wishlist || {};
+                const footer = wishlistContent.footer || {};
+                const filters = wishlist.filters || [];
+
+                document.querySelector('.nav-cta').textContent = hero.navCta || hero.primaryCta || 'Geschenk aussuchen';
+                document.querySelector('.hero .eyebrow').textContent = hero.eyebrow || 'Lazy Stoner Donator';
+                document.getElementById('hero-title').textContent = hero.title || 'Danke, dass du Chris unterstützen möchtest.';
+                document.querySelector('.hero-copy > p:not(.eyebrow)').textContent = hero.text || '';
+                document.querySelector('.hero-actions .button-primary').textContent = hero.primaryCta || 'Wunsch finden';
+                document.querySelector('.hero-actions .button-secondary').textContent = hero.secondaryCta || 'Mehr über Chris';
+                document.querySelector('.wishlist-section .eyebrow').textContent = wishlist.eyebrow || 'Wunschliste';
+                document.getElementById('wishlist-title').textContent = wishlist.title || 'Wähle etwas, das Aufklärung leichter macht.';
+                status.textContent = wishlist.loading || 'Wunschliste wird geladen...';
+
+                filterButtons.forEach((button, index) => {
+                    const label = filters[index];
+                    const labelElement = button.querySelector('span');
+                    if (label && labelElement) {
+                        labelElement.textContent = label;
+                    }
+                });
+
+                document.querySelectorAll('.footer-links a').forEach((link, index) => {
+                    if (footer.links && footer.links[index]) {
+                        link.textContent = footer.links[index];
+                    }
+                });
+
+                const credit = document.querySelector('.footer-credit');
+                const creditImage = credit ? credit.querySelector('img') : null;
+                if (credit && creditImage) {
+                    credit.textContent = (footer.creditText || 'Realized with 🥦 and 💚 by') + ' ';
+                    creditImage.alt = footer.creditAlt || 'Matt Interfaces';
+                    creditImage.title = footer.creditTitle || 'Matt Interfaces - Web Development & Automation';
+                    credit.appendChild(creditImage);
+                }
+            }
+
+            const footer = document.querySelector('.site-footer');
+            let footerFrame = null;
+            const updateFooterVisibility = () => {
+                if (!footer) {
                     return;
                 }
-                let len = node.childNodes.length;
-                while (node.firstChild) {
-                    node.removeChild(node.firstChild);
-                }
-            }
 
-            // Proofs is there child-notes from parent and delete first Card
-            function removeCard() {
-                if (node === undefined || node === null) {
+                const footerTop = footer.getBoundingClientRect().top;
+                const footerOverlap = Math.max(0, window.innerHeight - footerTop);
+
+                document.documentElement.style.setProperty('--wishlist-toolbar-footer-offset', `${footerOverlap}px`);
+                document.body.classList.toggle('is-footer-visible', footerOverlap > 0);
+            };
+
+            const requestFooterVisibilityUpdate = () => {
+                if (footerFrame) {
                     return;
                 }
-                node.removeChild(node.childNodes[0]);
+
+                footerFrame = window.requestAnimationFrame(() => {
+                    footerFrame = null;
+                    updateFooterVisibility();
+                });
+            };
+
+            if (footer && 'IntersectionObserver' in window) {
+                const footerObserver = new IntersectionObserver(() => {
+                    requestFooterVisibilityUpdate();
+                }, {
+                    threshold: 0.08
+                });
+                footerObserver.observe(footer);
+            }
+            window.addEventListener('scroll', requestFooterVisibilityUpdate, { passive: true });
+            window.addEventListener('resize', requestFooterVisibilityUpdate);
+            updateFooterVisibility();
+
+            function arrangeProductsForMosaic(products) {
+                if (activeFilter === 'gifted') {
+                    return products;
+                }
+
+                const featuredProducts = products.filter((product) => product.displayTier === 'featured');
+                const standardProducts = products.filter((product) => product.displayTier !== 'featured');
+                const arrangedProducts = [];
+                let standardIndex = 0;
+
+                const getStandardGap = (featuredIndex) => {
+                    if (featuredIndex === 0) {
+                        return 2;
+                    }
+
+                    if (featuredIndex === 1) {
+                        return 4;
+                    }
+
+                    return Math.min(6 + ((featuredIndex - 2) * 2), 10);
+                };
+
+                featuredProducts.forEach((featuredProduct, featuredIndex) => {
+                    const standardGap = getStandardGap(featuredIndex);
+                    const nextStandards = standardProducts.slice(standardIndex, standardIndex + standardGap);
+                    standardIndex += nextStandards.length;
+
+                    if (featuredIndex % 2 === 0) {
+                        arrangedProducts.push(featuredProduct);
+                        arrangedProducts.push(...nextStandards);
+                        return;
+                    }
+
+                    arrangedProducts.push(...nextStandards.slice(0, 1));
+                    arrangedProducts.push(featuredProduct);
+                    arrangedProducts.push(...nextStandards.slice(1));
+                });
+
+                return arrangedProducts.concat(standardProducts.slice(standardIndex));
             }
 
-            // START Creates sbutton and append it into variable
-            let addCardButton = this.createButton("Add card", "plus-square");
-            addCardButton.addEventListener('click', (e) => {
-                addCard();
+            function getFilteredProducts() {
+                if (activeFilter === 'gifted') {
+                    return visibleProducts.filter((product) => product.status === 'gifted');
+                }
+
+                if (activeFilter === 'wishlist') {
+                    return arrangeProductsForMosaic(visibleProducts.filter((product) => product.status !== 'gifted'));
+                }
+
+                return arrangeProductsForMosaic(visibleProducts);
+            }
+
+            function getStatusText(rendered, total) {
+                if (total === 0) {
+                    return (wishlistContent.wishlist && wishlistContent.wishlist.empty) || 'Keine passenden Wünsche gefunden.';
+                }
+
+                if (rendered < total) {
+                    const template = (wishlistContent.wishlist && wishlistContent.wishlist.statusProgress) || '{rendered} von {total}';
+                    return template.replace('{rendered}', rendered).replace('{total}', total);
+                }
+
+                if (activeFilter === 'gifted') {
+                    const template = (wishlistContent.wishlist && wishlistContent.wishlist.statusGifted) || '{count} gekauft';
+                    return template.replace('{count}', total);
+                }
+
+                if (activeFilter === 'wishlist') {
+                    const template = (wishlistContent.wishlist && wishlistContent.wishlist.statusOpen) || '{count} offen';
+                    return template.replace('{count}', total);
+                }
+
+                const template = (wishlistContent.wishlist && wishlistContent.wishlist.statusAll) || '{count} Wünsche';
+                return template.replace('{count}', total);
+            }
+
+            function resetGrid() {
+                if (activeObserver) {
+                    activeObserver.disconnect();
+                    activeObserver = null;
+                }
+
+                cardStack.cards = [];
+                grid.textContent = '';
+
+                let sentinel = document.getElementById('wishlist-sentinel');
+                if (!sentinel) {
+                    sentinel = document.createElement('div');
+                    sentinel.id = 'wishlist-sentinel';
+                    sentinel.className = 'wishlist-sentinel';
+                    sentinel.setAttribute('aria-hidden', 'true');
+                    grid.insertAdjacentElement('afterend', sentinel);
+                }
+
+                return sentinel;
+            }
+
+            function renderProductsProgressively(products) {
+                const sentinel = resetGrid();
+                const batchSize = window.matchMedia('(max-width: 560px)').matches ? 6 : 12;
+                let rendered = 0;
+
+                function renderNextBatch() {
+                    const nextProducts = products.slice(rendered, rendered + batchSize);
+
+                    nextProducts.forEach((product) => {
+                        cardStack.addCard(new AdCard(product));
+                    });
+
+                    rendered += nextProducts.length;
+                    status.textContent = getStatusText(rendered, products.length);
+
+                    if (rendered >= products.length && sentinel) {
+                        sentinel.remove();
+                    }
+
+                    requestFooterVisibilityUpdate();
+                }
+
+                renderNextBatch();
+
+                if (!sentinel || !('IntersectionObserver' in window)) {
+                    while (rendered < products.length) {
+                        renderNextBatch();
+                    }
+                    return;
+                }
+
+                activeObserver = new IntersectionObserver((entries) => {
+                    if (!entries.some((entry) => entry.isIntersecting)) {
+                        return;
+                    }
+
+                    renderNextBatch();
+
+                    if (rendered >= products.length) {
+                        activeObserver.disconnect();
+                        activeObserver = null;
+                    }
+                }, {
+                    rootMargin: '720px 0px'
+                });
+
+                activeObserver.observe(sentinel);
+            }
+
+            filterButtons.forEach((button) => {
+                button.addEventListener('click', () => {
+                    activeFilter = button.dataset.filter;
+                    filterButtons.forEach((filterButton) => {
+                        const isActive = filterButton === button;
+                        filterButton.classList.toggle('is-active', isActive);
+                        filterButton.setAttribute('aria-pressed', String(isActive));
+                    });
+                    renderProductsProgressively(getFilteredProducts());
+                });
             });
 
-            let addCardsButton = this.createButton("Add cards", "th");
-            addCardsButton.addEventListener('click', (e) => {
-                addCards();
-            });
+            async function getProducts() {
+                try {
+                    applyWishlistContent(await loadWishlistContent());
+                    const products = await loadWishlistProducts();
+                    visibleProducts = products.filter((product) => product.title && product.image && product.url);
 
-            let removeCardButton = this.createButton("Remove card", "minus-square");
-            removeCardButton.addEventListener('click', (e) => {
-                removeCard();
-            });
+                    renderProductsProgressively(getFilteredProducts());
 
-            let removeCardsButton = this.createButton("Remove cards", "trash-alt");
-            removeCardsButton.addEventListener('click', (e) => {
-                removeCards();
-            });
-            // END
+                    status.classList.add('is-success');
+                } catch (error) {
+                    status.textContent = (wishlistContent.wishlist && wishlistContent.wishlist.error) || 'Die Wunschliste ist gerade nicht erreichbar. Probier es bitte später noch einmal.';
+                    status.classList.add('is-error');
+                    console.error(error);
+                }
+            }
 
-            let donateButton = this.createButton("Donate Devs", "hand-holding-usd");
-            donateButton.addEventListener('click', (e) => {
-                donateDevs();
-            });
-            // END
-
-            // Creates a div who wrapps arround the upper created button elements
-            let addButtonsDiv = document.createElement("div");
-            addButtonsDiv.style.display = "inline-grid";
-            addButtonsDiv.style.gridGap = "0 7px";
-
-            //TODO: Side-bar-class, Login-Class, Footer-Class+
-
-            // Appends the button to the buttonWrapperDiv
-            addButtonsDiv.appendChild(addCardButton);
-            addButtonsDiv.appendChild(addCardsButton);
-            addButtonsDiv.appendChild(removeCardButton);
-            addButtonsDiv.appendChild(removeCardsButton);
-            addButtonsDiv.appendChild(donateButton);
-            addButtonsDiv.style.gridTemplateColumns = "repeat(" + addButtonsDiv.children.length + ", 1fr)";
-
-            let collapsibleContainer2 = new CollapsibleContainer("Header", {
-                // Put the filled addButtonsDiv(htmlcollection) into a object, u can put objects or strings into the classes
-                title: addButtonsDiv,
-                content: cardStack2.domElement
-            });
-        }
+            getProducts();
+        });
     </script>
 </body>
 

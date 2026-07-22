@@ -1,0 +1,18 @@
+---
+description: How to use lazy stoner donator audit reports as evidence without making the frontend depend on them.
+globs: reports/*.json,wishlist-products.json
+alwaysApply: false
+---
+
+# Lazy Stoner Donator Report Provenance
+
+- Treat `reports/` as audit and provenance only. Runtime frontend code must not import or fetch report files.
+- Use reports to justify product removals, replacements, availability decisions, price enrichment, and featured-tier decisions.
+- Keep report conclusions separate from product facts. A report can explain why a change was made; `wishlist-products.json` remains the live source of truth.
+- Availability audits should record method, checked time, verdict, evidence text, HTTP status when available, and buy/add-to-cart signals where relevant.
+- Price audits should preserve source and status. If Amazon live extraction is unreliable, prefer user-provided wishlist HTML or documented cached evidence over guessing.
+- Alternative-product reports should include accepted and rejected candidates when available. Similarity scores are discovery aids, not final proof of suitability.
+- Cleanup reports should list removed titles/ASINs and the remaining count. Use them to verify that requested removals did not leave replaced descendants behind.
+- Featured-tier reports should explain why a product is large/featured. Price-based tiers and curated editorial tiers should not be mixed without explicit `featureReason`.
+- When a recurring lesson emerges from reports, encode it in `.cursor/rules/`; do not keep re-reading old reports as instructions.
+- For relaunch work, create a fresh dated report only when new research, availability checks, price checks, or replacement decisions were actually performed.

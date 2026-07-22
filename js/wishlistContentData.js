@@ -1,0 +1,67 @@
+window.birthdayWishlistContent = {
+    "project": "Lazy Stoner Donator",
+    "language": "de-DE",
+    "tone": "per-du, persönlich, direkt, aktivistisch, klar, ohne Bettel-Wording",
+    "hero": {
+        "eyebrow": "Lazy Stoner Donator",
+        "title": "Danke, dass du Chris unterstützen möchtest.",
+        "text": "Chris baut seit Jahren Aufklärung, Email-Aktionen, Support und Content für eine ehrlichere Cannabispolitik. Diese Wunschliste macht Unterstützung greifbar: Such dir etwas aus, das Technik, Alltag und die nächste Aktion leichter macht.",
+        "primaryCta": "Wunsch finden",
+        "secondaryCta": "Mehr über Chris",
+        "navCta": "Geschenk aussuchen"
+    },
+    "wishlist": {
+        "eyebrow": "Wunschliste",
+        "title": "Wähle etwas, das Aufklärung leichter macht.",
+        "loading": "Wunschliste wird geladen...",
+        "error": "Die Wunschliste ist gerade nicht erreichbar. Probier es bitte später noch einmal.",
+        "empty": "Keine passenden Wünsche gefunden.",
+        "statusAll": "{count} Wünsche",
+        "statusOpen": "{count} offen",
+        "statusGifted": "{count} gekauft",
+        "statusProgress": "{rendered} von {total}",
+        "filters": [
+            "Alle",
+            "Offen",
+            "Geschenkt"
+        ]
+    },
+    "card": {
+        "badge": "Wunsch",
+        "primaryAction": "Direkt ansehen",
+        "primaryActionVariants": [
+            "Für Chris checken",
+            "Zum Wunsch",
+            "Direkt ansehen",
+            "Setup-Upgrade ansehen",
+            "Bei {brand} ansehen",
+            "Gute Idee öffnen",
+            "Wunsch öffnen"
+        ],
+        "giftedAction": "Details ansehen",
+        "shareAction": "Teilen",
+        "shareTextPrefix": "Geschenkidee für Chris:",
+        "copySuccess": "Kopiert",
+        "copyError": "Fehler",
+        "giftedLabel": "Schon geschenkt",
+        "giftedMeta": "Danke fürs Möglichmachen"
+    },
+    "footer": {
+        "links": [
+            "Impressum",
+            "Datenschutz",
+            "Kontakt"
+        ],
+        "social": [
+            "Instagram",
+            "Facebook",
+            "TikTok",
+            "YouTube",
+            "X",
+            "Twitch"
+        ],
+        "creditText": "Realized with 🥦 and 💚 by",
+        "creditAlt": "Matt Interfaces",
+        "creditTitle": "Matt Interfaces - Web Development & Automation"
+    }
+};

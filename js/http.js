@@ -1,43 +1,33 @@
 /**
- * Requests the Couch-DB
+ * Small fetch wrapper kept for legacy components.
  */
 class Http {
+    async request(method, url, contentType, data) {
+        const headers = {};
 
-    request(method, url, contentType, data) {
-        let promise = new Promise((resolve, reject) => {
+        if (contentType) {
+            headers['Content-Type'] = contentType;
+        }
 
-            let getData = new XMLHttpRequest();
-            getData.onreadystatechange = function () {
-                if (this.readyState != 4) {
-                    return;
-                }
-
-                // Typical action to be performed when the document is ready:
-                let data = JSON.parse(getData.responseText);
-                resolve(data);
-            };
-
-            getData.onerror = function (e) {
-                reject(e);
-            };
-
-            getData.open(method, url, true);
-
-            if (contentType) {
-                getData.setRequestHeader("content-type", contentType);
-            }
-
-            getData.send(data);
+        const response = await fetch(url, {
+            method,
+            headers,
+            body: data
         });
 
-        return promise;
+        if (!response.ok) {
+            throw new Error('Request failed with status ' + response.status);
+        }
+
+        const text = await response.text();
+        return text ? JSON.parse(text) : null;
     }
 
     get(url) {
-        return this.request("GET", url);
+        return this.request('GET', url);
     }
 
     post(url, data) {
-        return this.request("POST", url, "application/json", JSON.stringify(data));
+        return this.request('POST', url, 'application/json', JSON.stringify(data));
     }
 }

@@ -1,0 +1,18 @@
+---
+description: UI, content JSON, featured-card layout, sharing, and relaunch checks for the lazy stoner donator frontend.
+globs: index.html,styles/*.css,js/*.js,wishlist-content.json
+alwaysApply: false
+---
+
+# Lazy Stoner Donator UI Relaunch
+
+- Keep visible copy in `wishlist-content.json`. Hardcoded copy in HTML or JS should only be a safe fallback for failed JSON loading.
+- Preserve the current vanilla static stack. Do not introduce frameworks for layout polish.
+- Featured cards should use structural CSS for alignment and spacing. Prefer grid/overlay layout and measurable image/content bounds over negative-margin-only fixes.
+- Product card CTAs should come from `wishlist-content.json`. If randomized, make the choice deterministic per product so labels do not jump between renders.
+- Keep open wishes visually distinct with a gift icon plus `Wunsch`; gifted products use a check icon plus `Schon geschenkt` and a short thank-you meta line.
+- Share menus must use the exact product URL from `wishlist-products.json`, including affiliate parameters where present.
+- Closed share menus must set `aria-hidden="true"` and remove menu items from keyboard tab order. Escape and outside click should close open menus.
+- The fixed wishlist toolbar must not cover footer/social actions. Recalculate its footer offset after scroll, resize, and lazy-render batches.
+- For mobile, keep toolbar wording short and one-line where possible. Verify it with the footer in view, not only at the first viewport.
+- Relaunch smoke tests should cover: content JSON applied, 72 product count, progressive rendering, featured-card bottom alignment, share menu accessibility, footer docking, and no visible prices.

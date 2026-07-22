@@ -1,0 +1,14 @@
+---
+description: Maintenance rules for the lazy stoner donator static frontend, product JSON, Amazon links, and evidence reports.
+globs: **
+alwaysApply: false
+---
+
+# Lazy Stoner Donator Maintenance
+
+- Preserve the static architecture: `index.html`, `styles/main.css`, `js/adCard.js`, `wishlist-products.json`, `wishlist-content.json`, and the two `js/wishlist*Data.js` fallback files.
+- Keep recurring operational lessons in focused project rules. Do not turn one-off report facts into broad rules unless the pattern appears in multiple audits or is launch-critical.
+- Use `lazy-stoner-donator-product-data.mdc` for product JSON, Amazon URLs, price evidence, replacements, and data synchronization.
+- Use `lazy-stoner-donator-report-provenance.mdc` for `reports/` handling, audit taxonomy, and relaunch evidence.
+- Use `lazy-stoner-donator-ui-relaunch.mdc` for card layout, content JSON usage, share UI, footer docking, and browser smoke tests.
+- Keep each rule short, concrete, and actionable; prefer referenced canonical files over copied long examples.
