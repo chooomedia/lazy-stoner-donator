@@ -2263,7 +2263,16 @@
                 try {
                     applyWishlistContent(await loadWishlistContent());
                     const products = await loadWishlistProducts();
-                    visibleProducts = products.filter((product) => product.title && product.image && product.url);
+                    const isMobileViewport = window.matchMedia('(max-width: 768px)').matches;
+                    visibleProducts = products.filter((product) => {
+                        if (!product.title || !product.image || !product.url) {
+                            return false;
+                        }
+                        if (product.mobileOnly && !isMobileViewport) {
+                            return false;
+                        }
+                        return true;
+                    });
                     updateFilterCounts();
 
                     renderProductsProgressively(getFilteredProducts());
