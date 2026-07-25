@@ -1980,11 +1980,10 @@ a.button,
 
 .logo-marquee__track img {
     display: block;
-    width: auto;
     height: 64px;
     max-width: none;
-    flex: 0 0 auto;
     object-fit: contain;
+    object-position: center;
     opacity: 0.82;
     filter: brightness(0) saturate(0);
     transform: translateZ(0);
