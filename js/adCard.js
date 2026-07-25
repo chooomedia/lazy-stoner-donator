@@ -473,7 +473,7 @@ class AdCard extends Card {
         const copyLink = document.createElement('button');
         copyLink.type = 'button';
         copyLink.setAttribute('role', 'menuitem');
-        copyLink.setAttribute('aria-label', cardContent.copyLinkAria || 'Link zur Wunschkarte kopieren');
+        copyLink.setAttribute('aria-label', cardContent.copyLinkAria || 'Direkten Link zur Wunschkarte kopieren');
         copyLink.tabIndex = -1;
 
         const copyIcon = document.createElement('i');
