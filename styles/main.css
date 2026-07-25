@@ -692,7 +692,7 @@ h2 {
 .product-action {
     width: 100%;
     min-height: 44px;
-    font-size: 0.78rem;
+    font-size: 1rem;
 }
 
 .product-action.is-confirmed {
@@ -1839,6 +1839,7 @@ a.button,
 .product-card .product-action {
     min-width: 0;
     min-height: 48px;
+    font-size: 1rem;
     line-height: 1.15;
     text-align: center;
     white-space: normal;
@@ -1960,10 +1961,6 @@ a.button,
 
 .product-card.is-featured .product-actions {
     margin-top: 0.75rem;
-}
-
-.product-card.is-featured .product-share>.product-action {
-    font-size: var(--font-base);
 }
 
 @media (max-width: 920px) {
@@ -2317,7 +2314,7 @@ a.button,
 
     .product-card .product-actions,
     .product-card.is-featured .product-actions {
-        grid-template-columns: minmax(0, 1fr) minmax(86px, auto);
+        grid-template-columns: minmax(0, 1fr) auto;
         gap: 0.65rem;
         margin-top: 0.35rem;
     }
@@ -2325,7 +2322,6 @@ a.button,
     .product-card .product-action {
         min-height: 50px;
         border-radius: 999px;
-        font-size: 0.8rem;
     }
 
     .product-card .product-action.button-primary {
@@ -2340,36 +2336,36 @@ a.button,
         -webkit-backdrop-filter: blur(14px);
     }
 
-    .product-share.is-compact {
-        width: auto;
+    .product-share {
+        width: 50px;
+        display: block;
     }
 
-    .product-share.is-compact>.product-action {
+    .product-share>.product-action {
         justify-content: center;
-        gap: 0.35rem;
-        padding: 0.42rem 0.78rem;
+        gap: 0;
+        width: 50px;
+        min-width: 50px;
+        height: 50px;
+        min-height: 50px;
+        padding: 0;
+        border-radius: 999px;
     }
 
-    .product-share.is-compact>.product-action span {
-        position: static;
-        width: auto;
-        height: auto;
-        margin: 0;
-        padding: 0;
+    .product-share>.product-action span {
+        display: none;
+    }
+
+    .product-share.is-open>.product-action.button-secondary {
+        color: #ffffff;
+        background: var(--color-primary);
         border: 0;
-        overflow: visible;
-        pointer-events: none;
-        clip: auto;
-        clip-path: none;
-        white-space: nowrap;
-        color: inherit;
-        opacity: 1;
-        transform: none;
-        font-size: inherit;
-        line-height: inherit;
-        font-weight: inherit;
-        letter-spacing: inherit;
-        text-transform: none;
+        box-shadow: 0 12px 28px rgba(19, 137, 14, 0.22);
+        text-shadow: none;
+    }
+
+    .product-share.is-open>.product-action.button-secondary i {
+        color: #ffffff;
     }
 
     .product-card .product-action.button-secondary:hover,
@@ -2405,22 +2401,24 @@ a.button,
     .product-share-menu {
         left: auto;
         min-width: 0;
-        width: 100%;
-        padding: 0.24rem;
+        width: 50px;
+        padding: 0.18rem;
         border: 1px solid rgba(255, 255, 255, 0.16);
         border-radius: 999px;
         background: rgba(7, 9, 7, 0.26);
         backdrop-filter: blur(18px) saturate(1.2);
         -webkit-backdrop-filter: blur(18px) saturate(1.2);
         box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
-        gap: 0.28rem;
+        gap: 0.24rem;
     }
 
     .product-share-menu a,
     .product-share-menu button {
+        width: 100%;
+        min-width: 0;
         min-height: 42px;
         border: 0;
-        border-radius: 10px;
+        border-radius: 999px;
         color: #ffffff;
         background: rgba(255, 255, 255, 0.06);
         box-shadow: none;

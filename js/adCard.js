@@ -48,7 +48,45 @@ class AdCard extends Card {
 
         document.addEventListener('keydown', (event) => {
             if (event.key === 'Escape') {
+                const activeShare = document.activeElement && document.activeElement.closest
+                    ? document.activeElement.closest('.product-share')
+                    : null;
+                const activeButton = activeShare ? activeShare.querySelector('button[aria-expanded]') : null;
                 AdCard.closeOpenShareMenus();
+                activeButton?.focus();
+                return;
+            }
+
+            const activeMenu = document.activeElement && document.activeElement.closest
+                ? document.activeElement.closest('.product-share-menu')
+                : null;
+            if (!activeMenu) {
+                return;
+            }
+
+            const activeWrapper = activeMenu.closest('.product-share');
+            const items = AdCard.getShareMenuItems(activeWrapper);
+            if (!items.length) {
+                return;
+            }
+
+            const currentIndex = items.indexOf(document.activeElement);
+            if (currentIndex === -1) {
+                return;
+            }
+
+            if (event.key === 'ArrowDown') {
+                event.preventDefault();
+                items[(currentIndex + 1) % items.length].focus();
+            } else if (event.key === 'ArrowUp') {
+                event.preventDefault();
+                items[(currentIndex - 1 + items.length) % items.length].focus();
+            } else if (event.key === 'Home') {
+                event.preventDefault();
+                items[0].focus();
+            } else if (event.key === 'End') {
+                event.preventDefault();
+                items[items.length - 1].focus();
             }
         });
 
@@ -64,6 +102,14 @@ class AdCard extends Card {
             }
             AdCard.setShareMenuAccessibility(wrapper, false);
         });
+    }
+
+    static getShareMenuItems(wrapper) {
+        if (!wrapper) {
+            return [];
+        }
+
+        return Array.from(wrapper.querySelectorAll('.product-share-menu [role="menuitem"]'));
     }
 
     static setShareMenuAccessibility(wrapper, isOpen) {
@@ -329,6 +375,7 @@ class AdCard extends Card {
         copyButton.type = 'button';
         copyButton.setAttribute('aria-expanded', 'false');
         copyButton.setAttribute('aria-haspopup', 'menu');
+        copyButton.setAttribute('aria-label', cardContent.shareActionTitle || this.getShareActionLabel());
         copyButton.setAttribute('title', cardContent.shareActionTitle || cardContent.shareAction || 'Teilen');
         const copyIcon = document.createElement('i');
         copyIcon.className = 'fas fa-share-from-square';
@@ -340,12 +387,18 @@ class AdCard extends Card {
         copyButton.appendChild(copyIcon);
         copyButton.appendChild(copyText);
 
+        const shareMenuIndex = (AdCard.shareMenuIdCounter = (AdCard.shareMenuIdCounter || 0) + 1);
+        const shareButtonId = 'share-trigger-' + shareMenuIndex;
+        const shareMenuId = 'share-menu-' + shareMenuIndex;
+        copyButton.id = shareButtonId;
+        copyButton.setAttribute('aria-controls', shareMenuId);
+
         const shareWrapper = document.createElement('div');
         shareWrapper.className = 'product-share';
         if (this.displayTier !== 'featured') {
             shareWrapper.classList.add('is-compact');
         }
-        const shareMenu = this.createShareMenu(copyButton, shareWrapper);
+        const shareMenu = this.createShareMenu(shareMenuId, shareButtonId);
         copyButton.addEventListener('click', () => this.toggleShareMenu(shareWrapper, copyButton));
         shareWrapper.appendChild(copyButton);
         shareWrapper.appendChild(shareMenu);
@@ -425,12 +478,14 @@ class AdCard extends Card {
         return article;
     }
 
-    createShareMenu(button, wrapper) {
+    createShareMenu(menuId, buttonId) {
         const menu = document.createElement('div');
         menu.className = 'product-share-menu';
+        menu.id = menuId;
         menu.setAttribute('role', 'menu');
+        menu.setAttribute('aria-labelledby', buttonId);
+        menu.setAttribute('aria-orientation', 'vertical');
         const cardContent = this.content.card || {};
-        menu.setAttribute('aria-label', (cardContent.shareMenuLabel || '{title} teilen').replace('{title}', this.title));
         menu.setAttribute('title', (cardContent.shareActionTitle || cardContent.shareAction || 'Teilen'));
         menu.setAttribute('aria-hidden', 'true');
 
@@ -517,6 +572,9 @@ class AdCard extends Card {
         wrapper.classList.toggle('is-open', nextState);
         button.setAttribute('aria-expanded', String(nextState));
         AdCard.setShareMenuAccessibility(wrapper, nextState);
+        if (nextState) {
+            AdCard.getShareMenuItems(wrapper)[0]?.focus();
+        }
     }
 
     async copyProductLink(button, wrapper) {
