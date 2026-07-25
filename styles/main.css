@@ -1944,6 +1944,11 @@ a.button,
     box-shadow: none;
 }
 
+.product-share-menu a i,
+.product-share-menu button i {
+    font-size: 1.24rem;
+}
+
 .product-share-menu a:hover,
 .product-share-menu a:focus-visible,
 .product-share-menu button:hover,
@@ -1958,7 +1963,7 @@ a.button,
 }
 
 .product-card.is-featured .product-share>.product-action {
-    font-size: inherit;
+    font-size: var(--font-base);
 }
 
 @media (max-width: 920px) {
