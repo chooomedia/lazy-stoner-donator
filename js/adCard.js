@@ -201,6 +201,14 @@ class AdCard extends Card {
         return label('Passt gut zu Chris', 'A good fit for Chris');
     }
 
+    getShareActionLabel() {
+        const cardContent = this.content.card || {};
+        if (this.displayTier === 'featured') {
+            return cardContent.shareAction || 'Teilen';
+        }
+        return cardContent.shareActionCompact || 'Teilen anzeigen';
+    }
+
     hasAiAssistedImage() {
         return ['social-wish', 'campaign-wish', 'donation-wish'].includes(this.adHost);
     }
@@ -315,6 +323,9 @@ class AdCard extends Card {
 
         const copyButton = document.createElement('button');
         copyButton.className = 'button button-secondary product-action';
+        if (this.displayTier !== 'featured') {
+            copyButton.classList.add('is-compact-share');
+        }
         copyButton.type = 'button';
         copyButton.setAttribute('aria-expanded', 'false');
         copyButton.setAttribute('aria-haspopup', 'menu');
@@ -324,13 +335,16 @@ class AdCard extends Card {
         copyIcon.setAttribute('aria-hidden', 'true');
 
         const copyText = document.createElement('span');
-        copyText.textContent = cardContent.shareAction || 'Teilen';
+        copyText.textContent = this.getShareActionLabel();
 
         copyButton.appendChild(copyIcon);
         copyButton.appendChild(copyText);
 
         const shareWrapper = document.createElement('div');
         shareWrapper.className = 'product-share';
+        if (this.displayTier !== 'featured') {
+            shareWrapper.classList.add('is-compact');
+        }
         const shareMenu = this.createShareMenu(copyButton, shareWrapper);
         copyButton.addEventListener('click', () => this.toggleShareMenu(shareWrapper, copyButton));
         shareWrapper.appendChild(copyButton);
@@ -548,7 +562,7 @@ class AdCard extends Card {
         }
 
         window.setTimeout(() => {
-            setButtonLabel((this.content.card && this.content.card.shareAction) || 'Teilen');
+            setButtonLabel(this.getShareActionLabel());
             button.classList.remove('is-confirmed');
         }, 1800);
     }

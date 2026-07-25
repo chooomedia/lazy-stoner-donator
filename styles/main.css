@@ -1831,7 +1831,7 @@ a.button,
 }
 
 .product-card .product-actions {
-    grid-template-columns: minmax(0, 1.618fr) minmax(82px, 1fr);
+    grid-template-columns: minmax(0, 1.618fr) auto;
     align-items: stretch;
     margin-top: auto;
 }
@@ -1866,6 +1866,49 @@ a.button,
 
 .product-share>.product-action {
     height: 100%;
+}
+
+.product-share.is-compact {
+    width: 52px;
+    transition: width 220ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.product-share.is-compact:hover,
+.product-share.is-compact:focus-within,
+.product-share.is-compact.is-open {
+    width: 156px;
+}
+
+.product-share.is-compact>.product-action {
+    justify-content: center;
+    gap: 0;
+    overflow: hidden;
+    padding-inline: 0.78rem;
+    transition: gap 180ms ease, padding-inline 220ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.product-share.is-compact>.product-action span {
+    max-width: 0;
+    opacity: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    transform: translateX(-4px);
+    transition: max-width 220ms cubic-bezier(0.22, 1, 0.36, 1), opacity 140ms ease, transform 180ms ease;
+}
+
+.product-share.is-compact:hover>.product-action,
+.product-share.is-compact:focus-within>.product-action,
+.product-share.is-compact.is-open>.product-action {
+    gap: 0.42rem;
+    padding-inline: 0.88rem;
+}
+
+.product-share.is-compact:hover>.product-action span,
+.product-share.is-compact:focus-within>.product-action span,
+.product-share.is-compact.is-open>.product-action span {
+    max-width: 8.5rem;
+    opacity: 1;
+    transform: translateX(0);
 }
 
 .product-share-menu {
@@ -2298,6 +2341,16 @@ a.button,
         border: 1px solid rgba(255, 255, 255, 0.18);
         backdrop-filter: blur(14px);
         -webkit-backdrop-filter: blur(14px);
+    }
+
+    .product-share.is-compact {
+        width: 50px;
+    }
+
+    .product-share.is-compact:hover,
+    .product-share.is-compact:focus-within,
+    .product-share.is-compact.is-open {
+        width: 148px;
     }
 
     .product-card .product-action.button-secondary:hover,

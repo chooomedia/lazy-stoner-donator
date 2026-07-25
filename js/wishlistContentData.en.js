@@ -96,6 +96,7 @@ window.birthdayWishlistContentEn = {
         "giftedAction": "View details",
         "giftedActionTitle": "View details for this already gifted wish",
         "shareAction": "Share",
+        "shareActionCompact": "Show share options",
         "shareActionTitle": "Share this wish or copy the link",
         "shareTextPrefix": "Gift idea for Chris:",
         "copySuccess": "Copied",
