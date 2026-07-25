@@ -88,6 +88,10 @@ class AdCard extends Card {
         return shareUrl.toString();
     }
 
+    createPlatformShareUrl() {
+        return this.productUrl || this.createCardShareUrl();
+    }
+
     getBrandName() {
         if (!this.byline) {
             return '';
@@ -417,7 +421,7 @@ class AdCard extends Card {
         menu.setAttribute('aria-hidden', 'true');
 
         const shareText = (cardContent.shareTextPrefix || 'Geschenkidee für Chris:') + ' ' + this.title;
-        const shareUrl = this.createCardShareUrl();
+        const shareUrl = this.createPlatformShareUrl();
         const encodedUrl = encodeURIComponent(shareUrl);
         const encodedText = encodeURIComponent(shareText);
         const encodedTitle = encodeURIComponent(this.title);
@@ -469,7 +473,7 @@ class AdCard extends Card {
         const copyLink = document.createElement('button');
         copyLink.type = 'button';
         copyLink.setAttribute('role', 'menuitem');
-        copyLink.setAttribute('aria-label', cardContent.copyLinkAria || 'Affiliate-Link kopieren');
+        copyLink.setAttribute('aria-label', cardContent.copyLinkAria || 'Link zur Wunschkarte kopieren');
         copyLink.tabIndex = -1;
 
         const copyIcon = document.createElement('i');

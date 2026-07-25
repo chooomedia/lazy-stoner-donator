@@ -107,7 +107,7 @@ window.birthdayWishlistContentEn = {
         "aiContentTitle": "Open the Cannachris note about AI-assisted content",
         "shareMenuLabel": "Share {title}",
         "shareViaAria": "Share via {service}",
-        "copyLinkAria": "Copy affiliate link",
+        "copyLinkAria": "Copy wishlist card link",
         "mediaAria": "{action}: {title}"
     },
     "footer": {

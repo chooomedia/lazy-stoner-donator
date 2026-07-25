@@ -27,13 +27,6 @@
         return 'de';
     }
 
-    function browserPreferredLocale() {
-        const browserLocales = (window.navigator.languages && window.navigator.languages.length)
-            ? window.navigator.languages
-            : [window.navigator.language || 'de'];
-        return browserLocales.some((locale) => /^en\b/i.test(locale)) ? 'en' : 'de';
-    }
-
     function getStoredLocale() {
         try {
             const locale = window.localStorage.getItem(LOCALE_STORAGE_KEY);
@@ -77,9 +70,8 @@
     function resolveInitialLocale() {
         const activeLocale = detectLocale();
         const storedLocale = getStoredLocale();
-        const preferredLocale = storedLocale || browserPreferredLocale();
 
-        if (activeLocale === 'de' && preferredLocale === 'en' && isDefaultEntryPath(normalizedPath())) {
+        if (activeLocale === 'de' && storedLocale === 'en' && isDefaultEntryPath(normalizedPath())) {
             const target = resolveLocaleHref('en') + window.location.search + window.location.hash;
             window.location.replace(target);
         }
