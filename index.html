@@ -1692,6 +1692,105 @@
             </div>
         </section>
 
+        <section class="logo-marquee" aria-label="Partner, Hersteller &amp; Unterstützer">
+            <p class="logo-marquee__label">Bekannt aus &amp; geschenkt von</p>
+            <div class="logo-marquee__track-wrapper">
+                <div class="logo-marquee__track">
+                    <div class="logo-marquee__group">
+                        <img src="assets/logos/amazon.svg" alt="" width="160" height="64" loading="eager" decoding="async" aria-hidden="true">
+                        <img src="assets/logos/dji.svg" alt="" width="110" height="64" loading="eager" decoding="async" aria-hidden="true">
+                        <img src="assets/logos/elgato.svg" alt="" width="140" height="64" loading="eager" decoding="async" aria-hidden="true">
+                        <img src="assets/logos/sony.svg" alt="" width="160" height="64" loading="eager" decoding="async" aria-hidden="true">
+                        <img src="assets/logos/synology.svg" alt="" width="170" height="64" loading="eager" decoding="async" aria-hidden="true">
+                        <img src="assets/logos/apple.svg" alt="" width="90" height="64" loading="eager" decoding="async" aria-hidden="true">
+                        <img src="assets/logos/lg.svg" alt="" width="120" height="64" loading="eager" decoding="async" aria-hidden="true">
+                        <img src="assets/logos/creality.svg" alt="" width="160" height="64" loading="eager" decoding="async" aria-hidden="true">
+                        <img src="assets/logos/rode.svg" alt="" width="130" height="64" loading="eager" decoding="async" aria-hidden="true">
+                        <img src="assets/logos/samsung.svg" alt="" width="150" height="64" loading="eager" decoding="async" aria-hidden="true">
+                        <img src="assets/logos/razer.svg" alt="" width="130" height="64" loading="eager" decoding="async" aria-hidden="true">
+                        <img src="assets/logos/hyperx.svg" alt="" width="140" height="64" loading="eager" decoding="async" aria-hidden="true">
+                        <img src="assets/logos/zoom.svg" alt="" width="115" height="64" loading="eager" decoding="async" aria-hidden="true">
+                        <img src="assets/logos/nintendo.svg" alt="" width="150" height="64" loading="eager" decoding="async" aria-hidden="true">
+                        <img src="assets/logos/motorola.svg" alt="" width="150" height="64" loading="eager" decoding="async" aria-hidden="true">
+                        <img src="assets/logos/kodak.svg" alt="" width="120" height="64" loading="eager" decoding="async" aria-hidden="true">
+                        <img src="assets/logos/nvidia.svg" alt="" width="140" height="64" loading="eager" decoding="async" aria-hidden="true">
+                        <img src="assets/logos/fujifilm.svg" alt="" width="170" height="64" loading="eager" decoding="async" aria-hidden="true">
+                        <img src="assets/logos/nikon.svg" alt="" width="155" height="64" loading="eager" decoding="async" aria-hidden="true">
+                    </div>
+                    <div class="logo-marquee__group">
+                        <img src="assets/logos/amazon.svg" alt="" width="160" height="64" loading="eager" decoding="async" aria-hidden="true">
+                        <img src="assets/logos/dji.svg" alt="" width="110" height="64" loading="eager" decoding="async" aria-hidden="true">
+                        <img src="assets/logos/elgato.svg" alt="" width="140" height="64" loading="eager" decoding="async" aria-hidden="true">
+                        <img src="assets/logos/sony.svg" alt="" width="160" height="64" loading="eager" decoding="async" aria-hidden="true">
+                        <img src="assets/logos/synology.svg" alt="" width="170" height="64" loading="eager" decoding="async" aria-hidden="true">
+                        <img src="assets/logos/apple.svg" alt="" width="90" height="64" loading="eager" decoding="async" aria-hidden="true">
+                        <img src="assets/logos/lg.svg" alt="" width="120" height="64" loading="eager" decoding="async" aria-hidden="true">
+                        <img src="assets/logos/creality.svg" alt="" width="160" height="64" loading="eager" decoding="async" aria-hidden="true">
+                        <img src="assets/logos/rode.svg" alt="" width="130" height="64" loading="eager" decoding="async" aria-hidden="true">
+                        <img src="assets/logos/samsung.svg" alt="" width="150" height="64" loading="eager" decoding="async" aria-hidden="true">
+                        <img src="assets/logos/razer.svg" alt="" width="130" height="64" loading="eager" decoding="async" aria-hidden="true">
+                        <img src="assets/logos/hyperx.svg" alt="" width="140" height="64" loading="eager" decoding="async" aria-hidden="true">
+                        <img src="assets/logos/zoom.svg" alt="" width="115" height="64" loading="eager" decoding="async" aria-hidden="true">
+                        <img src="assets/logos/nintendo.svg" alt="" width="150" height="64" loading="eager" decoding="async" aria-hidden="true">
+                        <img src="assets/logos/motorola.svg" alt="" width="150" height="64" loading="eager" decoding="async" aria-hidden="true">
+                        <img src="assets/logos/kodak.svg" alt="" width="120" height="64" loading="eager" decoding="async" aria-hidden="true">
+                        <img src="assets/logos/nvidia.svg" alt="" width="140" height="64" loading="eager" decoding="async" aria-hidden="true">
+                        <img src="assets/logos/fujifilm.svg" alt="" width="170" height="64" loading="eager" decoding="async" aria-hidden="true">
+                        <img src="assets/logos/nikon.svg" alt="" width="155" height="64" loading="eager" decoding="async" aria-hidden="true">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <script>
+        (() => {
+            const wrapper = document.querySelector('.logo-marquee__track-wrapper');
+            const track = document.querySelector('.logo-marquee__track');
+            
+            if (!wrapper || !track) return;
+            
+            let isDown = false;
+            let startX = 0;
+            let scrollLeft = 0;
+            let dragOffset = 0;
+            
+            wrapper.style.cursor = 'grab';
+            wrapper.addEventListener('pointerdown', (e) => {
+                isDown = true;
+                startX = e.pageX;
+                scrollLeft = track.style.transform ? parseFloat(track.style.transform.match(/-?\d+\.?\d*/)[0]) : 0;
+                dragOffset = 0;
+                track.style.animationPlayState = 'paused';
+                wrapper.style.cursor = 'grabbing';
+                e.preventDefault();
+            });
+            
+            wrapper.addEventListener('pointermove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                
+                dragOffset = e.pageX - startX;
+                const newTranslate = scrollLeft + (dragOffset / wrapper.offsetWidth) * 100;
+                track.style.transform = `translateX(calc(${newTranslate}% + 0px))`;
+            });
+            
+            wrapper.addEventListener('pointerup', () => {
+                if (!isDown) return;
+                isDown = false;
+                wrapper.style.cursor = 'grab';
+                track.style.animationPlayState = 'running';
+            });
+            
+            wrapper.addEventListener('pointerleave', () => {
+                if (isDown) {
+                    isDown = false;
+                    wrapper.style.cursor = 'grab';
+                    track.style.animationPlayState = 'running';
+                }
+            });
+        })();
+        </script>
+
         <section class="wishlist-section section-shell" id="wishlist" aria-labelledby="wishlist-title">
             <div class="section-heading">
                 <p class="eyebrow">Wunschliste</p>
