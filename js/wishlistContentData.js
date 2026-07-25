@@ -49,8 +49,8 @@ window.birthdayWishlistContent = {
     },
     "hero": {
         "eyebrow": "Lazy Stoner Donator",
-        "title": "Danke, dass du Chris unterstützen möchtest.",
-        "text": "Chris baut seit Jahren Aufklärung, Email-Aktionen, Support und Content für eine ehrlichere Cannabispolitik. Diese Wunschliste macht Unterstützung greifbar: Such dir etwas aus, das Technik, Alltag und die nächste Aktion leichter macht.",
+        "title": "Wenn du etwas Sinnvolles stärken möchtest.",
+        "text": "Diese Wunschliste bündelt Dinge, kleine Hilfen und gute Taten, die Aufklärung, Alltag und konkrete nächste Schritte leichter machen. Such dir einfach das aus, was sich für dich stimmig anfühlt und praktisch etwas Gutes bewirken kann.",
         "primaryCta": "Wunsch finden",
         "primaryCtaTitle": "Zur Wunschliste springen und einen Wunsch aussuchen",
         "secondaryCta": "Mehr über Chris",
