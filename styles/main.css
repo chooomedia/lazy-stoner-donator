@@ -2005,6 +2005,9 @@ a.button,
     max-width: none;
     flex: 0 0 auto;
     object-fit: contain;
+    cursor: inherit;
+    user-select: none;
+    -webkit-user-drag: none;
     opacity: 0.82;
     filter: brightness(0) saturate(0);
     transform: translateZ(0);

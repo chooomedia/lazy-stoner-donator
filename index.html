@@ -1790,6 +1790,13 @@
 
             if (!wrapper || !track || !group || typeof track.animate !== 'function') return;
 
+            track.querySelectorAll('img').forEach((image) => {
+                image.draggable = false;
+                image.addEventListener('dragstart', (event) => {
+                    event.preventDefault();
+                });
+            });
+
             const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
             let animation = null;
             let pixelsPerMs = 0;
