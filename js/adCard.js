@@ -82,6 +82,12 @@ class AdCard extends Card {
         return 'https://www.amazon.de/dp/' + adId + '/ref=nosim?tag=' + this.partnerId;
     }
 
+    createCardShareUrl() {
+        const shareUrl = new URL(window.location.href);
+        shareUrl.hash = this.adId || '';
+        return shareUrl.toString();
+    }
+
     getBrandName() {
         if (!this.byline) {
             return '';
@@ -217,6 +223,9 @@ class AdCard extends Card {
         if (this.displayTier === 'featured') {
             article.classList.add('is-featured');
         }
+        if (this.hasAiAssistedImage()) {
+            article.classList.add('is-social-wish');
+        }
 
         const mediaLink = document.createElement('a');
         mediaLink.className = 'product-media';
@@ -234,8 +243,18 @@ class AdCard extends Card {
         );
         mediaLink.setAttribute('title', cardContent.primaryActionTitle || mediaAction);
 
+        const setMediaBackgroundImage = (url) => {
+            if (!url) {
+                return;
+            }
+            const absoluteUrl = new URL(String(url), window.location.href).href;
+            mediaLink.style.setProperty('--product-image', `url("${absoluteUrl.replace(/"/g, '\\"')}")`);
+        };
+
         const image = document.createElement('img');
-        image.src = this.resolveAssetPath(this.image) || window.WishlistUi.resolveLocalPath('assets/images/gridAdCardLoader.gif');
+        const resolvedImage = this.resolveAssetPath(this.image) || window.WishlistUi.resolveLocalPath('assets/images/gridAdCardLoader.gif');
+        image.src = resolvedImage;
+        setMediaBackgroundImage(resolvedImage);
         image.alt = this.imageAlt || this.title;
         if (this.imageTitle) {
             image.title = this.imageTitle;
@@ -246,12 +265,14 @@ class AdCard extends Card {
             const fallbackImage = this.resolveAssetPath(this.imageFallback);
             if (fallbackImage && image.src !== fallbackImage) {
                 image.src = fallbackImage;
+                setMediaBackgroundImage(fallbackImage);
                 article.classList.add('has-image-fallback');
                 return;
             }
 
             image.onerror = null;
             image.src = window.WishlistUi.resolveLocalPath('assets/images/gridAdCardLoader.gif');
+            setMediaBackgroundImage(image.src);
             article.classList.add('has-image-fallback');
         };
         mediaLink.appendChild(image);
@@ -396,7 +417,8 @@ class AdCard extends Card {
         menu.setAttribute('aria-hidden', 'true');
 
         const shareText = (cardContent.shareTextPrefix || 'Geschenkidee für Chris:') + ' ' + this.title;
-        const encodedUrl = encodeURIComponent(this.productUrl);
+        const shareUrl = this.createCardShareUrl();
+        const encodedUrl = encodeURIComponent(shareUrl);
         const encodedText = encodeURIComponent(shareText);
         const encodedTitle = encodeURIComponent(this.title);
         const shareTargets = [
@@ -496,10 +518,10 @@ class AdCard extends Card {
 
         try {
             if (navigator.clipboard && window.isSecureContext) {
-                await navigator.clipboard.writeText(this.productUrl);
+                await navigator.clipboard.writeText(this.createCardShareUrl());
             } else {
                 const textarea = document.createElement('textarea');
-                textarea.value = this.productUrl;
+                textarea.value = this.createCardShareUrl();
                 textarea.setAttribute('readonly', '');
                 textarea.style.position = 'absolute';
                 textarea.style.left = '-9999px';
