@@ -1855,6 +1855,13 @@ a.button,
     padding-inline: 0.72rem;
 }
 
+.product-card .product-action span {
+    font-size: inherit;
+    line-height: inherit;
+    font-weight: inherit;
+    letter-spacing: inherit;
+}
+
 .product-card .product-action.button-secondary i {
     font-size: 1.08rem;
 }
@@ -1869,46 +1876,27 @@ a.button,
 }
 
 .product-share.is-compact {
-    width: 52px;
-    transition: width 220ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.product-share.is-compact:hover,
-.product-share.is-compact:focus-within,
-.product-share.is-compact.is-open {
-    width: 156px;
+    width: 58px;
 }
 
 .product-share.is-compact>.product-action {
     justify-content: center;
-    gap: 0;
     overflow: hidden;
-    padding-inline: 0.78rem;
-    transition: gap 180ms ease, padding-inline 220ms cubic-bezier(0.22, 1, 0.36, 1);
+    padding: 0.42rem 0.5rem;
 }
 
 .product-share.is-compact>.product-action span {
-    max-width: 0;
-    opacity: 0;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    pointer-events: none;
     overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    clip-path: inset(50%);
     white-space: nowrap;
-    transform: translateX(-4px);
-    transition: max-width 220ms cubic-bezier(0.22, 1, 0.36, 1), opacity 140ms ease, transform 180ms ease;
-}
-
-.product-share.is-compact:hover>.product-action,
-.product-share.is-compact:focus-within>.product-action,
-.product-share.is-compact.is-open>.product-action {
-    gap: 0.42rem;
-    padding-inline: 0.88rem;
-}
-
-.product-share.is-compact:hover>.product-action span,
-.product-share.is-compact:focus-within>.product-action span,
-.product-share.is-compact.is-open>.product-action span {
-    max-width: 8.5rem;
-    opacity: 1;
-    transform: translateX(0);
 }
 
 .product-share-menu {
@@ -1917,12 +1905,12 @@ a.button,
     bottom: calc(100% + 0.55rem);
     left: 0;
     z-index: 8;
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0.32rem;
-    padding: 0.38rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.38rem;
+    padding: 0.42rem;
     border: 1px solid var(--color-border);
-    border-radius: 5px;
+    border-radius: 10px;
     background: rgba(255, 255, 255, 0.98);
     box-shadow: 0 18px 38px rgba(12, 60, 14, 0.16);
     opacity: 0;
@@ -1942,16 +1930,16 @@ a.button,
 .product-share-menu button {
     width: 100%;
     min-width: 0;
-    min-height: 34px;
+    min-height: 44px;
     border: 1px solid rgba(19, 137, 14, 0.14);
-    border-radius: 5px;
+    border-radius: 8px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     padding: 0;
     color: var(--color-primary-dark);
     background: var(--color-primary-soft);
-    font-size: 1rem;
+    font-size: inherit;
     text-decoration: none;
     box-shadow: none;
 }
@@ -1967,6 +1955,10 @@ a.button,
 
 .product-card.is-featured .product-actions {
     margin-top: 0.75rem;
+}
+
+.product-card.is-featured .product-share>.product-action {
+    font-size: inherit;
 }
 
 @media (max-width: 920px) {
@@ -2344,13 +2336,35 @@ a.button,
     }
 
     .product-share.is-compact {
-        width: 50px;
+        width: auto;
     }
 
-    .product-share.is-compact:hover,
-    .product-share.is-compact:focus-within,
-    .product-share.is-compact.is-open {
-        width: 148px;
+    .product-share.is-compact>.product-action {
+        justify-content: center;
+        gap: 0.35rem;
+        padding: 0.42rem 0.78rem;
+    }
+
+    .product-share.is-compact>.product-action span {
+        position: static;
+        width: auto;
+        height: auto;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        overflow: visible;
+        pointer-events: none;
+        clip: auto;
+        clip-path: none;
+        white-space: nowrap;
+        color: inherit;
+        opacity: 1;
+        transform: none;
+        font-size: inherit;
+        line-height: inherit;
+        font-weight: inherit;
+        letter-spacing: inherit;
+        text-transform: none;
     }
 
     .product-card .product-action.button-secondary:hover,
@@ -2385,8 +2399,35 @@ a.button,
 
     .product-share-menu {
         left: auto;
-        min-width: 152px;
-        grid-template-columns: repeat(3, minmax(42px, 1fr));
+        min-width: 0;
+        width: 100%;
+        padding: 0.24rem;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 18px;
+        background: rgba(7, 9, 7, 0.26);
+        backdrop-filter: blur(18px) saturate(1.2);
+        -webkit-backdrop-filter: blur(18px) saturate(1.2);
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+        gap: 0.28rem;
+    }
+
+    .product-share-menu a,
+    .product-share-menu button {
+        min-height: 42px;
+        border: 0;
+        border-radius: 999px;
+        color: #ffffff;
+        background: rgba(255, 255, 255, 0.06);
+        box-shadow: none;
+    }
+
+    .product-share-menu a:hover,
+    .product-share-menu a:focus-visible,
+    .product-share-menu button:hover,
+    .product-share-menu button:focus-visible {
+        color: #ffffff;
+        background: var(--color-primary);
+        transform: none;
     }
 
     .wishlist-toolbar {
