@@ -11,10 +11,12 @@
  *   <script type="application/ld+json" id="wishlist-schema"> ... </script>
  *   <!-- JSON-LD:END -->
  *
- * The schema is emitted as a single @graph with four sibling nodes:
+ * The schema is emitted as a single @graph with five sibling nodes:
  * WebSite (site-name signal), Organization with logo (Logo enhancement),
- * WebPage (existing fields are preserved) and BreadcrumbList (breadcrumb
- * rich result). The ItemList stays the WebPage mainEntity and is rebuilt
+ * Person (creator entity, public persona only), WebPage (existing fields
+ * are preserved) and BreadcrumbList (breadcrumb rich result). Organization
+ * and Person share the sameAs social profiles mirrored from the visible
+ * footer links. The ItemList stays the WebPage mainEntity and is rebuilt
  * from the product data. Product/Offer markup is deliberately NOT emitted:
  * prices are not visible in the UI and the site is not the merchant, so
  * product rich results would violate Google's structured data guidelines.
@@ -70,6 +72,19 @@ const WEBSITE = {
   url: SITE_URL,
 };
 
+// Public social profiles of the Cannachris persona, mirrored from the
+// visible footer links in index.html. They are the entity-resolution
+// backbone (sameAs) for AI overviews and knowledge panels.
+const SOCIAL_PROFILES = [
+  "https://cannachris.de/",
+  "https://www.instagram.com/c4nnachris/",
+  "https://www.tiktok.com/@cann4chris",
+  "https://www.twitch.tv/c4nnachris",
+  "https://x.com/chooom",
+  "https://www.youtube.com/channel/UCD3wuH5mUzr5el3KNZM9fOw",
+  "https://www.facebook.com/c4nnachris",
+];
+
 // Organization node with a logo that meets Google's image guidelines
 // (PNG, 192x192, crawlable). Eligible for the Logo knowledge-panel
 // enhancement instead of a guessed favicon.
@@ -86,6 +101,18 @@ const ORGANIZATION = {
     height: 192,
     caption: "Cannachris",
   },
+  sameAs: SOCIAL_PROFILES,
+};
+
+// Person node for the creator behind the list. Uses only the public
+// persona ("Cannachris") - no private real-world data is asserted.
+const PERSON = {
+  "@type": "Person",
+  "@id": SITE_URL + "#person",
+  name: "Cannachris",
+  url: "https://cannachris.de/",
+  image: SITE_URL + "assets/images/cannachris-lazy-stoner-donator.png",
+  sameAs: SOCIAL_PROFILES,
 };
 
 function buildBreadcrumbList(pageUrl, breadcrumbName) {
@@ -176,6 +203,8 @@ function extractWebPageFields(existingSchema) {
       delete fields.publisher;
       delete fields.breadcrumb;
       delete fields.mainEntity;
+      delete fields.author;
+      delete fields.creator;
       return fields;
     }
   }
@@ -185,6 +214,8 @@ function extractWebPageFields(existingSchema) {
   delete fields.isPartOf;
   delete fields.publisher;
   delete fields.breadcrumb;
+  delete fields.author;
+  delete fields.creator;
   const webPageFields = Object.assign({}, fields);
   delete webPageFields.mainEntity;
   return webPageFields;
@@ -254,12 +285,14 @@ for (const target of TARGETS) {
     "@type": "WebPage",
     isPartOf: { "@id": WEBSITE["@id"] },
     publisher: { "@id": ORGANIZATION["@id"] },
+    author: { "@id": PERSON["@id"] },
+    creator: { "@id": PERSON["@id"] },
     breadcrumb: { "@id": breadcrumbList["@id"] },
     mainEntity: buildItemList(products, existingItemList(existingSchema)),
   });
   const schema = {
     "@context": "https://schema.org",
-    "@graph": [WEBSITE, ORGANIZATION, webPage, breadcrumbList],
+    "@graph": [WEBSITE, ORGANIZATION, PERSON, webPage, breadcrumbList],
   };
 
   const updated = html.replace(SCHEMA_BLOCK_REGEX, () => renderBlock(schema));

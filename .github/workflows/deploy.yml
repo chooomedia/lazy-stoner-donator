@@ -171,10 +171,28 @@ jobs:
           web_page = find_schema_node(json_ld, "WebPage")
           web_page_en = find_schema_node(en_json_ld, "WebPage")
           organization = find_schema_node(json_ld, "Organization")
+          person = find_schema_node(json_ld, "Person")
           breadcrumb = resolve_breadcrumb(json_ld, web_page)
           breadcrumb_en = resolve_breadcrumb(en_json_ld, web_page_en)
           if find_schema_node(en_json_ld, "Organization") != organization:
               fail("en/index.html Organization node must match index.html")
+          if find_schema_node(en_json_ld, "Person") != person:
+              fail("en/index.html Person node must match index.html")
+
+          SAME_AS_HOSTS = ("instagram.com", "tiktok.com", "twitch.tv", "x.com", "youtube.com", "facebook.com")
+          for entity, label in ((organization, "Organization"), (person, "Person")):
+              same_as = entity.get("sameAs", [])
+              if not isinstance(same_as, list) or len(same_as) < 6:
+                  fail(f"{label} node must carry at least 6 sameAs profiles")
+              if "https://cannachris.de/" not in same_as:
+                  fail(f"{label} sameAs must include https://cannachris.de/")
+              for host in SAME_AS_HOSTS:
+                  if not any(host in url for url in same_as):
+                      fail(f"{label} sameAs is missing a {host} profile")
+          if web_page.get("author", {}).get("@id") != person.get("@id"):
+              fail("WebPage author must reference the Person node")
+          if web_page_en.get("author", {}).get("@id") != person.get("@id"):
+              fail("en WebPage author must reference the Person node")
           if find_schema_node(json_ld, "WebSite").get("name") != "Lazy Stoner Donator":
               fail("WebSite node name must match og:site_name")
 

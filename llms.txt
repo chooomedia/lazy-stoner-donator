@@ -1,6 +1,14 @@
 # Lazy Stoner Donator
 
-> Runtime-only static wishlist for Cannachris with product wishes, social-wish actions, campaign support cards, donation links, share metadata and JSON-LD.
+> Public wishlist and support page of the German cannabis-education creator Cannachris: product wishes, social-wish actions, campaign support cards, donation links, share metadata and JSON-LD.
+
+## Entity
+
+- Creator/brand: Cannachris (public persona, no private real-world data published here)
+- Main website: https://cannachris.de/
+- This project: Lazy Stoner Donator, https://lsd.cannachris.de/
+- Profiles: https://www.instagram.com/c4nnachris/ | https://www.tiktok.com/@cann4chris | https://www.twitch.tv/c4nnachris | https://x.com/chooom | https://www.youtube.com/channel/UCD3wuH5mUzr5el3KNZM9fOw | https://www.facebook.com/c4nnachris
+- The same entity data is published as JSON-LD (Organization + Person with sameAs) in index.html and en/index.html.
 
 ## Canonical URLs
 
@@ -28,6 +36,14 @@
 - Campaign/support cards for ÄKN transparency, Cannabis Social Club approval, and DHV support.
 - WebP image metadata for social/action cards: alt text, title, caption, keywords and intent.
 - Open Graph and Twitter Card metadata for social sharing.
+
+## Frequently Asked Questions
+
+- What is Lazy Stoner Donator? The public wishlist and support page of Cannachris where visitors can gift products, support campaigns or perform social-wish actions.
+- Who runs the page? Cannachris, a German creator focused on cannabis education, harm reduction and community activism (https://cannachris.de/).
+- How can someone support? By buying a wishlist product, donating to the listed causes, or completing a social-wish action such as blood donation or DKMS registration.
+- Do the cards show prices? No. Prices are deliberately not displayed; product links lead to the respective shop.
+- Are the links affiliate links? Some product links use the Amazon PartnerNet tag cann4chris-21; purchases there support Cannachris at no extra cost.
 
 ## AI and SEO Notes
 
