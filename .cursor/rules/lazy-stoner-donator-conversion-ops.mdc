@@ -1,0 +1,16 @@
+---
+description: Conversion-focused operating model for the lazy stoner donator landing flow.
+globs: index.html,styles/*.css,js/*.js,wishlist-content*.json,wishlist-products*.json
+alwaysApply: false
+---
+
+# Lazy Stoner Donator Conversion Ops
+
+- Optimize for the real conversion first: a qualified outbound click to the intended wishlist, affiliate, or support destination. Treat shares, filter use, and card depth as supporting signals.
+- Every UX or copy change must improve one funnel stage only: message clarity, trust, discovery, action, or follow-through.
+- Keep message match tight between hero, marquee, first visible card, badge copy, and CTA wording. Do not let emotional framing and card actions tell different stories.
+- Prefer fewer, clearer decisions before the first meaningful CTA. Reduce friction before adding features.
+- Use mobile-first judgment for ordering, spacing, sticky controls, and CTA visibility because the first conversion risk is attention loss on small screens.
+- Separate facts from hypotheses. Evidence comes from user-provided data, product sources, browser checks, or documented reports; proposed tests stay labeled as hypotheses.
+- Run changes in a small-loop sequence: baseline -> one hypothesis -> smallest viable change -> smoke test -> deploy -> observe -> document.
+- Prefer one primary experiment variable at a time, such as hero promise, featured-card order, CTA wording, proof element, or trust cue. Avoid bundled changes that hide the cause of a conversion lift or drop.

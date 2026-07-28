@@ -1,0 +1,14 @@
+---
+description: Guardrails for using legacy .agents files in the lazy stoner donator project.
+globs: .agents/**/*.md,.cursor/rules/*.mdc
+alwaysApply: false
+---
+
+# Lazy Stoner Donator Agent Scope
+
+- Use `.agents/` as project-specific operating briefs for strategy, copy, product proof, and release QA.
+- Keep `.agents/` aligned with the current repo architecture. This project is a static HTML/CSS/JS wishlist frontend, not Shopify, SvelteKit, or a backend-heavy app.
+- Repo files and `.cursor/rules/` remain the source of truth for implementation details; `.agents/` should guide decision flow, priorities, and checks.
+- Do not reintroduce foreign assumptions, unrelated brands, mismatched stacks, or copied KPIs into this directory.
+- When a repeated lesson becomes stable and implementation-facing, encode it in `.cursor/rules/` instead of overloading the agent brief.
+- If an agent brief conflicts with the repo or current rules, update the agent brief before using it again.

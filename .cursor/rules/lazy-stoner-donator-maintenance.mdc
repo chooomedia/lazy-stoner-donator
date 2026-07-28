@@ -6,8 +6,11 @@ alwaysApply: false
 
 # Lazy Stoner Donator Maintenance
 
-- Preserve the static architecture: `index.html`, `styles/main.css`, `js/adCard.js`, `wishlist-products.json`, `wishlist-content.json`, and the two `js/wishlist*Data.js` fallback files.
+- Preserve the static architecture: `index.html` + `en/index.html` (markup and meta only, no inline app JS), `styles/main.css`, `js/wishlistApp.js` (bootstrap), `js/logoMarquee.js`, `js/adCard.js`, `wishlist-products.json`, `wishlist-content.json`, the two `js/wishlist*Data.js` fallback files, and `scripts/build-schema.mjs` (JSON-LD generator).
+- Keep visible copy in `wishlist-content.json`. Hardcoded copy in HTML or JS should only be a safe fallback for failed JSON loading.
 - Keep recurring operational lessons in focused project rules. Do not turn one-off report facts into broad rules unless the pattern appears in multiple audits or is launch-critical.
+- Use `lazy-stoner-donator-agent-scope.mdc` when reviewing or reusing anything from `.agents/`.
+- Use `lazy-stoner-donator-conversion-ops.mdc` for funnel priorities, hypothesis discipline, and conversion-oriented landing-page changes.
 - Use `lazy-stoner-donator-product-data.mdc` for product JSON, Amazon URLs, price evidence, replacements, and data synchronization.
 - Use `lazy-stoner-donator-report-provenance.mdc` for `reports/` handling, audit taxonomy, and relaunch evidence.
 - Use `lazy-stoner-donator-ui-relaunch.mdc` for card layout, content JSON usage, share UI, footer docking, and browser smoke tests.

@@ -6,7 +6,7 @@ alwaysApply: false
 
 # Lazy Stoner Donator Product Data
 
-- Keep `wishlist-products.json`, `js/wishlistProductsData.js`, and the JSON-LD `numberOfItems` in `index.html` synchronized after every product add, removal, replacement, reorder, or tier change.
+- Keep `wishlist-products.json` and `js/wishlistProductsData.js` synchronized after every product add, removal, replacement, reorder, or tier change, then run `node scripts/build-schema.mjs` to regenerate the JSON-LD ItemList (including `numberOfItems`) in `index.html` and `en/index.html`. Never edit the JSON-LD block between the `JSON-LD:BEGIN/END` markers by hand; the product JSON files are the source of truth.
 - Do not invent product facts. Product title, ASIN, marketplace URL, image, availability, and price evidence must come from a product page, user-provided source, manufacturer source, or documented report.
 - Amazon.de product URLs should use the canonical PartnerNet format `/dp/ASIN/ref=nosim?tag=cann4chris-21` when the product is actually on Amazon.de.
 - Do not add a German PartnerNet tag to Amazon.com or other marketplace URLs. Preserve marketplace-specific URLs exactly when the user supplied or verified them.
