@@ -24,27 +24,27 @@ Repository internals, Cursor rules, docs, scripts, local reports, and `.git/` ar
 
 Configure these in GitHub under `Settings -> Secrets and variables -> Actions`.
 
-| Secret | Required | Purpose |
-| --- | --- | --- |
-| `ALL_INKL_HOST` | Yes | SFTP/SSH host, for example the ALL-INKL server hostname |
-| `ALL_INKL_PORT` | No | SSH/SFTP port, defaults to `22` |
-| `ALL_INKL_USERNAME` | Yes | Dedicated deploy user or ALL-INKL SSH/SFTP account |
-| `ALL_INKL_PRIVATE_KEY` | Yes | Private key for the deploy user |
-| `ALL_INKL_PRIVATE_KEY_PASSPHRASE` | No | Passphrase if the private key is encrypted |
-| `ALL_INKL_HOST_KEY_FINGERPRINT` | Yes | SHA256 host key fingerprint for host verification |
-| `ALL_INKL_REMOTE_PATH` | Yes | Document root mapped to `lsd.cannachris.de`, for example `/www/htdocs/w01fdbd6/lsd.cannachris.de/` |
+| Secret                            | Required | Purpose                                                                                            |
+| --------------------------------- | -------- | -------------------------------------------------------------------------------------------------- |
+| `ALL_INKL_HOST`                   | Yes      | SFTP/SSH host, for example the ALL-INKL server hostname                                            |
+| `ALL_INKL_PORT`                   | No       | SSH/SFTP port, defaults to `22`                                                                    |
+| `ALL_INKL_USERNAME`               | Yes      | Dedicated deploy user or ALL-INKL SSH/SFTP account                                                 |
+| `ALL_INKL_PRIVATE_KEY`            | Yes      | Private key for the deploy user                                                                    |
+| `ALL_INKL_PRIVATE_KEY_PASSPHRASE` | No       | Passphrase if the private key is encrypted                                                         |
+| `ALL_INKL_HOST_KEY_FINGERPRINT`   | Yes      | SHA256 host key fingerprint for host verification                                                  |
+| `ALL_INKL_REMOTE_PATH`            | Yes      | Document root mapped to `lsd.cannachris.de`, for example `/www/htdocs/w01fdbd6/lsd.cannachris.de/` |
 
 Use a dedicated deploy key. Do not reuse a personal workstation key.
 
 Known production values for this ALL-INKL account:
 
-| Secret | Value |
-| --- | --- |
-| `ALL_INKL_HOST` | `dd22834.kasserver.com` |
-| `ALL_INKL_PORT` | `22` |
-| `ALL_INKL_USERNAME` | `ssh-w01fdbd6` |
+| Secret                          | Value                                                |
+| ------------------------------- | ---------------------------------------------------- |
+| `ALL_INKL_HOST`                 | `dd22834.kasserver.com`                              |
+| `ALL_INKL_PORT`                 | `22`                                                 |
+| `ALL_INKL_USERNAME`             | `ssh-w01fdbd6`                                       |
 | `ALL_INKL_HOST_KEY_FINGERPRINT` | `SHA256:t+/3D/dxHw71Mfd4dzOQZjg6klolPZ7mJgSgTz7ECpE` |
-| `ALL_INKL_REMOTE_PATH` | `/www/htdocs/w01fdbd6/lsd.cannachris.de/` |
+| `ALL_INKL_REMOTE_PATH`          | `/www/htdocs/w01fdbd6/lsd.cannachris.de/`            |
 
 The fingerprint above is the ECDSA host key presented to the SFTP action by `dd22834.kasserver.com`.
 
@@ -164,19 +164,14 @@ If KAS API credentials are not available in CI, create or update the subdomain o
 
 ## Local Validation
 
-Run the same validation used by GitHub Actions:
+Validation and artifact preparation run as inline steps in `.github/workflows/deploy.yml` (no separate local scripts). Before pushing product-data changes, verify that the generated JSON-LD is in sync with the product JSON:
 
 ```bash
-python3 scripts/validate-static-site.py
+node scripts/build-schema.mjs
+git diff --exit-code -- index.html en/index.html
 ```
 
-Create the deploy artifact locally:
-
-```bash
-python3 scripts/prepare-deploy-artifact.py
-```
-
-The artifact is written to `deploy-artifact/`.
+The deploy artifact is assembled by the workflow into `deploy-artifact/` and uploaded as `lazy-stoner-donator-static`.
 
 ## GitHub Actions Flow
 
@@ -188,7 +183,7 @@ Workflow file:
 
 Jobs:
 
-- `validate`: checks runtime files, JSON syntax, fallback data synchronization, and JSON-LD product count.
+- `validate`: checks runtime files, JSON syntax, fallback data synchronization, JSON-LD product count, and JSON-LD/product-JSON synchronization via `node scripts/build-schema.mjs` + `git diff --exit-code`.
 - `deploy`: uploads `deploy-artifact/` to ALL-INKL via SFTP after validation succeeds.
 
 Deployment triggers:
@@ -230,7 +225,7 @@ Check in a browser:
 ### Deployment fails before SFTP
 
 - Check that all required GitHub secrets are present.
-- Run `python3 scripts/validate-static-site.py` locally.
+- Reproduce the failing step locally: the validation and artifact steps are inline Python in `.github/workflows/deploy.yml`; the JSON-LD sync check is `node scripts/build-schema.mjs && git diff --exit-code -- index.html en/index.html`.
 - Verify that fallback JavaScript mirrors match the JSON files.
 
 ### Host key verification fails

@@ -51,6 +51,8 @@ jobs:
               "js/http.js",
               "js/widget.js",
               "js/wishlistUi.js",
+              "js/wishlistApp.js",
+              "js/logoMarquee.js",
               "js/wishlistProductsData.js",
               "js/wishlistProductsData.en.js",
               "js/wishlistContentData.js",
@@ -122,6 +124,10 @@ jobs:
               'hreflang="x-default"',
               'class="language-switcher"',
               'wishlistUi.js"',
+              'wishlistApp.js"',
+              'logoMarquee.js"',
+              "JSON-LD:BEGIN",
+              "JSON-LD:END",
           ]
           for snippet in expected_meta:
               if snippet not in index_html:
@@ -188,7 +194,7 @@ jobs:
           if not json_ld.get("primaryImageOfPage", {}).get("url", "").endswith("/assets/social/lazy-stoner-donator-og.png"):
               fail("JSON-LD primaryImageOfPage does not reference the OG image")
 
-          if '"@type": "Product"' in index_html or '"@type": "Offer"' in index_html:
+          if re.search(r'"@type"\s*:\s*"(Product|Offer)"', index_html):
               fail("wishlist overview must not expose incomplete Product or Offer rich-result markup")
 
           for index, product in enumerate(products, start=1):
@@ -234,6 +240,11 @@ jobs:
 
           print(f"validated {len(products)} products, SEO assets and metadata")
           PY
+
+      - name: Verify generated JSON-LD is in sync with product JSON
+        run: |
+          node scripts/build-schema.mjs
+          git diff --exit-code -- index.html en/index.html
 
       - name: Prepare deploy artifact
         run: |
