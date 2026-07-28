@@ -22,7 +22,7 @@
 
 ## What This Page Contains
 
-- 86 wishlist/action cards for Cannachris.
+- 88 wishlist/action cards for Cannachris (count is generated into JSON-LD `numberOfItems` by `scripts/build-schema.mjs`).
 - Amazon/product wishes with provenance fields and affiliate-safe URLs.
 - Social-wish cards for kindness, transparency, digital courage, foodsharing, DKMS, blood donation, volunteering, democracy, neighborhood help and cannabis education.
 - Campaign/support cards for ÄKN transparency, Cannabis Social Club approval, and DHV support.

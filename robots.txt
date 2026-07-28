@@ -1,19 +1,6 @@
+# robots.txt for https://lsd.cannachris.de/
+# Everything is public and crawlable; no path needs an explicit Allow rule.
 User-agent: *
 Allow: /
-Allow: /en/
-Allow: /assets/
-Allow: /js/
-Allow: /styles/
-Allow: /wishlist-products.json
-Allow: /wishlist-products.en.json
-Allow: /wishlist-content.json
-Allow: /wishlist-content.en.json
-Allow: /favicon.ico
-Allow: /favicon.svg
-Allow: /site.webmanifest
-Allow: /site.en.webmanifest
-Allow: /apple-touch-icon.png
-Allow: /sitemap.xml
-Allow: /llms.txt
 
 Sitemap: https://lsd.cannachris.de/sitemap.xml
