@@ -3,7 +3,9 @@ deploy-artifact/
 __pycache__/
 *.pyc
 prompts/
-scripts/
+scripts/*
+!scripts/build-schema.mjs
 data/
 db/
-*.xcf
+xcf/
+content-creation/
