@@ -129,7 +129,7 @@ class AdCard extends Card {
     }
 
     createCardShareUrl() {
-        const shareUrl = new URL(window.location.href);
+        const shareUrl = new URL(window.location.pathname + window.location.search, window.location.origin);
         shareUrl.hash = this.adId || '';
         return shareUrl.toString();
     }
@@ -398,7 +398,7 @@ class AdCard extends Card {
         if (this.displayTier !== 'featured') {
             shareWrapper.classList.add('is-compact');
         }
-        const shareMenu = this.createShareMenu(shareMenuId, shareButtonId);
+        const shareMenu = this.createShareMenu(shareMenuId, shareButtonId, copyButton, shareWrapper);
         copyButton.addEventListener('click', () => this.toggleShareMenu(shareWrapper, copyButton));
         shareWrapper.appendChild(copyButton);
         shareWrapper.appendChild(shareMenu);
@@ -478,7 +478,7 @@ class AdCard extends Card {
         return article;
     }
 
-    createShareMenu(menuId, buttonId) {
+    createShareMenu(menuId, buttonId, triggerButton, wrapper) {
         const menu = document.createElement('div');
         menu.className = 'product-share-menu';
         menu.id = menuId;
@@ -549,7 +549,7 @@ class AdCard extends Card {
         copyIcon.className = 'fas fa-link';
         copyIcon.setAttribute('aria-hidden', 'true');
         copyLink.appendChild(copyIcon);
-        copyLink.addEventListener('click', () => this.copyProductLink(button, wrapper));
+        copyLink.addEventListener('click', () => this.copyProductLink(triggerButton, wrapper));
         menu.appendChild(copyLink);
 
         return menu;
@@ -578,6 +578,7 @@ class AdCard extends Card {
     }
 
     async copyProductLink(button, wrapper) {
+        const shareUrl = this.createCardShareUrl();
         const setButtonLabel = (label, iconClass = 'fas fa-share-from-square') => {
             button.replaceChildren();
 
@@ -594,15 +595,16 @@ class AdCard extends Card {
 
         try {
             if (navigator.clipboard && window.isSecureContext) {
-                await navigator.clipboard.writeText(this.createCardShareUrl());
+                await navigator.clipboard.writeText(shareUrl);
             } else {
                 const textarea = document.createElement('textarea');
-                textarea.value = this.createCardShareUrl();
+                textarea.value = shareUrl;
                 textarea.setAttribute('readonly', '');
                 textarea.style.position = 'absolute';
                 textarea.style.left = '-9999px';
                 document.body.appendChild(textarea);
                 textarea.select();
+                textarea.setSelectionRange(0, textarea.value.length);
                 document.execCommand('copy');
                 document.body.removeChild(textarea);
             }
