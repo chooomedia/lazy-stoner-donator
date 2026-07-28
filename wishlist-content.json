@@ -85,10 +85,10 @@
         "primaryAction": "Direkt ansehen",
         "primaryActionTitle": "Wunsch öffnen",
         "primaryActionVariants": [
-            "Für Chris checken",
-            "Zum Wunsch",
+            "Zeig mir mehr",
+            "Das check ich",
             "Direkt ansehen",
-            "Setup-Upgrade ansehen",
+            "Setup-Details ansehen",
             "Bei {brand} ansehen",
             "Gute Idee öffnen",
             "Wunsch öffnen"

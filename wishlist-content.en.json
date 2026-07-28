@@ -85,10 +85,10 @@
         "primaryAction": "View now",
         "primaryActionTitle": "Open wish",
         "primaryActionVariants": [
-            "Check for Chris",
-            "Go to wish",
+            "Show me more",
+            "I'll check this",
             "View now",
-            "View setup upgrade",
+            "View setup details",
             "View at {brand}",
             "Open good idea",
             "Open wish"
