@@ -11,9 +11,13 @@
  *   <script type="application/ld+json" id="wishlist-schema"> ... </script>
  *   <!-- JSON-LD:END -->
  *
- * Top-level WebPage fields (name, description, isPartOf, about,
- * primaryImageOfPage, inLanguage, @id) are preserved from the existing block
- * in each HTML file. Only the ItemList is rebuilt from the product data.
+ * The schema is emitted as a single @graph with four sibling nodes:
+ * WebSite (site-name signal), Organization with logo (Logo enhancement),
+ * WebPage (existing fields are preserved) and BreadcrumbList (breadcrumb
+ * rich result). The ItemList stays the WebPage mainEntity and is rebuilt
+ * from the product data. Product/Offer markup is deliberately NOT emitted:
+ * prices are not visible in the UI and the site is not the merchant, so
+ * product rich results would violate Google's structured data guidelines.
  *
  * Usage: node scripts/build-schema.mjs
  */
@@ -42,8 +46,18 @@ const SCHEMA_BLOCK_REGEX = new RegExp(
 );
 
 const TARGETS = [
-  { html: "index.html", products: "wishlist-products.json" },
-  { html: join("en", "index.html"), products: "wishlist-products.en.json" },
+  {
+    html: "index.html",
+    products: "wishlist-products.json",
+    pageUrl: SITE_URL,
+    breadcrumbName: "Lazy Stoner Donator",
+  },
+  {
+    html: join("en", "index.html"),
+    products: "wishlist-products.en.json",
+    pageUrl: SITE_URL + "en/",
+    breadcrumbName: "Lazy Stoner Donator – Wishlist",
+  },
 ];
 
 // Google's site-name signal: WebSite.name must match og:site_name
@@ -55,6 +69,45 @@ const WEBSITE = {
   alternateName: "Cannachris",
   url: SITE_URL,
 };
+
+// Organization node with a logo that meets Google's image guidelines
+// (PNG, 192x192, crawlable). Eligible for the Logo knowledge-panel
+// enhancement instead of a guessed favicon.
+const ORGANIZATION = {
+  "@type": "Organization",
+  "@id": SITE_URL + "#organization",
+  name: "Cannachris",
+  url: "https://cannachris.de/",
+  logo: {
+    "@type": "ImageObject",
+    "@id": SITE_URL + "#logo",
+    url: SITE_URL + "icon-192.png",
+    width: 192,
+    height: 192,
+    caption: "Cannachris",
+  },
+};
+
+function buildBreadcrumbList(pageUrl, breadcrumbName) {
+  return {
+    "@type": "BreadcrumbList",
+    "@id": pageUrl + "#breadcrumb",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Cannachris",
+        item: "https://cannachris.de/",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: breadcrumbName,
+        item: pageUrl,
+      },
+    ],
+  };
+}
 
 function escapeRegExp(value) {
   return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
@@ -109,6 +162,44 @@ function buildItemList(products, existingMainEntity) {
   };
 }
 
+// Reads the current block and returns the schema in @graph shape, no matter
+// whether the block is still a flat WebPage object (legacy) or already a
+// @graph document. The WebPage node keeps its existing descriptive fields.
+function extractWebPageFields(existingSchema) {
+  if (existingSchema && Array.isArray(existingSchema["@graph"])) {
+    const webPage = existingSchema["@graph"].find(
+      (node) => node && node["@type"] === "WebPage",
+    );
+    if (webPage) {
+      const fields = Object.assign({}, webPage);
+      delete fields.isPartOf;
+      delete fields.publisher;
+      delete fields.breadcrumb;
+      delete fields.mainEntity;
+      return fields;
+    }
+  }
+
+  const fields = Object.assign({}, existingSchema || {});
+  delete fields["@context"];
+  delete fields.isPartOf;
+  delete fields.publisher;
+  delete fields.breadcrumb;
+  const webPageFields = Object.assign({}, fields);
+  delete webPageFields.mainEntity;
+  return webPageFields;
+}
+
+function existingItemList(existingSchema) {
+  if (existingSchema && Array.isArray(existingSchema["@graph"])) {
+    const webPage = existingSchema["@graph"].find(
+      (node) => node && node["@type"] === "WebPage",
+    );
+    return webPage ? webPage.mainEntity : null;
+  }
+  return existingSchema ? existingSchema.mainEntity : null;
+}
+
 function renderBlock(schema) {
   // Minified on purpose: JSON-LD must stay inline for SEO, but it is
   // generated output - a single line keeps the HTML files small and the
@@ -155,10 +246,21 @@ for (const target of TARGETS) {
   }
 
   const products = loadJson(target.products);
-  const schema = Object.assign({}, existingSchema, {
-    isPartOf: WEBSITE,
-    mainEntity: buildItemList(products, existingSchema.mainEntity),
+  const breadcrumbList = buildBreadcrumbList(
+    target.pageUrl,
+    target.breadcrumbName,
+  );
+  const webPage = Object.assign({}, extractWebPageFields(existingSchema), {
+    "@type": "WebPage",
+    isPartOf: { "@id": WEBSITE["@id"] },
+    publisher: { "@id": ORGANIZATION["@id"] },
+    breadcrumb: { "@id": breadcrumbList["@id"] },
+    mainEntity: buildItemList(products, existingItemList(existingSchema)),
   });
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [WEBSITE, ORGANIZATION, webPage, breadcrumbList],
+  };
 
   const updated = html.replace(SCHEMA_BLOCK_REGEX, () => renderBlock(schema));
   writeFileSync(htmlPath, updated);

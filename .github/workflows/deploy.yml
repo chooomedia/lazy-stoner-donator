@@ -100,6 +100,22 @@ jobs:
                   fail("index.html does not contain wishlist-schema JSON-LD")
               return json.loads(match.group(1))
 
+          def find_schema_node(schema, node_type):
+              for node in schema.get("@graph", [schema]):
+                  if isinstance(node, dict) and node.get("@type") == node_type:
+                      return node
+              fail(f"JSON-LD @graph is missing a {node_type} node")
+
+          def resolve_breadcrumb(json_ld, web_page):
+              breadcrumb = web_page.get("breadcrumb")
+              if isinstance(breadcrumb, dict) and "@id" in breadcrumb:
+                  wanted = breadcrumb["@id"]
+                  for node in json_ld.get("@graph", []):
+                      if isinstance(node, dict) and node.get("@id") == wanted:
+                          return node
+                  fail(f"JSON-LD @graph has no BreadcrumbList node with @id {wanted}")
+              fail("WebPage node is missing a breadcrumb reference")
+
           for relative_path in REQUIRED_FILES:
               if not (ROOT / relative_path).is_file():
                   fail(f"missing required file: {relative_path}")
@@ -151,6 +167,33 @@ jobs:
           fallback_content = read_fallback_assignment("js/wishlistContentData.js", "birthdayWishlistContent")
           fallback_content_en = read_fallback_assignment("js/wishlistContentData.en.js", "birthdayWishlistContentEn")
           json_ld = read_json_ld(index_html)
+          en_json_ld = read_json_ld(en_html)
+          web_page = find_schema_node(json_ld, "WebPage")
+          web_page_en = find_schema_node(en_json_ld, "WebPage")
+          organization = find_schema_node(json_ld, "Organization")
+          breadcrumb = resolve_breadcrumb(json_ld, web_page)
+          breadcrumb_en = resolve_breadcrumb(en_json_ld, web_page_en)
+          if find_schema_node(en_json_ld, "Organization") != organization:
+              fail("en/index.html Organization node must match index.html")
+          if find_schema_node(json_ld, "WebSite").get("name") != "Lazy Stoner Donator":
+              fail("WebSite node name must match og:site_name")
+
+          logo = organization.get("logo", {})
+          if not str(logo.get("url", "")).endswith("/icon-192.png"):
+              fail("Organization logo must reference icon-192.png")
+          if logo.get("width") != 192 or logo.get("height") != 192:
+              fail("Organization logo must declare 192x192 dimensions")
+
+          if len(breadcrumb.get("itemListElement", [])) < 2:
+              fail("de BreadcrumbList must contain at least 2 items")
+          if len(breadcrumb_en.get("itemListElement", [])) < 2:
+              fail("en BreadcrumbList must contain at least 2 items")
+          last_crumb = breadcrumb["itemListElement"][-1].get("item", "")
+          last_crumb_en = breadcrumb_en["itemListElement"][-1].get("item", "")
+          if last_crumb != "https://lsd.cannachris.de/":
+              fail("de BreadcrumbList last item must be the canonical de URL")
+          if last_crumb_en != "https://lsd.cannachris.de/en/":
+              fail("en BreadcrumbList last item must be the canonical en URL")
 
           if products != fallback_products:
               fail("product JSON and fallback product JS differ")
@@ -184,14 +227,14 @@ jobs:
               if snippet not in sitemap:
                   fail(f"sitemap.xml missing: {snippet}")
 
-          json_ld_items = json_ld.get("mainEntity", {}).get("itemListElement", [])
-          if json_ld.get("mainEntity", {}).get("numberOfItems") != len(products):
+          json_ld_items = web_page.get("mainEntity", {}).get("itemListElement", [])
+          if web_page.get("mainEntity", {}).get("numberOfItems") != len(products):
               fail("JSON-LD numberOfItems does not match wishlist-products.json")
 
           if len(json_ld_items) != len(products):
               fail("JSON-LD itemListElement count does not match wishlist-products.json")
 
-          if not json_ld.get("primaryImageOfPage", {}).get("url", "").endswith("/assets/social/lazy-stoner-donator-og.png"):
+          if not web_page.get("primaryImageOfPage", {}).get("url", "").endswith("/assets/social/lazy-stoner-donator-og.png"):
               fail("JSON-LD primaryImageOfPage does not reference the OG image")
 
           if re.search(r'"@type"\s*:\s*"(Product|Offer)"', index_html):
