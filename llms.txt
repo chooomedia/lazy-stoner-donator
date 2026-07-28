@@ -30,8 +30,9 @@
 
 ## What This Page Contains
 
-- 88 wishlist/action cards for Cannachris (count is generated into JSON-LD `numberOfItems` by `scripts/build-schema.mjs`).
+- 93 wishlist, action and editorial cards for Cannachris (count is generated into JSON-LD `numberOfItems` by `scripts/build-schema.mjs`).
 - Amazon/product wishes with provenance fields and affiliate-safe URLs.
+- Editorial blog cards linking to current cannachris.de articles (Ärztetag 2026, ÄKN transparency, EKOCAN evaluation, Art. 5 GG). No article content is reproduced; the canonical full texts live on cannachris.de.
 - Social-wish cards for kindness, transparency, digital courage, foodsharing, DKMS, blood donation, volunteering, democracy, neighborhood help and cannabis education.
 - Campaign/support cards for ÄKN transparency, Cannabis Social Club approval, and DHV support.
 - WebP image metadata for social/action cards: alt text, title, caption, keywords and intent.
