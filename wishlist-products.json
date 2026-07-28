@@ -106,7 +106,9 @@
             "Cannabis Legalisierung",
             "Cannachris Blog"
         ],
-        "seoIntent": "Hintergrundartikel zum Deutschen Ärztetag 2026 und der Cannabis-Position der ÄKN"
+        "seoIntent": "Hintergrundartikel zum Deutschen Ärztetag 2026 und der Cannabis-Position der ÄKN",
+        "badgeLabel": "Kopffutter",
+        "badgeTitle": "Lesestoff zum Mitdenken"
     },
     {
         "host": "amazon",
@@ -282,7 +284,9 @@
             "OpenMind Market",
             "Ethnobotanik"
         ],
-        "seoIntent": "Happy Caps Brain-E aus dem SuppleMinds-Sortiment von OpenMind Market"
+        "seoIntent": "Happy Caps Brain-E aus dem SuppleMinds-Sortiment von OpenMind Market",
+        "badgeLabel": "Support",
+        "badgeTitle": "Freiwilliger Support für Simon Ruane"
     },
     {
         "host": "amazon",
@@ -562,7 +566,9 @@
             "Faktencheck",
             "Cannachris Blog"
         ],
-        "seoIntent": "Transparenzartikel mit allen Quellen zur ÄKN-Transparenzkampagne"
+        "seoIntent": "Transparenzartikel mit allen Quellen zur ÄKN-Transparenzkampagne",
+        "badgeLabel": "Kopffutter",
+        "badgeTitle": "Lesestoff zum Mitdenken"
     },
     {
         "host": "amazon",
@@ -950,7 +956,9 @@
             "EKOCAN",
             "Cannachris Blog"
         ],
-        "seoIntent": "Sechs offene Fragen an die Ärztekammer Niedersachsen zur Cannabis-Resolution"
+        "seoIntent": "Sechs offene Fragen an die Ärztekammer Niedersachsen zur Cannabis-Resolution",
+        "badgeLabel": "Kopffutter",
+        "badgeTitle": "Lesestoff zum Mitdenken"
     },
     {
         "host": "amazon",
@@ -1095,7 +1103,9 @@
             "OpenMind Market",
             "Guarana"
         ],
-        "seoIntent": "Happy Caps Energy-E aus dem SuppleMinds-Sortiment von OpenMind Market"
+        "seoIntent": "Happy Caps Energy-E aus dem SuppleMinds-Sortiment von OpenMind Market",
+        "badgeLabel": "Support",
+        "badgeTitle": "Freiwilliger Support für Simon Ruane"
     },
     {
         "host": "social-wish",
@@ -1367,7 +1377,9 @@
             "Cannabisgesetz",
             "Cannachris Blog"
         ],
-        "seoIntent": "EKOCAN-Evaluierung der Cannabis-Legalisierung und die Reaktion der ÄKN"
+        "seoIntent": "EKOCAN-Evaluierung der Cannabis-Legalisierung und die Reaktion der ÄKN",
+        "badgeLabel": "Kopffutter",
+        "badgeTitle": "Lesestoff zum Mitdenken"
     },
     {
         "host": "amazon",
@@ -1747,7 +1759,9 @@
             "Meinungsfreiheit",
             "Cannachris Blog"
         ],
-        "seoIntent": "Grundrechte-Artikel zu Meinungsfreiheit und Petitionsrecht im Cannabis-Aktivismus"
+        "seoIntent": "Grundrechte-Artikel zu Meinungsfreiheit und Petitionsrecht im Cannabis-Aktivismus",
+        "badgeLabel": "Kopffutter",
+        "badgeTitle": "Lesestoff zum Mitdenken"
     },
     {
         "host": "amazon",
@@ -1870,7 +1884,9 @@
             "OpenMind Market",
             "L-Theanin"
         ],
-        "seoIntent": "Happy Caps Relax-E aus dem SuppleMinds-Sortiment von OpenMind Market"
+        "seoIntent": "Happy Caps Relax-E aus dem SuppleMinds-Sortiment von OpenMind Market",
+        "badgeLabel": "Support",
+        "badgeTitle": "Freiwilliger Support für Simon Ruane"
     },
     {
         "host": "social-wish",

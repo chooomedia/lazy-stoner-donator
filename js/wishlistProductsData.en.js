@@ -106,7 +106,9 @@ window.birthdayWishlistProductsEn = [
             "cannabis legalisation Germany",
             "Cannachris blog"
         ],
-        "seoIntent": "Background article on the 2026 German Medical Assembly and the AEKN cannabis position"
+        "seoIntent": "Background article on the 2026 German Medical Assembly and the AEKN cannabis position",
+        "badgeLabel": "Brain food",
+        "badgeTitle": "Worth reading"
     },
     {
         "host": "amazon",
@@ -282,7 +284,9 @@ window.birthdayWishlistProductsEn = [
             "OpenMind Market",
             "ethnobotanicals"
         ],
-        "seoIntent": "Happy Caps Brain-E from the SuppleMinds range at OpenMind Market"
+        "seoIntent": "Happy Caps Brain-E from the SuppleMinds range at OpenMind Market",
+        "badgeLabel": "Support",
+        "badgeTitle": "Voluntary support for Simon Ruane"
     },
     {
         "host": "amazon",
@@ -562,7 +566,9 @@ window.birthdayWishlistProductsEn = [
             "fact check",
             "Cannachris blog"
         ],
-        "seoIntent": "Transparency article listing every source of the AEKN campaign"
+        "seoIntent": "Transparency article listing every source of the AEKN campaign",
+        "badgeLabel": "Brain food",
+        "badgeTitle": "Worth reading"
     },
     {
         "host": "amazon",
@@ -950,7 +956,9 @@ window.birthdayWishlistProductsEn = [
             "EKOCAN",
             "Cannachris blog"
         ],
-        "seoIntent": "Six open questions to the Lower Saxony chamber of physicians about cannabis"
+        "seoIntent": "Six open questions to the Lower Saxony chamber of physicians about cannabis",
+        "badgeLabel": "Brain food",
+        "badgeTitle": "Worth reading"
     },
     {
         "host": "amazon",
@@ -1095,7 +1103,9 @@ window.birthdayWishlistProductsEn = [
             "OpenMind Market",
             "guarana"
         ],
-        "seoIntent": "Happy Caps Energy-E from the SuppleMinds range at OpenMind Market"
+        "seoIntent": "Happy Caps Energy-E from the SuppleMinds range at OpenMind Market",
+        "badgeLabel": "Support",
+        "badgeTitle": "Voluntary support for Simon Ruane"
     },
     {
         "host": "social-wish",
@@ -1367,7 +1377,9 @@ window.birthdayWishlistProductsEn = [
             "German cannabis act",
             "Cannachris blog"
         ],
-        "seoIntent": "EKOCAN evaluation of cannabis legalisation and the AEKN response"
+        "seoIntent": "EKOCAN evaluation of cannabis legalisation and the AEKN response",
+        "badgeLabel": "Brain food",
+        "badgeTitle": "Worth reading"
     },
     {
         "host": "amazon",
@@ -1747,7 +1759,9 @@ window.birthdayWishlistProductsEn = [
             "freedom of expression",
             "Cannachris blog"
         ],
-        "seoIntent": "Constitutional rights article on expression and petition in cannabis activism"
+        "seoIntent": "Constitutional rights article on expression and petition in cannabis activism",
+        "badgeLabel": "Brain food",
+        "badgeTitle": "Worth reading"
     },
     {
         "host": "amazon",
@@ -1870,7 +1884,9 @@ window.birthdayWishlistProductsEn = [
             "OpenMind Market",
             "L-theanine"
         ],
-        "seoIntent": "Happy Caps Relax-E from the SuppleMinds range at OpenMind Market"
+        "seoIntent": "Happy Caps Relax-E from the SuppleMinds range at OpenMind Market",
+        "badgeLabel": "Support",
+        "badgeTitle": "Voluntary support for Simon Ruane"
     },
     {
         "host": "social-wish",
