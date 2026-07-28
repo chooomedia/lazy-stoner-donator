@@ -30,7 +30,7 @@
 
 ## What This Page Contains
 
-- 96 wishlist, action and editorial cards for Cannachris (count is generated into JSON-LD `numberOfItems` by `scripts/build-schema.mjs`).
+- 97 wishlist, action and editorial cards for Cannachris (count is generated into JSON-LD `numberOfItems` by `scripts/build-schema.mjs`).
 - Amazon/product wishes with provenance fields and affiliate-safe URLs.
 - Selected SuppleMinds wishes from OpenMind Market (Simon Ruane's shop), linking directly to openmind.market. No affiliate partnership exists as of 2026-07-28; cards are voluntary support.
 - Editorial blog cards linking to current cannachris.de articles (Ärztetag 2026, ÄKN transparency, EKOCAN evaluation, Art. 5 GG). No article content is reproduced; the canonical full texts live on cannachris.de.
